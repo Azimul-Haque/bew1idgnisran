@@ -12,13 +12,13 @@
   ),
   'berkayk/onesignal-laravel' => 
   array (
-    'providers' => 
-    array (
-      0 => 'Berkayk\\OneSignal\\OneSignalServiceProvider',
-    ),
     'aliases' => 
     array (
       'OneSignal' => 'Berkayk\\OneSignal\\OneSignalFacade',
+    ),
+    'providers' => 
+    array (
+      0 => 'Berkayk\\OneSignal\\OneSignalServiceProvider',
     ),
   ),
   'facade/ignition' => 
