@@ -20,7 +20,7 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h4>{{ bangla($totalusers) }}<sup style="font-size: 20px">৳</sup></h4>
+                <h4>{{ bangla($totalusers) }}</h4>
 
                 <p>মোট ব্যবহারকারী</p>
               </div>
