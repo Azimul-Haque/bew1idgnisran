@@ -15,7 +15,6 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('local_office_id')->constrained()->onDelete('cascade');
             $table->integer('is_active');
             $table->string('nid')->nullable();
             $table->string('onesignal_id')->nullable();
