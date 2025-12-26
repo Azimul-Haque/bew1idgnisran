@@ -47,7 +47,7 @@ class IndexController extends Controller
     public function index()
     {
         return redirect()->route('dashboard.index');
-        return view('index.index');
+        // return view('index.index');
     }
 
     public function getUserGuidelines()
