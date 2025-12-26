@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('login', 'APIController@login')->name('api.login');
-Route::post('store/program', 'APIController@storeProgram')->name('api.store.program');
+Route::post('program/store', 'APIController@storeProgram')->name('api.store.program');
 
 
 
