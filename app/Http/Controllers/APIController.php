@@ -75,8 +75,8 @@ class APIController extends Controller
             $image      = $request->file('image');
             $filename   = 'program-' . time().'.'.$request->image->extension();
             $location   = public_path('images/blogs/'. $filename);
-            // Image::make($image)->resize(600, null, function ($constraint) { $constraint->aspectRatio(); })->save($location);
-            Image::make($image)->fit(600, 315)->save($location);
+            Image::make($image)->resize(400, null, function ($constraint) { $constraint->aspectRatio(); })->save($location);
+            // Image::make($image)->fit(600, 315)->save($location);
             $blog->image = $filename;
         }
 
