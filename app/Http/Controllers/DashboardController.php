@@ -353,57 +353,57 @@ class DashboardController extends Controller
             $headings = $request->headings,
         );
 
-        if($request->type == 'premium') {
-            OneSignal::sendNotificationUsingTags(
-                $request->message,
-                array(['field' => 'tag', 'key' => 'user_type', 'relation' => 'equal', 'value' => 'Premium']),
-                $url = null,
-                $data = null,
-                $buttons = null,
-                $schedule = null,
-                $headings = $request->headings,
-            );
-        } elseif($request->type == 'free') {
-            OneSignal::sendNotificationUsingTags(
-                $request->message,
-                array(['field' => 'tag', 'key' => 'user_type', 'relation' => 'not_exists']),
-                $url = null,
-                $data = null,
-                $buttons = null,
-                $schedule = null,
-                $headings = $request->headings,
-            );
-        } elseif($request->type == 'all') {
-            OneSignal::sendNotificationToAll(
-                $request->message,
-                $url = null, 
-                $data = null, 
-                $buttons = null, 
-                $schedule = null,
-                $headings = $request->headings,
-            );
-        } elseif($request->type == 'update') {
-            // LIVE HOILE ETA DEOA HOBE
-            // LIVE HOILE ETA DEOA HOBE
-            OneSignal::sendNotificationToAll(
-                $request->message,
-                $url = null, 
-                $data = array("a" => 'update'),
-                $buttons = null, 
-                $schedule = null,
-                $headings = $request->headings,
-            );
+        // if($request->type == 'premium') {
+        //     OneSignal::sendNotificationUsingTags(
+        //         $request->message,
+        //         array(['field' => 'tag', 'key' => 'user_type', 'relation' => 'equal', 'value' => 'Premium']),
+        //         $url = null,
+        //         $data = null,
+        //         $buttons = null,
+        //         $schedule = null,
+        //         $headings = $request->headings,
+        //     );
+        // } elseif($request->type == 'free') {
+        //     OneSignal::sendNotificationUsingTags(
+        //         $request->message,
+        //         array(['field' => 'tag', 'key' => 'user_type', 'relation' => 'not_exists']),
+        //         $url = null,
+        //         $data = null,
+        //         $buttons = null,
+        //         $schedule = null,
+        //         $headings = $request->headings,
+        //     );
+        // } elseif($request->type == 'all') {
+        //     OneSignal::sendNotificationToAll(
+        //         $request->message,
+        //         $url = null, 
+        //         $data = null, 
+        //         $buttons = null, 
+        //         $schedule = null,
+        //         $headings = $request->headings,
+        //     );
+        // } elseif($request->type == 'update') {
+        //     // LIVE HOILE ETA DEOA HOBE
+        //     // LIVE HOILE ETA DEOA HOBE
+        //     OneSignal::sendNotificationToAll(
+        //         $request->message,
+        //         $url = null, 
+        //         $data = array("a" => 'update'),
+        //         $buttons = null, 
+        //         $schedule = null,
+        //         $headings = $request->headings,
+        //     );
 
-            // OneSignal::sendNotificationToUser(
-            //     $request->message,
-            //     ['716ffeb3-f6c2-4a4a-a253-710f339aa863'],
-            //     $url = null, 
-            //     $data = array("a" => 'update'),
-            //     $buttons = null, 
-            //     $schedule = null,
-            //     $headings = $request->headings,
-            // );
-        }
+        //     // OneSignal::sendNotificationToUser(
+        //     //     $request->message,
+        //     //     ['716ffeb3-f6c2-4a4a-a253-710f339aa863'],
+        //     //     $url = null, 
+        //     //     $data = array("a" => 'update'),
+        //     //     $buttons = null, 
+        //     //     $schedule = null,
+        //     //     $headings = $request->headings,
+        //     // );
+        // }
 
         $notification = new Notification;
         $notification->type = $request->type;
