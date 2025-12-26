@@ -72,12 +72,12 @@ class APIController extends Controller
             $request->image->move(public_path('images/programs'), $imageName);
             $program->image = $imageName;
 
-            $image      = $request->file('featured_image');
+            $image      = $request->file('image');
             $filename   = str_replace(['?',':', '\\', '/', '*', ' '], '_',$request->slug).time() .'.' . "webp";
             $location   = public_path('images/blogs/'. $filename);
             // Image::make($image)->resize(600, null, function ($constraint) { $constraint->aspectRatio(); })->save($location);
             Image::make($image)->fit(600, 315)->save($location);
-            $blog->featured_image = $filename;
+            $blog->image = $filename;
         }
 
         $program->save();
