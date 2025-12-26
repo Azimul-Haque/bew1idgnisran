@@ -45,7 +45,43 @@ class APIController extends Controller
             'user' => $user
         ], 200);
     }
-        
+
+    public function store(Request $request)
+    {
+        // ১. ভ্যালিডেশন
+        $request->validate([
+            'name' => 'required|string',
+            'type' => 'required|string',
+            'venue' => 'required|string',
+            'program_date' => 'required', // ফ্লাটার থেকে Y-m-d H:i:s ফরম্যাটে আসবে
+        ]);
+
+        // ২. নতুন প্রোগ্রাম অবজেক্ট তৈরি
+        $program = new Program();
+        $program->name = $request->name;
+        $program->type = $request->type;
+        $program->venue = $request->venue;
+        $program->map_link = $request->map_link;
+        $program->program_date = $request->program_date;
+        $program->phone = $request->phone;
+        $program->info = $request->info;
+
+        // ৩. ইমেজ/পোস্টার আপলোড হ্যান্ডেলিং
+        if ($request->hasFile('poster')) {
+            $imageName = time().'.'.$request->poster->extension();
+            $request->poster->move(public_path('uploads/programs'), $imageName);
+            $program->poster_url = 'uploads/programs/'.$imageName;
+        }
+
+        $program->save();
+
+        return response()->json([
+            'status' => 'success',
+            'message' => 'কর্মসূচি সফলভাবে সংরক্ষিত হয়েছে!',
+            'data' => $program
+        ], 201);
+    }
+
     public function generateOTP(Request $request)
     {
         $this->validate($request,array(
