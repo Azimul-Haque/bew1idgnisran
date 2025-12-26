@@ -37,28 +37,6 @@
                 <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
             </li>
         </ul>
-        
-        {{-- DYNAMIC AUTHORITY HIERARCHY DISPLAY --}}
-        @if(Auth::user()->role == 'manager')
-            @if (Auth::user()->authorities->isNotEmpty())
-                @php
-                    $auth = Auth::user()->authorities->first();
-                @endphp
-                {{--
-                    The span below uses d-none (display: none) for xs screens 
-                    and d-sm-inline (display: inline) from small screens up.
-                --}}
-                <span class="d-none d-sm-inline">
-                    {{-- Display the full dynamic hierarchy string --}}
-                    <span style="color: #FFFFFF !important; font-weight: bold;">{!! $auth->getFullHierarchy() !!} ({{ Auth::user()->localOffice->name_bn }})</span>
-                    {{-- <span class="badge badge-secondary">
-                        ({{ (new \ReflectionClass($auth->authority_type))->getShortName() }})
-                    </span> --}}
-                </span>
-            @else
-                {{-- <span class="d-none d-sm-inline">না</span> --}}
-            @endif
-        @endif
 
         <!-- Right navbar links -->
         <ul class="navbar-nav ml-auto">
