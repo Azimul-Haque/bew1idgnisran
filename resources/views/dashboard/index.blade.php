@@ -20,9 +20,9 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h4>{{ ceil($totalpayment) }}<sup style="font-size: 20px">৳</sup></h4>
+                <h4>{{ ceil($totalusers) }}<sup style="font-size: 20px">৳</sup></h4>
 
-                <p>মোট totalusers</p>
+                <p>মোট ব্যবহারকারী</p>
               </div>
               <div class="icon">
                 <i class="ion ion-bag"></i>
