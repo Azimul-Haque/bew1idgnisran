@@ -46,15 +46,8 @@ class IndexController extends Controller
      */
     public function index()
     {
-        // return redirect('https://play.google.com/store/apps/details?id=com.orbachinujbuk.bcs');
-        
-        // $packages = Package::where('status', 1)->get();
-        // $blogs = Blog::orderBy('id', 'desc')->get()->take(3);
-
+        return redirect()->route('dashboard.index');
         return view('index.index');
-        
-                    // ->withPackages($packages)
-                    // ->withBlogs($blogs);
     }
 
     public function getUserGuidelines()
