@@ -62,11 +62,11 @@
 
         <!-- Right navbar links -->
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item" data-toggle="tooltip" data-original-title="ভিডিও টিউটোরিয়াল">
+          {{-- <li class="nav-item" data-toggle="tooltip" data-original-title="ভিডিও টিউটোরিয়াল">
             <a class="nav-link" href="{{ route('dashboard.video.tutorials') }}">
               <i class="fab fa-youtube"></i>
             </a>
-          </li>
+          </li> --}}
           <li class="nav-item" data-toggle="tooltip" data-original-title="ওয়েবসাইট দেখুন">
             <a class="nav-link" href="{{ route('index.index') }}"  target="_blank">
               <i class="fas fa-globe"></i>
