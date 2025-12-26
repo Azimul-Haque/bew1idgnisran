@@ -14,9 +14,17 @@ class CreateProgramsTable extends Migration
     public function up()
     {
         Schema::create('programs', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
+        $table->id();
+        $table->string('name'); // কর্মসূচির নাম
+        $table->string('type'); // ধরন (জনসংযোগ, মিছিল ইত্যাদি)
+        $table->string('venue'); // সমাবেশের স্থান
+        $table->text('map_link')->nullable(); // গুগল ম্যাপ লিংক
+        $table->dateTime('program_date'); // তারিখ ও সময়
+        $table->string('phone')->nullable(); // জরুরি যোগাযোগ নম্বর
+        $table->text('info')->nullable(); // গুরুত্বপূর্ণ তথ্য
+        $table->string('poster_url')->nullable(); // পোস্টারের ইমেজ পাথ
+        $table->timestamps();
+    });
     }
 
     /**
