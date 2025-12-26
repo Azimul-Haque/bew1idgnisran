@@ -37,6 +37,7 @@ return array(
     'App\\Like' => $baseDir . '/app/Like.php',
     'App\\Message' => $baseDir . '/app/Message.php',
     'App\\Notification' => $baseDir . '/app/Notification.php',
+    'App\\Program' => $baseDir . '/app/Program.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',
     'App\\Providers\\BroadcastServiceProvider' => $baseDir . '/app/Providers/BroadcastServiceProvider.php',
