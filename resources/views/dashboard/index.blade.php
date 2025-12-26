@@ -45,7 +45,7 @@
             </div>
           </div> --}}
           <!-- ./col -->
-          <div class="col-lg-3 col-6">
+          {{-- <div class="col-lg-3 col-6">
             <div class="small-box bg-warning">
               <div class="inner">
                 <h4>
@@ -59,7 +59,7 @@
               </div>
               <a href="#!" class="small-box-footer">পরীক্ষার্থী তালিকা <i class="fas fa-arrow-circle-right"></i></a>
             </div>
-          </div>
+          </div> --}}
           <!-- ./col -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
