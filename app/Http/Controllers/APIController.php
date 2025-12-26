@@ -72,7 +72,7 @@ class APIController extends Controller
         // ৩. ইমেজ/পোস্টার আপলোড হ্যান্ডেলিং
         if ($request->hasFile('image')) {
             $image      = $request->file('image');
-            $filename   = 'program-' . time().'.'.$request->image->extension();
+            $filename   = 'program-' . time().'.'.$image->getClientOriginalExtension();
             $location   = public_path('images/programs/'. $filename);
             Image::make($image)->resize(400, null, function ($constraint) { $constraint->aspectRatio(); })->save($location);
             // Image::make($image)->fit(600, 315)->save($location);
