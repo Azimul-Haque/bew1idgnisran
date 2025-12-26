@@ -155,16 +155,7 @@ class DashboardController extends Controller
             'designation'        => 'sometimes',
             'role'        => 'required',
             'nid'        => 'sometimes',
-            // 'sitecheck'   => 'sometimes',
             'password'    => 'nullable|string|min:8|max:191',
-            'authority_level' => 'nullable|string|in:Division,District,Upazila,Union',
-            // Validation for authority ID based on selected level
-            'authority_id' => [
-                'nullable',
-                Rule::requiredIf(fn () => $request->authority_level),
-                'integer',
-            ],
-            'local_office_id'        => 'sometimes',
         ));
 
         $user = User::find($id);
