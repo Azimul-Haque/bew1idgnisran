@@ -61,8 +61,7 @@
             </div>
           </div> --}}
           <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
+          {{-- <div class="col-lg-3 col-6">
             <div class="small-box bg-danger">
               <div class="inner">
                 <h4>{{ $totallocaloffices }}</h4>
@@ -74,7 +73,7 @@
               </div>
               <a href="{{ route('dashboard.local-offices') }}" class="small-box-footer">ব্যবহারকারীগণ <i class="fas fa-arrow-circle-right"></i></a>
             </div>
-          </div>
+          </div> --}}
         </div>
         {{-- <div class="row">
           <div class="col-md-6">
