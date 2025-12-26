@@ -22,7 +22,7 @@
               <div class="inner">
                 <h4>{{ ceil($totalpayment) }}<sup style="font-size: 20px">৳</sup></h4>
 
-                <p>মোট আয়</p>
+                <p>মোট ব্যবহারকারী</p>
               </div>
               <div class="icon">
                 <i class="ion ion-bag"></i>
