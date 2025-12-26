@@ -18,30 +18,13 @@ class User extends Authenticatable
         return $this->hasMany('App\Blog');
     }
 
-    public function authorities()
-    {
-        return $this->hasMany(UserAuthority::class);
-    }
-
-    public function localOffice()
-    {
-        return $this->belongsTo(LocalOffice::class, 'local_office_id');
-    }
-
-    public function certificates()
-    {
-        return $this->hasMany(Certificate::class, 'recipient_user_id');
-    }
-
-
-
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'local_office_id', 'is_active', 'nid', 'name', 'name_en', 'role', 'mobile', 'email', 'designation', 'password',
+        'is_active', 'nid', 'name', 'name_en', 'role', 'mobile', 'email', 'designation', 'password',
     ];
 
     /**
