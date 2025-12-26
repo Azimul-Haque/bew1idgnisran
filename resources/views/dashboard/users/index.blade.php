@@ -368,161 +368,102 @@
           <form method="post" action="{{ route('dashboard.users.store') }}">
 	          <div class="modal-body">
 	            
-	                @csrf
+              @csrf
 
-	                <!-- Name Fields -->
-                      <div class="row">
-                          <div class="col-md-6">
-                              <div class="input-group mb-3">
-                                  <input type="text"
-                                         name="name"
-                                         class="form-control"
-                                         value="{{ old('name') }}"
-                                         placeholder="নাম" required>
-                                  <div class="input-group-append">
-                                      <div class="input-group-text"><span class="fas fa-user"></span></div>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-
-                      <!-- Contact Fields -->
-                      <div class="row">
-                          <div class="col-md-6">
-                              <div class="input-group mb-3">
-                                  <input type="text"
-                                         name="mobile"
-                                         value="{{ old('mobile') }}"
-                                         autocomplete="off"
-                                         class="form-control"
-                                         placeholder="মোবাইল নম্বর (১১ ডিজিট)" required>
-                                  <div class="input-group-append">
-                                      <div class="input-group-text"><span class="fas fa-phone"></span></div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="col-md-6">
-                              <div class="input-group mb-3">
-                                  <input type="text"
-                                         name="email"
-                                         value="{{ old('email') }}"
-                                         autocomplete="off"
-                                         class="form-control"
-                                         placeholder="ইমেইল এড্রেস">
-                                  <div class="input-group-append">
-                                      <div class="input-group-text"><span class="fas fa-server"></span></div>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-
-                      <!-- NID and Role Fields -->
-                      <div class="row">
-                          <div class="col-md-6">
-                              <div class="input-group mb-3">
-                                  <input type="text"
-                                         name="nid"
-                                         value="{{ old('nid') }}"
-                                         autocomplete="off"
-                                         class="form-control"
-                                         placeholder="এনআইডি">
-                                  <div class="input-group-append">
-                                      <div class="input-group-text"><span class="fas fa-server"></span></div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="col-md-6">
-                              <div class="input-group mb-3">
-                                  <select name="role" class="form-control" required>
-                                      <option selected disabled value="">ধরন নির্ধারণ করুন</option>
-                                      <option value="admin" {{ old('role') == 'admin' ? 'selected' : '' }}>এডমিন</option>
-                                      <option value="manager" {{ old('role') == 'manager' ? 'selected' : '' }}>স্থানীয় সরকার প্রতিনিধি</option>
-                                      {{-- <option value="volunteer" {{ old('role') == 'volunteer' ? 'selected' : '' }}>ভলান্টিয়ার</option> --}}
-                                      <option value="user" {{ old('role') == 'user' ? 'selected' : '' }}>ব্যবহারকারী</option>
-                                      {{-- <option value="accountant" {{ old('role') == 'accountant' ? 'selected' : '' }}>একাউন্টেন্ট</option> --}}
-                                  </select>
-                                  <div class="input-group-append">
-                                      <div class="input-group-text"><span class="fas fa-user-secret"></span></div>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-
-                      <!-- Designation and Password Fields -->
-                      <div class="row">
-                          <div class="col-md-6">
-                              <div class="input-group mb-3">
-                                  <input type="password"
-                                         name="password"
-                                         class="form-control"
-                                         autocomplete="new-password"
-                                         placeholder="পাসওয়ার্ড (আবশ্যক)"
-                                         required> <!-- Password is required for creation -->
-                                  <div class="input-group-append">
-                                      <div class="input-group-text"><span class="fas fa-lock"></span></div>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-
-                  <hr class="my-4">
-                  <h6 class="mb-3">কর্তৃপক্ষ (Authority) নির্ধারণ (ঐচ্ছিক)</h6>
-
-                  <!-- DYNAMIC AUTHORITY FIELDS -->
-                  <input type="hidden" name="authority_level" id="add_authority_level">
-                  <input type="hidden" name="authority_id" id="add_authority_id">
-
+              <!-- Name Fields -->
                   <div class="row">
-                    <div class="col-md-6">
-                      <!-- Division Dropdown (Level 1) -->
-                      <div class="input-group mb-3">
-                          <select id="add_division_id" class="form-control authority-select" data-level="Division" data-target="add_district_id" data-model="District">
-                              <option value="" selected disabled>বিভাগ নির্বাচন করুন</option>
-                              @foreach ($divisions as $division)
-                                  <option value="{{ $division->id }}" data-level-name="Division">{{ $division->bn_name }}</option>
-                              @endforeach
-                          </select>
+                      <div class="col-md-6">
+                          <div class="input-group mb-3">
+                              <input type="text"
+                                     name="name"
+                                     class="form-control"
+                                     value="{{ old('name') }}"
+                                     placeholder="নাম" required>
+                              <div class="input-group-append">
+                                  <div class="input-group-text"><span class="fas fa-user"></span></div>
+                              </div>
+                          </div>
                       </div>
-                    </div>
-                    <div class="col-md-6">
-                      <!-- District Dropdown (Level 2) -->
-                      <div class="input-group mb-3">
-                          <select id="add_district_id" class="form-control authority-select" data-level="District" data-target="add_upazila_id" data-model="Upazila" disabled>
-                              <option value="" selected disabled>জেলা নির্বাচন করুন</option>
-                          </select>
-                      </div>
-                    </div>
                   </div>
 
+                  <!-- Contact Fields -->
                   <div class="row">
-                    <div class="col-md-6">
-                      <!-- Upazila Dropdown (Level 3 - Can be Municipality Authority) -->
-                      <div class="input-group mb-3">
-                          <select id="add_upazila_id" class="form-control authority-select" data-level="Upazila" data-target="add_union_id" data-model="Union" disabled>
-                              <option value="" selected disabled>উপজেলা/পৌরসভা নির্বাচন করুন</option>
-                          </select>
+                      <div class="col-md-6">
+                          <div class="input-group mb-3">
+                              <input type="text"
+                                     name="mobile"
+                                     value="{{ old('mobile') }}"
+                                     autocomplete="off"
+                                     class="form-control"
+                                     placeholder="মোবাইল নম্বর (১১ ডিজিট)" required>
+                              <div class="input-group-append">
+                                  <div class="input-group-text"><span class="fas fa-phone"></span></div>
+                              </div>
+                          </div>
                       </div>
-                    </div>
-                    <div class="col-md-6">
-                      <!-- Union Dropdown (Level 4) -->
-                      <div class="input-group mb-3">
-                          <select id="add_union_id" class="form-control authority-select" data-level="Union" data-target="" data-model="" disabled>
-                              <option value="" selected disabled>ইউনিয়ন নির্বাচন করুন</option>
-                          </select>
+                      <div class="col-md-6">
+                          <div class="input-group mb-3">
+                              <input type="text"
+                                     name="email"
+                                     value="{{ old('email') }}"
+                                     autocomplete="off"
+                                     class="form-control"
+                                     placeholder="ইমেইল এড্রেস">
+                              <div class="input-group-append">
+                                  <div class="input-group-text"><span class="fas fa-server"></span></div>
+                              </div>
+                          </div>
                       </div>
-                      <!-- END DYNAMIC AUTHORITY FIELDS -->
-                    </div>
                   </div>
 
-                  <div class="input-group mb-3">
-                      <select class="form-control" name="local_office_id">
-                          <option value="" selected disabled>স্থানীয় সরকার কার্যালয় নির্বাচন করুন</option>
-                          @foreach ($localoffices as $localoffice)
-                              <option value="{{ $localoffice->id }}">{{ $localoffice->name_bn }}</option>
-                          @endforeach
-                      </select>
+                  <!-- NID and Role Fields -->
+                  <div class="row">
+                      <div class="col-md-6">
+                          <div class="input-group mb-3">
+                              <input type="text"
+                                     name="nid"
+                                     value="{{ old('nid') }}"
+                                     autocomplete="off"
+                                     class="form-control"
+                                     placeholder="এনআইডি">
+                              <div class="input-group-append">
+                                  <div class="input-group-text"><span class="fas fa-server"></span></div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-md-6">
+                          <div class="input-group mb-3">
+                              <select name="role" class="form-control" required>
+                                  <option selected disabled value="">ধরন নির্ধারণ করুন</option>
+                                  <option value="admin" {{ old('role') == 'admin' ? 'selected' : '' }}>এডমিন</option>
+                                  <option value="manager" {{ old('role') == 'manager' ? 'selected' : '' }}>স্থানীয় সরকার প্রতিনিধি</option>
+                                  {{-- <option value="volunteer" {{ old('role') == 'volunteer' ? 'selected' : '' }}>ভলান্টিয়ার</option> --}}
+                                  <option value="user" {{ old('role') == 'user' ? 'selected' : '' }}>ব্যবহারকারী</option>
+                                  {{-- <option value="accountant" {{ old('role') == 'accountant' ? 'selected' : '' }}>একাউন্টেন্ট</option> --}}
+                              </select>
+                              <div class="input-group-append">
+                                  <div class="input-group-text"><span class="fas fa-user-secret"></span></div>
+                              </div>
+                          </div>
+                      </div>
                   </div>
-	            
+
+                  <!-- Designation and Password Fields -->
+                  <div class="row">
+                      <div class="col-md-6">
+                          <div class="input-group mb-3">
+                              <input type="password"
+                                     name="password"
+                                     class="form-control"
+                                     autocomplete="new-password"
+                                     placeholder="পাসওয়ার্ড (আবশ্যক)"
+                                     required> <!-- Password is required for creation -->
+                              <div class="input-group-append">
+                                  <div class="input-group-text"><span class="fas fa-lock"></span></div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
 	          </div>
 	          <div class="modal-footer">
 	            <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>
