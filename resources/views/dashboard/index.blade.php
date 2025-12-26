@@ -27,7 +27,7 @@
               <div class="icon">
                 <i class="ion ion-bag"></i>
               </div>
-              <a href="{{ route('dashboard.payments') }}" class="small-box-footer">আয় পাতা <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="{{ route('dashboard.users') }}" class="small-box-footer">আয় পাতা <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           
