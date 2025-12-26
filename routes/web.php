@@ -84,11 +84,6 @@ Route::post('/dashboard/users/{id}/single/sms', 'DashboardController@sendSingleS
 
 Route::get('/dashboard/users/{id}/activate', 'DashboardController@activateUser')->name('dashboard.users.activate');
 
-Route::get('/dashboard/profile', 'DashboardController@getProfile')->name('dashboard.profile');
-Route::post('/dashboard/profile/update/{id}/user', 'DashboardController@updateProfileUser')->name('dashboard.profile.update.user');
-Route::post('/dashboard/profile/update/{id}/localoffice', 'DashboardController@updateProfileLocalOffice')->name('dashboard.profile.update.localoffice');
-
-
 Route::get('/dashboard/messages', 'DashboardController@getMessages')->name('dashboard.messages');
 Route::post('/dashboard/messages/{id}/update', 'DashboardController@updateMessage')->name('dashboard.messages.update');
 Route::get('/dashboard/messages/delete/{id}', 'DashboardController@deleteMessage')->name('dashboard.messages.delete');
