@@ -66,61 +66,6 @@
                     <td>
                       {{ $user->designation }}<br/>
                     </td>
-                    <td>
-
-                      @if ($user->authorities->isNotEmpty())
-                          {{-- {{ print_r($user->authorities->first()->getAncestorsByLevel()) }} --}}
-                          @php
-                              $auth = $user->authorities->first();
-                          @endphp
-                          {{-- Display the full dynamic hierarchy string --}}
-                          {{-- {!! $auth->getFullHierarchy() !!}  --}}
-                          <span class="badge badge-secondary">
-                              ({{ (new \ReflectionClass($auth->authority_type))->getShortName() }})
-                          </span>
-                      @endif
-
-                      @php
-                        $userAuthority = $user->authorities->first();
-
-                        if ($userAuthority) {
-                          // 2. Call the method to get the full hierarchy array
-                          $hierarchy = $userAuthority->getAncestorsByLevel();
-
-                          // 3. Access the specific level you need (e.g., 'District')
-                          // Note: The keys are the English model names: 'Division', 'District', 'Upazila', 'Union'
-                          
-                          // To get the Division Model:
-                          $divisionModel = $hierarchy['Division'] ?? null;
-
-                          // To get the District Model:
-                          $districtModel = $hierarchy['District'] ?? null;
-
-                          // To get the Upazilla Model:
-                          $upazilaModel = $hierarchy['Upazila'] ?? null;
-                          
-                          // To get the Assigned Authority Model (Union, Upazila, etc.):
-                          $assignedModel = $userAuthority->authority; 
-                          $level = (new \ReflectionClass($userAuthority->authority_type))->getShortName();
-                          
-                          // --- Displaying Data ---
-                          if ($districtModel) {
-                              // You can now access any column (ID, name, bn_name)
-                              echo "<br/>বিভাগ: " . $divisionModel->bn_name;
-                              echo ", জেলা: " . $districtModel->bn_name;
-                              // echo "<br/>District ID: " . $districtModel->id;
-                          }
-
-                          if ($upazilaModel) {
-                              // You can now access any column (ID, name, bn_name)
-                              echo "<br/>উপজেলা: " . $upazilaModel->bn_name;
-                              if($level == 'Union') {
-                                echo ", ইউনিয়ন: " . $assignedModel->bn_name;
-                              }
-                          }
-                      }
-                      @endphp
-                    </td>
                 		<td align="right" width="15%">
                       {{-- <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#smsModal{{ $user->id }}">
                         <i class="fas fa-envelope"></i>
@@ -305,21 +250,6 @@
                                     <div class="col-md-6">
                                       <div class="input-group mb-3">
                                           <input type="text"
-                                                 name="name_en"
-                                                 class="form-control"
-                                                 value="{{ $user->name_en }}"
-                                                 placeholder="ইংরেজি নাম (OPTIONAL)">
-                                          <div class="input-group-append">
-                                              <div class="input-group-text"><span class="fas fa-user"></span></div>
-                                          </div>
-                                      </div>
-                                    </div>
-                                  </div>
-
-                                  <div class="row">
-                                    <div class="col-md-6">
-                                      <div class="input-group mb-3">
-                                          <input type="text"
                                                  name="mobile"
                                                  value="{{ $user->mobile }}"
                                                  autocomplete="off"
@@ -377,23 +307,6 @@
                                   </div>
 
                                   <div class="row">
-                                    <div class="col-md-6">
-                                      <div class="input-group mb-3">
-                                          <select id="designation" name="designation" class="form-control">
-                                              <option value="" selected="" disabled="">পদবি (প্রশাসক/মেয়র/চেয়ারম্যান/সচিব ইত্যাদি, যদি থাকে)</option>
-                                              <option value="চেয়ারম্যান" @if($user->designation == 'চেয়ারম্যান') selected @endif>ইউনিয়ন চেয়ারম্যান</option>
-                                              <option value="সচিব" @if($user->designation == 'সচিব') selected @endif>ইউনিয়ন সচিব</option>
-                                              <option value="সহকারী" @if($user->designation == 'সহকারী') selected @endif>ইউনিয়ন সহকারী</option>
-                                              <option value="মেয়র" @if($user->designation == 'মেয়র') selected @endif>মেয়র</option>
-                                              <option value="প্রশাসক" @if($user->designation == 'প্রশাসক') selected @endif>প্রশাসক</option>
-                                              <option value="কাউন্সিলর" @if($user->designation == 'কাউন্সিলর') selected @endif>কাউন্সিলর</option>
-                                              <option value="পৌর সচিব" @if($user->designation == 'পৌর সচিব') selected @endif>পৌর সচিব</option>
-                                          </select>
-                                          <div class="input-group-append">
-                                              <div class="input-group-text"><span class="fas fa-user-secret"></span></div>
-                                          </div>
-                                      </div>
-                                    </div>
                                     <div class="col-md-6">
                                       <div class="input-group mb-3">
                                           <input type="password"
