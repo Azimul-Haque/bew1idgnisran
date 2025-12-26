@@ -46,7 +46,7 @@ class APIController extends Controller
         ], 200);
     }
 
-    public function store(Request $request)
+    public function storeProgram(Request $request)
     {
         // ১. ভ্যালিডেশন
         $request->validate([
