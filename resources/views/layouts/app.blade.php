@@ -172,6 +172,7 @@
         <div class="float-right d-none d-sm-block">
             <strong>Copyright &copy; {{ date('Y') }} | <b>ভার্শন</b> ১.০.০
         </div>
+        কোন সমস্যার সম্মুখীন হলে <a href="tel:+8801737988070">01737988070</a> নাম্বারে কল করুন
     </footer>
 </div>
 
