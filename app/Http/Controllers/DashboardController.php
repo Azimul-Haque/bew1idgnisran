@@ -344,6 +344,15 @@ class DashboardController extends Controller
             'message'      => 'required',
         ));
 
+        OneSignal::sendNotificationToAll(
+            $request->message,
+            $url = null, 
+            $data = null, 
+            $buttons = null, 
+            $schedule = null,
+            $headings = $request->headings,
+        );
+
         if($request->type == 'premium') {
             OneSignal::sendNotificationUsingTags(
                 $request->message,
