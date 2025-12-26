@@ -349,27 +349,6 @@ class APIController extends Controller
         ]);
     }
 
-    public function getPaymentHistory($softtoken, $phonenumber)
-    {
-        $user = User::where('mobile', substr($phonenumber, -11))->first();
-
-        if($user && $softtoken == env('SOFT_TOKEN'))
-        {
-            foreach($user->payments as $payment) {
-                $payment->makeHidden(['id', 'user_id', 'package_id', 'uid', 'payment_status', 'card_type', 'store_amount', 'updated_at']);
-            }
-            // dd($user->payments);
-            return response()->json([
-                'success' => true,
-                'paymenthistory' => $user->payments,
-            ]);
-        } else {
-            return response()->json([
-                'success' => false
-            ]);
-        }
-    }
-
     public function sendSingleNotification(Request $request)
     {
         $this->validate($request,array(
