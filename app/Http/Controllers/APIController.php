@@ -8,6 +8,9 @@ use App\Repositories\userRepository;
 
 use App\User;
 use App\Userotp;
+
+use App\Program;
+
 use App\Message;
 
 
@@ -88,10 +91,11 @@ class APIController extends Controller
     public function getPrograms()
     {
         $programs = Program::orderBy('program_date', 'desc')->get();
-                return response()->json([
-                    'status' => 'success',
-                    'data' => $programs
-                ]);
+        
+        return response()->json([
+            'status' => 'success',
+            'data' => $programs
+        ]);
     }
 
     public function generateOTP(Request $request)
