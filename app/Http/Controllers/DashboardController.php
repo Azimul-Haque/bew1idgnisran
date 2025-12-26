@@ -81,8 +81,7 @@ class DashboardController extends Controller
                           ->orWhere('onesignal_id', 'LIKE', "%$search%")
                           ->orderBy('id', 'desc')
                           ->count();
-        $divisions = Division::all();
-        $localoffices = LocalOffice::all();
+        
         $users = User::where('name', 'LIKE', "%$search%")
                      ->orWhere('email', 'LIKE', "%$search%")
                      ->orWhere('mobile', 'LIKE', "%$search%")
