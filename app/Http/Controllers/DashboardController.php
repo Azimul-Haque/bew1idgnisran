@@ -63,14 +63,10 @@ class DashboardController extends Controller
     public function getUsers()
     {
         $userscount = User::count();
-        $divisions = Division::all();
-        $localoffices = LocalOffice::all();
         $users = User::where('name', '!=', null)->orderBy('id', 'asc')->paginate(10);
         return view('dashboard.users.index')
                     ->withUsers($users)
-                    ->withUserscount($userscount)
-                    ->withLocaloffices($localoffices)
-                    ->withDivisions($divisions);
+                    ->withUserscount($userscount);
     }
 
     // public function getUsersSort()
