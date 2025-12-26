@@ -168,10 +168,6 @@ class DashboardController extends Controller
         }
         $user->save();
 
-        if($request->input('authority_level') && $request->input('authority_id')) {
-            $this->syncUserAuthority($user, $request);
-        }
-
         Session::flash('success', 'User updated successfully!');
         return redirect()->back();
     }
@@ -183,7 +179,6 @@ class DashboardController extends Controller
         $user->localOffice->is_active = 1;
         $user->localOffice->save();
         $user->save();
-
 
         Session::flash('success', 'User activated successfully!');
         return redirect()->route('dashboard.users');
