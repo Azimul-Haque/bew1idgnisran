@@ -67,10 +67,10 @@ class APIController extends Controller
         $program->info = $request->info;
 
         // ৩. ইমেজ/পোস্টার আপলোড হ্যান্ডেলিং
-        if ($request->hasFile('poster')) {
-            $imageName = time().'.'.$request->poster->extension();
-            $request->poster->move(public_path('uploads/programs'), $imageName);
-            $program->poster_url = 'uploads/programs/'.$imageName;
+        if ($request->hasFile('image')) {
+            $imageName = time().'.'.$request->image->extension();
+            $request->image->move(public_path('uploads/programs'), $imageName);
+            $program->image = 'uploads/programs/'.$imageName;
         }
 
         $program->save();
