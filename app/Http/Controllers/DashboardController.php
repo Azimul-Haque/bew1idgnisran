@@ -123,7 +123,6 @@ class DashboardController extends Controller
             'mobile'      => 'required|string|max:191|unique:users,mobile',
             'designation'      => 'sometimes',
             'role'        => 'required',
-            // 'sitecheck'   => 'sometimes',
             'password'    => 'required|string|min:8|max:191',
             
         ));
@@ -166,7 +165,6 @@ class DashboardController extends Controller
         $user->designation = $request->designation;
         $user->role = $request->role;
         $user->nid = $request->nid;
-        $user->local_office_id = $request->local_office_id;
         if(!empty($request->password)) {
             $user->password = Hash::make($request->password);
         }
