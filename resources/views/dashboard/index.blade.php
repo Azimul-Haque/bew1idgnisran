@@ -31,8 +31,7 @@
             </div>
           </div>
           
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
+          {{-- <div class="col-lg-3 col-6">
             <div class="small-box bg-success">
               <div class="inner">
                 <h4>{{ $totalmonthlypayment->totalamount ? ceil($totalmonthlypayment->totalamount) : 0 }}<sup style="font-size: 20px">৳</sup></h4>
@@ -44,7 +43,7 @@
               </div>
               <a href="{{ route('dashboard.payments') }}" class="small-box-footer">মাসিক আয় পাতা <i class="fas fa-arrow-circle-right"></i></a>
             </div>
-          </div>
+          </div> --}}
           <!-- ./col -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
