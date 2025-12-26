@@ -85,7 +85,7 @@ class APIController extends Controller
         ], 201);
     }
 
-    public function login()
+    public function getPrograms()
     {
         
     }
