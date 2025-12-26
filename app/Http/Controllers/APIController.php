@@ -70,7 +70,7 @@ class APIController extends Controller
         if ($request->hasFile('image')) {
             $imageName = time().'.'.$request->image->extension();
             $request->image->move(public_path('uploads/programs'), $imageName);
-            $program->image = 'uploads/programs/'.$imageName;
+            $program->image = $imageName;
         }
 
         $program->save();
