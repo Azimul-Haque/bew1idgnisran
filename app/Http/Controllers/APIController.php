@@ -69,7 +69,7 @@ class APIController extends Controller
         // ৩. ইমেজ/পোস্টার আপলোড হ্যান্ডেলিং
         if ($request->hasFile('image')) {
             $imageName = time().'.'.$request->image->extension();
-            $request->image->move(public_path('uploads/programs'), $imageName);
+            $request->image->move(public_path('images/programs'), $imageName);
             $program->image = $imageName;
         }
 
