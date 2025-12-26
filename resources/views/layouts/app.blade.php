@@ -129,7 +129,7 @@
                     </li>
                     <!-- Menu Footer-->
                     <li class="user-footer">
-                        <a href="{{ route('dashboard.profile') }}" class="btn btn-default btn-flat">প্রোফাইল</a>
+                        {{-- <a href="{{ route('dashboard.profile') }}" class="btn btn-default btn-flat">প্রোফাইল</a> --}}
                         <a href="#" class="btn btn-default btn-flat float-right"
                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             লগআউট
