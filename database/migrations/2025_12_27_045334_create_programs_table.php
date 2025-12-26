@@ -22,7 +22,7 @@ class CreateProgramsTable extends Migration
         $table->dateTime('program_date'); // তারিখ ও সময়
         $table->string('phone')->nullable(); // জরুরি যোগাযোগ নম্বর
         $table->text('info')->nullable(); // গুরুত্বপূর্ণ তথ্য
-        $table->string('poster_url')->nullable(); // পোস্টারের ইমেজ পাথ
+        $table->string('image')->nullable(); // পোস্টারের ইমেজ পাথ
         $table->timestamps();
     });
     }
