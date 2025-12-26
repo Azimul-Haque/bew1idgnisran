@@ -78,7 +78,7 @@ class APIController extends Controller
                 mkdir($directory, 0777, true);
             }
             $location = $directory . $filename;
-            Image::make($image)->resize(400, null, function ($constraint) { $constraint->aspectRatio(); $constraint->upsize(); })->save($location);
+            \Image::make($image)->resize(400, null, function ($constraint) { $constraint->aspectRatio(); $constraint->upsize(); })->save($location);
             // Image::make($image)->fit(600, 315)->save($location);
             $program->image = $filename;
         }
