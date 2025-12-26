@@ -5,19 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\User;
-use App\Package;
-use App\Payment;
+
 use App\Message;
 use App\Notification;
 use App\Blog;
 use App\Blogcategory;
-use App\Division;
-use App\District;
-use App\Upazila;
-use App\Union;
-use App\UserAuthority;
-use App\LocalOffice;
-use App\Certificate;
 
 use Carbon\Carbon;
 use Illuminate\Validation\Rule;
