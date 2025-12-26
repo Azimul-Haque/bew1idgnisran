@@ -85,31 +85,9 @@ class APIController extends Controller
         ], 201);
     }
 
-    public function login(Request $request)
+    public function login()
     {
-        // ১. ইনপুট ভ্যালিডেশন
-        $request->validate([
-            'mobile' => 'required',
-            'password' => 'required',
-        ]);
-
-        // ২. ইউজার চেক করা (মোবাইল নম্বর দিয়ে)
-        $user = User::where('mobile', $request->mobile)->first();
-
-        // ৩. পাসওয়ার্ড যাচাই করা
-        if (!$user || !Hash::check($request->password, $user->password)) {
-            return response()->json([
-                'status' => 'error',
-                'message' => 'মোবাইল নম্বর বা পাসওয়ার্ড সঠিক নয়।'
-            ], 401);
-        }
-
-        // ৪. সফল লগইন রেসপন্স
-        return response()->json([
-            'status' => 'success',
-            'message' => 'লগইন সফল হয়েছে!',
-            'user' => $user
-        ], 200);
+        
     }
 
     public function generateOTP(Request $request)
