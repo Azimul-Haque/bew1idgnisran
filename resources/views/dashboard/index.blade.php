@@ -22,12 +22,12 @@
               <div class="inner">
                 <h4>{{ ceil($totalpayment) }}<sup style="font-size: 20px">৳</sup></h4>
 
-                <p>মোট ব্যবহারকারী</p>
+                <p>মোট totalusers</p>
               </div>
               <div class="icon">
                 <i class="ion ion-bag"></i>
               </div>
-              <a href="{{ route('dashboard.users') }}" class="small-box-footer">আয় পাতা <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="{{ route('dashboard.users') }}" class="small-box-footer">ব্যবহারকারী পাতা <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           
