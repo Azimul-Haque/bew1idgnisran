@@ -18,7 +18,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
     <div class="login-logo">
-        <a href="{{ url('/home') }}"><b>ডি-নাগরিক - লগইন</b></a>
+        <a href="{{ url('/home') }}"><b>নরসিংদী-০১ লগইন</b></a>
     </div>
     <!-- /.login-logo -->
 
