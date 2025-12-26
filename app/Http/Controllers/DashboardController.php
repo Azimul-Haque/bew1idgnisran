@@ -93,9 +93,7 @@ class DashboardController extends Controller
         // $sites = Site::all();
         return view('dashboard.users.index')
                     ->withUsers($users)
-                    ->withUserscount($userscount)
-                    ->withLocaloffices($localoffices)
-                    ->withDivisions($divisions);
+                    ->withUserscount($userscount);
     }
 
     public function getUser($id)
