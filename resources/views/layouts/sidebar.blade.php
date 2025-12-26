@@ -3,7 +3,7 @@
         <img src="{{ asset('images/icon.png') }}"
              alt="D-Nagorik Logo"
              class="brand-image img-circle elevation-2">
-        <span class="brand-text font-weight-light">ডি-নাগরিক</span>
+        <span class="brand-text font-weight-light">নরসিংদী-০১</span>
     </a>
 
     <div class="sidebar">
