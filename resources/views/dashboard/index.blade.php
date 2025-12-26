@@ -46,11 +46,10 @@
           </div> --}}
           <!-- ./col -->
           <div class="col-lg-3 col-6">
-            <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
                 <h4>
-                  {{-- {{ $totalexamsattendedtoday }} বার --}}
+                  {{ $totalexamsattendedtoday }} বার
                 </h4>
 
                 <p>আজ সার্টিফিকেট প্রদান ({{ date("F d, Y") }})</p>
