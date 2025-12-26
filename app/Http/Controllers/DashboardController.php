@@ -68,7 +68,7 @@ class DashboardController extends Controller
                     ->withUsers($users)
                     ->withUserscount($userscount);
     }
-    
+
     public function getUsersSearch($search)
     {
         // কাজ আছে এটাতে
@@ -140,7 +140,6 @@ class DashboardController extends Controller
         $user->password = Hash::make($request->password);
         $user->save();
 
-        $this->syncUserAuthority($user, $request);
 
         Session::flash('success', 'User created successfully!');
         return redirect()->route('dashboard.users');
@@ -189,8 +188,6 @@ class DashboardController extends Controller
         Session::flash('success', 'User updated successfully!');
         return redirect()->back();
     }
-
-
 
     public function activateUser($id)
     {
