@@ -652,13 +652,6 @@ class DashboardController extends Controller
         return redirect()->route('dashboard.blogs');
     }
 
-    public function getDivDUUniData()
-    {
-        $divisions = Division::get();
-
-        dd($divisions[6]->districts[7]->upazilas[3]->unions);
-    }
-
     // clear configs, routes and serve
     public function clear()
     {
