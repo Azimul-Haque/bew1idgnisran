@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('admin/login', 'APIController@login')->name('api.login');
+Route::post('admin/login', 'APIController@login')->name('api.login');
 
 
 
