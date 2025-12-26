@@ -13,6 +13,7 @@ use GuzzleHttp\Psr7\Response as Psr7Response;
 
 class OneSignalClient
 {
+    const API_URL = "https://onesignal.com/api/v1";
 
     const ENDPOINT_NOTIFICATIONS = "/notifications";
     const ENDPOINT_PLAYERS = "/players";
@@ -21,7 +22,6 @@ class OneSignalClient
     protected $client;
     protected $headers;
     protected $appId;
-    protected $restApiUrl;
     protected $restApiKey;
     protected $userAuthKey;
     protected $additionalParams;
@@ -71,15 +71,13 @@ class OneSignalClient
 
     /**
      * @param $appId
-     * @param $restApiUrl
      * @param $restApiKey
      * @param $userAuthKey
      * @param int $guzzleClientTimeout
      */
-    public function __construct($appId, $restApiKey, $userAuthKey, $guzzleClientTimeout = 0, $restApiUrl = null)
+    public function __construct($appId, $restApiKey, $userAuthKey, $guzzleClientTimeout = 0)
     {
         $this->appId = $appId;
-        $this->restApiUrl = $restApiUrl ?? config('onesignal.rest_api_url');
         $this->restApiKey = $restApiKey;
         $this->userAuthKey = $userAuthKey;
 
@@ -93,7 +91,7 @@ class OneSignalClient
 
     private function createGuzzleHandler() {
         return tap(HandlerStack::create(new CurlHandler()), function (HandlerStack $handlerStack) {
-            $handlerStack->push(Middleware::retry(function ($retries, Psr7Request $request, Psr7Response $response = null, RequestException|ConnectException $exception = null) {
+            $handlerStack->push(Middleware::retry(function ($retries, Psr7Request $request, Psr7Response $response = null, RequestException $exception = null) {
                 if ($retries >= $this->maxRetries) {
                     return false;
                 }
@@ -390,7 +388,7 @@ class OneSignalClient
         }
 
         // Make sure to use included_segments
-        if (empty($parameters['included_segments']) && empty($parameters['include_player_ids']) && empty($parameters['include_external_user_ids']) && empty($parameters['include_aliases'])) {
+        if (empty($parameters['included_segments']) && empty($parameters['include_player_ids']) && empty('include_external_user_ids')) {
             $parameters['included_segments'] = ['All'];
         }
 
@@ -429,7 +427,7 @@ class OneSignalClient
         }
 
         if($offset) {
-            $endpoint.="&offset=".$offset;
+            $endpoint.="&offset=".$$offset;
         }
 
         return $this->get($endpoint);
@@ -508,29 +506,29 @@ class OneSignalClient
 
     public function post($endPoint) {
         if($this->requestAsync === true) {
-            $promise = $this->client->postAsync($this->restApiUrl . $endPoint, $this->headers);
+            $promise = $this->client->postAsync(self::API_URL . $endPoint, $this->headers);
             return (is_callable($this->requestCallback) ? $promise->then($this->requestCallback) : $promise);
         }
-        return $this->client->post($this->restApiUrl . $endPoint, $this->headers);
+        return $this->client->post(self::API_URL . $endPoint, $this->headers);
     }
 
     public function put($endPoint) {
         if($this->requestAsync === true) {
-            $promise = $this->client->putAsync($this->restApiUrl . $endPoint, $this->headers);
+            $promise = $this->client->putAsync(self::API_URL . $endPoint, $this->headers);
             return (is_callable($this->requestCallback) ? $promise->then($this->requestCallback) : $promise);
         }
-        return $this->client->put($this->restApiUrl . $endPoint, $this->headers);
+        return $this->client->put(self::API_URL . $endPoint, $this->headers);
     }
 
     public function get($endPoint) {
-        return $this->client->get($this->restApiUrl . $endPoint, $this->headers);
+        return $this->client->get(self::API_URL . $endPoint, $this->headers);
     }
 
     public function delete($endPoint) {
         if($this->requestAsync === true) {
-            $promise = $this->client->deleteAsync($this->restApiUrl . $endPoint, $this->headers);
+            $promise = $this->client->deleteAsync(self::API_URL . $endPoint, $this->headers);
             return (is_callable($this->requestCallback) ? $promise->then($this->requestCallback) : $promise);
         }
-        return $this->client->delete($this->restApiUrl . $endPoint, $this->headers);
+        return $this->client->delete(self::API_URL . $endPoint, $this->headers);
     }
 }
