@@ -15,6 +15,11 @@ class CreateNoticesTable extends Migration
     {
         Schema::create('notices', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->text('short_desc');
+            $table->string('level'); // কেন্দ্রীয়/ওয়ার্ড ভিত্তিক
+            $table->text('important_info')->nullable();
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }
