@@ -10,6 +10,7 @@ use App\User;
 use App\Userotp;
 
 use App\Program;
+use App\Notice;
 
 use App\Message;
 
