@@ -314,6 +314,25 @@ class APIController extends Controller
         return response()->json(['message' => 'পাওয়া যায়নি'], 404);
     }
 
+    // ৪. নোটিস ডিলিট
+    public function getUnits()
+    {
+        $notice = Notice::find($id);
+
+        if ($notice) {
+            if ($notice->image && file_exists(public_path('images/notices/' . $notice->image))) {
+                unlink(public_path('images/notices/' . $notice->image));
+            }
+            
+            $notice->delete();
+            Cache::forget('notices_list'); // ডিলিট হলে ক্যাশ ক্লিয়ার
+            
+            return response()->json(['status' => 'success', 'message' => 'ঘোষণাটি মুছে ফেলা হয়েছে']);
+        }
+
+        return response()->json(['message' => 'পাওয়া যায়নি'], 404);
+    }
+
 
 
 
