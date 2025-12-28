@@ -343,6 +343,7 @@ class APIController extends Controller
         $request->validate([
             'name' => 'required',
             'designation' => 'required',
+            'mobile' => 'required',
             'unit' => 'required',
             'serial_priority' => 'required|numeric',
         ]);
@@ -350,6 +351,7 @@ class APIController extends Controller
         $leader = new Leader();
         $leader->name = $request->name;
         $leader->designation = $request->designation;
+        $leader->mobile = $request->mobile;
         $leader->unit = $request->unit;
         $leader->serial_priority = $request->serial_priority;
 
