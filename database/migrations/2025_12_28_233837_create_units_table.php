@@ -15,6 +15,7 @@ class CreateUnitsTable extends Migration
     {
         Schema::create('units', function (Blueprint $table) {
             $table->id();
+            $table->string('name')->unique(); // ওয়ার্ড বা ইউনিটের নাম
             $table->timestamps();
         });
     }
