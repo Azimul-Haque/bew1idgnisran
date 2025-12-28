@@ -92,7 +92,7 @@ class APIController extends Controller
         ], 201);
     }
 
-    public function updateProgram(Request $request)
+    public function updateProgram($id, Request $request)
     {
         // ১. ভ্যালিডেশন
         $request->validate([
