@@ -358,6 +358,93 @@ class APIController extends Controller
         return response()->json(['data' => $units]);
     }
 
+    public function getLeaders()
+        {
+            $leaders = Cache::remember('leaders_list', now()->addDays(5), function () {
+                return Leader::orderBy('serial_priority', 'asc')->get();
+            });
+
+            return response()->json(['status' => 'success', 'data' => $leaders]);
+        }
+
+        // ২. নতুন নেতাকর্মী যোগ করা
+        public function storeLeader(Request $request)
+        {
+            $request->validate([
+                'name' => 'required',
+                'designation' => 'required',
+                'unit' => 'required',
+                'serial_priority' => 'required|numeric',
+            ]);
+
+            $leader = new Leader();
+            $leader->name = $request->name;
+            $leader->designation = $request->designation;
+            $leader->unit = $request->unit;
+            $leader->serial_priority = $request->serial_priority;
+
+            if ($request->hasFile('image')) {
+                $image = $request->file('image');
+                $filename = 'leader-' . time() . '.' . $image->getClientOriginalExtension();
+                $image->move(public_path('images/leaders'), $filename);
+                $leader->image = $filename;
+            }
+
+            $leader->save();
+            Cache::forget('leaders_list'); // ক্যাশ ক্লিয়ার
+
+            return response()->json(['status' => 'success', 'message' => 'তথ্য সংরক্ষিত হয়েছে'], 201);
+        }
+
+        // ৩. আপডেট করা
+        public function updateLeader(Request $request, $id)
+        {
+            $leader = Leader::findOrFail($id);
+            $leader->name = $request->name;
+            $leader->designation = $request->designation;
+            $leader->unit = $request->unit;
+            $leader->serial_priority = $request->serial_priority;
+
+            if ($request->hasFile('image')) {
+                // পুরাতন ইমেজ ডিলিট
+                if ($leader->image && file_exists(public_path('images/leaders/' . $leader->image))) {
+                    unlink(public_path('images/leaders/' . $leader->image));
+                }
+
+                $image = $request->file('image');
+                $filename = 'leader-' . time() . '.' . $image->getClientOriginalExtension();
+                $image->move(public_path('images/leaders'), $filename);
+                $leader->image = $filename;
+            } 
+            // যদি ইউজার ইমেজ রিমুভ করে সাবমিট করে (ফ্লাটার থেকে নাল পাঠালে)
+            elseif (!$request->hasFile('image') && $request->image == null) {
+                 if ($leader->image && file_exists(public_path('images/leaders/' . $leader->image))) {
+                    unlink(public_path('images/leaders/' . $leader->image));
+                }
+                $leader->image = null;
+            }
+
+            $leader->save();
+            Cache::forget('leaders_list');
+
+            return response()->json(['status' => 'success', 'message' => 'আপডেট সফল হয়েছে']);
+        }
+
+        // ৪. ডিলিট করা
+        public function deleteLeader($id)
+        {
+            $leader = Leader::find($id);
+            if ($leader) {
+                if ($leader->image && file_exists(public_path('images/leaders/' . $leader->image))) {
+                    unlink(public_path('images/leaders/' . $leader->image));
+                }
+                $leader->delete();
+                Cache::forget('leaders_list');
+                return response()->json(['status' => 'success', 'message' => 'মুছে ফেলা হয়েছে']);
+            }
+            return response()->json(['message' => 'পাওয়া যায়নি'], 404);
+        }
+
 
 
 
