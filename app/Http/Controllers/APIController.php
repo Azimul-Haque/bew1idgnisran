@@ -325,7 +325,7 @@ class APIController extends Controller
                 '৪ নং ওয়ার্ড',
                 '৫ নং ওয়ার্ড',
                 'পৌরসভা ইউনিট'
-            ]; // আপনি চাইলে DB::table('units')->pluck('name') ব্যবহার করতে পারেন
+            ];
         });
 
         return response()->json(['data' => $units]);
