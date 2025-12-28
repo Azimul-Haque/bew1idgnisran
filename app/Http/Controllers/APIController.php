@@ -371,6 +371,14 @@ class APIController extends Controller
     // ৩. আপডেট করা
     public function updateLeader(Request $request, $id)
     {
+        $request->validate([
+            'name' => 'required',
+            'designation' => 'required',
+            'mobile' => 'required',
+            'unit' => 'required',
+            'serial_priority' => 'required|numeric',
+        ]);
+        
         $leader = Leader::findOrFail($id);
         $leader->name = $request->name;
         $leader->designation = $request->designation;
