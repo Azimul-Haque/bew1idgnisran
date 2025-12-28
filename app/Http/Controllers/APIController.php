@@ -178,7 +178,125 @@ class APIController extends Controller
         return response()->json(['message' => 'পাওয়া যায়নি'], 404);
     }
 
-    
+    // ১. সব নোটিস ক্যাশ থেকে রিটার্ন করা
+        public function getNotices()
+        {
+            $notices = Cache::remember('notices_list', now()->addDays(5), function () {
+                return Notice::orderBy('created_at', 'desc')->get();
+            });
+
+            return response()->json([
+                'status' => 'success',
+                'data' => $notices
+            ]);
+        }
+
+        // ২. নতুন নোটিস তৈরি
+        public function storeNotice(Request $request)
+        {
+            $request->validate([
+                'title' => 'required|string',
+                'short_desc' => 'required|string',
+                'level' => 'required|string', // কেন্দ্রীয় / ওয়ার্ড ভিত্তিক
+            ]);
+
+            $notice = new Notice();
+            $notice->title = $request->title;
+            $notice->short_desc = $request->short_desc;
+            $notice->level = $request->level;
+            $notice->important_info = $request->important_info;
+
+            // ইমেজ হ্যান্ডেলিং
+            if ($request->hasFile('image')) {
+                $image = $request->file('image');
+                $filename = 'notice-' . time() . '.' . $image->getClientOriginalExtension();
+                $directory = public_path('images/notices/');
+                
+                if (!file_exists($directory)) {
+                    mkdir($directory, 0777, true);
+                }
+                
+                $location = $directory . $filename;
+                
+                // Intervention Image ব্যবহার করে রিসাইজ
+                \Image::make($image)->resize(500, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                    $constraint->upsize();
+                })->save($location);
+
+                $notice->image = $filename;
+            }
+
+            $notice->save();
+            Cache::forget('notices_list'); // নতুন ডাটা আসলে ক্যাশ ক্লিয়ার
+
+            return response()->json([
+                'status' => 'success',
+                'message' => 'ঘোষণাটি সফলভাবে প্রকাশিত হয়েছে!',
+                'data' => $notice
+            ], 201);
+        }
+
+        // ৩. নোটিস আপডেট
+        public function updateNotice(Request $request, $id)
+        {
+            $request->validate([
+                'title' => 'required|string',
+                'short_desc' => 'required|string',
+                'level' => 'required|string',
+            ]);
+
+            $notice = Notice::find($id);
+            if (!$notice) {
+                return response()->json(['message' => 'ঘোষণাটি পাওয়া যায়নি'], 404);
+            }
+
+            $notice->title = $request->title;
+            $notice->short_desc = $request->short_desc;
+            $notice->level = $request->level;
+            $notice->important_info = $request->important_info;
+
+            if ($request->hasFile('image')) {
+                // পুরনো ইমেজ ডিলিট
+                if ($notice->image && file_exists(public_path('images/notices/' . $notice->image))) {
+                    unlink(public_path('images/notices/' . $notice->image));
+                }
+
+                $image = $request->file('image');
+                $filename = 'notice-' . time() . '.' . $image->getClientOriginalExtension();
+                $location = public_path('images/notices/' . $filename);
+                
+                \Image::make($image)->resize(500, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                })->save($location);
+
+                $notice->image = $filename;
+            }
+
+            $notice->save();
+            Cache::forget('notices_list'); // আপডেট হলে ক্যাশ ক্লিয়ার
+
+            return response()->json(['status' => 'success', 'message' => 'ঘোষণাটি আপডেট হয়েছে']);
+        }
+
+        // ৪. নোটিস ডিলিট
+        public function deleteNotice($id)
+        {
+            $notice = Notice::find($id);
+
+            if ($notice) {
+                if ($notice->image && file_exists(public_path('images/notices/' . $notice->image))) {
+                    unlink(public_path('images/notices/' . $notice->image));
+                }
+                
+                $notice->delete();
+                Cache::forget('notices_list'); // ডিলিট হলে ক্যাশ ক্লিয়ার
+                
+                return response()->json(['status' => 'success', 'message' => 'ঘোষণাটি মুছে ফেলা হয়েছে']);
+            }
+
+            return response()->json(['message' => 'পাওয়া যায়নি'], 404);
+        }
 
 
 
