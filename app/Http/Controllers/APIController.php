@@ -379,7 +379,7 @@ class APIController extends Controller
             'serial_priority' => 'required|numeric',
         ]);
         
-        $leader = Leader::findOrFail($id);
+        $leader = Leader::find($id);
         $leader->name = $request->name;
         $leader->designation = $request->designation;
         $leader->mobile = $request->mobile;
