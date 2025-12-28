@@ -104,7 +104,7 @@ class APIController extends Controller
 
     public function deleteProgram($id)
     {
-        $programs = Program::orderBy('program_date', 'desc')->get();
+        $program = Program::find($id);
         
         return response()->json([
             'status' => 'success',
