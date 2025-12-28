@@ -319,7 +319,7 @@ class APIController extends Controller
         $units = Cache::remember('unit_list', now()->addDays(5), function () {
             return DB::table('units')
                      ->orderBy('id', 'asc')
-                     ->pluck('name'); // এটি শুধুমাত্র নামের একটি সিম্পল অ্যারে (Array) রিটার্ন করবে
+                     ->pluck('name');
         });
 
         return response()->json([
