@@ -154,11 +154,18 @@ class APIController extends Controller
     public function deleteProgram($id)
     {
         $program = Program::find($id);
-        
-        return response()->json([
-            'status' => 'success',
-            'data' => $programs
-        ]);
+
+        if ($program) {
+            // ইমেজ ফাইলটি মেমোরি থেকে ডিলিট করা
+            if ($program->image && file_exists(public_path('images/programs/' . $program->image))) {
+                unlink(public_path('images/programs/' . $program->image));
+            }
+            
+            $program->delete();
+            return response()->json(['status' => 'success', 'message' => 'মুছে ফেলা হয়েছে']);
+        }
+
+        return response()->json(['message' => 'পাওয়া যায়নি'], 404);
     }
 
 
