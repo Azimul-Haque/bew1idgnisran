@@ -152,6 +152,8 @@ class APIController extends Controller
 
         $program->save();
 
+        Cache::forget('programs_list'); // ক্যাশ মুছে ফেলা হলো
+
         return response()->json(['status' => 'success', 'message' => 'সফলভাবে আপডেট হয়েছে']);
     }
 
