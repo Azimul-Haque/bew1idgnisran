@@ -358,11 +358,6 @@ class APIController extends Controller
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $filename = 'leader-' . time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('images/leaders'), $filename);
-            
-
-            $image = $request->file('image');
-            $filename = 'leader-' . time() . '.' . $image->getClientOriginalExtension();
             $location = public_path('images/leaders/' . $filename);
             Image::make($image)->fit(300, 300)->save($location);
             $leader->image = $filename;
