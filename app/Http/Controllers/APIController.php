@@ -362,10 +362,11 @@ class APIController extends Controller
             $leader->image = $filename;
 
             $image = $request->file('image');
-            $filename = 'notice-' . time() . '.' . $image->getClientOriginalExtension();
-            $location = public_path('images/notices/' . $filename);
+            $filename = 'program-' . time() . '.' . $image->getClientOriginalExtension();
+            $location = public_path('images/leaders/' . $filename);
             
-            \Image::make($image)->resize(500, null, function ($constraint) {
+            // ইমেজ রিসাইজ ও সেভ
+            \Image::make($image)->resize(400, null, function ($constraint) {
                 $constraint->aspectRatio();
             })->save($location);
         }
