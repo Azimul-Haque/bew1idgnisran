@@ -359,7 +359,7 @@ class APIController extends Controller
             $image = $request->file('image');
             $filename = 'leader-' . time() . '.' . $image->getClientOriginalExtension();
             $location = public_path('images/leaders/' . $filename);
-            Image::make($image)->fit(300, 300)->save($location);
+            \Image::make($image)->fit(300, 300)->save($location);
             $leader->image = $filename;
         }
 
@@ -395,7 +395,7 @@ class APIController extends Controller
             $image = $request->file('image');
             $filename = 'leader-' . time() . '.' . $image->getClientOriginalExtension();
             $location = public_path('images/leaders/' . $filename);
-            Image::make($image)->fit(300, 300)->save($location);
+            \Image::make($image)->fit(300, 300)->save($location);
             $leader->image = $filename;
         } 
         // যদি ইউজার ইমেজ রিমুভ করে সাবমিট করে (ফ্লাটার থেকে নাল পাঠালে)
