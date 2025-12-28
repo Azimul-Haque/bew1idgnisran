@@ -362,7 +362,7 @@ class APIController extends Controller
             $leader->image = $filename;
 
             $image = $request->file('image');
-            $filename = 'program-' . time() . '.' . $image->getClientOriginalExtension();
+            $filename = 'leader-' . time() . '.' . $image->getClientOriginalExtension();
             $location = public_path('images/leaders/' . $filename);
             
             // ইমেজ রিসাইজ ও সেভ
