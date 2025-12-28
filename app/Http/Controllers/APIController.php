@@ -360,6 +360,14 @@ class APIController extends Controller
             $filename = 'leader-' . time() . '.' . $image->getClientOriginalExtension();
             $image->move(public_path('images/leaders'), $filename);
             $leader->image = $filename;
+
+            $image = $request->file('image');
+            $filename = 'notice-' . time() . '.' . $image->getClientOriginalExtension();
+            $location = public_path('images/notices/' . $filename);
+            
+            \Image::make($image)->resize(500, null, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($location);
         }
 
         $leader->save();
