@@ -132,6 +132,13 @@ class APIController extends Controller
         $program->phone = $request->phone;
         $program->info = $request->info;
 
+        if (!$request->hasFile('image') && $request->image == null) {
+            if ($item->image && file_exists(public_path('images/your_folder/' . $item->image))) {
+                unlink(public_path('images/your_folder/' . $item->image));
+            }
+            $item->image = null; // ডাটাবেসে ইমেজ কলাম নাল করে দিচ্ছে
+        }
+
         // যদি নতুন ইমেজ আপলোড করা হয়
         if ($request->hasFile('image')) {
             // আগের ইমেজটি ডিলিট করা (ঐচ্ছিক কিন্তু ভালো প্র্যাকটিস)
