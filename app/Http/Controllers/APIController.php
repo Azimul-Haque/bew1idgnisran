@@ -374,6 +374,7 @@ class APIController extends Controller
         $leader = Leader::findOrFail($id);
         $leader->name = $request->name;
         $leader->designation = $request->designation;
+        $leader->mobile = $request->mobile;
         $leader->unit = $request->unit;
         $leader->serial_priority = $request->serial_priority;
 
