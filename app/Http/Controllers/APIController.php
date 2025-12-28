@@ -134,7 +134,7 @@ class APIController extends Controller
         $program->info = $request->info;
 
         // ইউজার ইমেজটি রিমুভ করতে চাইলে
-        if (!$request->hasFile('image') && $request->image == null) {
+        if (!$request->hasFile('image') && $request->image == null && $request->remove_image == 1) {
             if ($program->image && file_exists(public_path('images/programs/' . $program->image))) {
                 unlink(public_path('images/programs/' . $program->image));
             }
