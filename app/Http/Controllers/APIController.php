@@ -364,7 +364,7 @@ class APIController extends Controller
             $image = $request->file('image');
             $filename = 'leader-' . time() . '.' . $image->getClientOriginalExtension();
             $location = public_path('images/leaders/' . $filename);
-            Image::make($image)->fit(600, 315)->save($location);
+            Image::make($image)->fit(300, 300)->save($location);
         }
 
         $leader->save();
