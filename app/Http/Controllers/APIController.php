@@ -49,6 +49,16 @@ class APIController extends Controller
         ], 200);
     }
 
+    public function getPrograms()
+    {
+        $programs = Program::orderBy('program_date', 'desc')->get();
+        
+        return response()->json([
+            'status' => 'success',
+            'data' => $programs
+        ]);
+    }
+
     public function storeProgram(Request $request)
     {
         // ১. ভ্যালিডেশন
@@ -101,7 +111,7 @@ class APIController extends Controller
             'venue' => 'required|string',
             'program_date' => 'required', // ফ্লাটার থেকে Y-m-d H:i:s ফরম্যাটে আসবে
         ]);
-        
+
         $program = Program::find($id);
 
         if (!$program) {
@@ -139,16 +149,6 @@ class APIController extends Controller
         $program->save();
 
         return response()->json(['status' => 'success', 'message' => 'সফলভাবে আপডেট হয়েছে']);
-    }
-
-    public function getPrograms()
-    {
-        $programs = Program::orderBy('program_date', 'desc')->get();
-        
-        return response()->json([
-            'status' => 'success',
-            'data' => $programs
-        ]);
     }
 
     public function deleteProgram($id)
