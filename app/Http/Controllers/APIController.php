@@ -94,6 +94,14 @@ class APIController extends Controller
 
     public function updateProgram(Request $request, $id)
     {
+        // ১. ভ্যালিডেশন
+        $request->validate([
+            'name' => 'required|string',
+            'type' => 'required|string',
+            'venue' => 'required|string',
+            'program_date' => 'required', // ফ্লাটার থেকে Y-m-d H:i:s ফরম্যাটে আসবে
+        ]);
+        
         $program = Program::find($id);
 
         if (!$program) {
