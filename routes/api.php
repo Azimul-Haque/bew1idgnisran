@@ -25,6 +25,8 @@ Route::post('notices/store', 'APIController@storeNotice')->name('api.store.notic
 Route::post('notices/update/{id}', 'APIController@updateNotice')->name('api.update.notice');
 Route::delete('notices/delete/{id}', 'APIController@deleteNotice')->name('api.delete.notice');
 
+Route::delete('units', 'APIController@deleteNotice')->name('api.delete.notice');
+
 
 
 
