@@ -20,6 +20,11 @@ Route::post('programs/store', 'APIController@storeProgram')->name('api.store.pro
 Route::post('programs/update/{id}', 'APIController@updateProgram')->name('api.update.program');
 Route::delete('programs/delete/{id}', 'APIController@deleteProgram')->name('api.delete.program');
 
+Route::get('notices/list', 'APIController@getPrograms')->name('api.list.programs');
+Route::post('notices/store', 'APIController@storeProgram')->name('api.store.program');
+Route::post('notices/update/{id}', 'APIController@updateProgram')->name('api.update.program');
+Route::delete('notices/delete/{id}', 'APIController@deleteProgram')->name('api.delete.program');
+
 
 
 
