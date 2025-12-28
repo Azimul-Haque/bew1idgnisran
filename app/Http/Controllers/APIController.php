@@ -51,8 +51,10 @@ class APIController extends Controller
 
     public function getPrograms()
     {
-        $programs = Program::orderBy('program_date', 'desc')->get();
-        
+        $programs = Cache::remember('programs_list', now()->addDays(5), function () {
+            return Program::orderBy('program_date', 'desc')->get();
+        });
+
         return response()->json([
             'status' => 'success',
             'data' => $programs
