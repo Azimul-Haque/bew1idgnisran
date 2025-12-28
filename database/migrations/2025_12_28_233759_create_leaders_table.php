@@ -15,6 +15,11 @@ class CreateLeadersTable extends Migration
     {
         Schema::create('leaders', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('designation');
+            $table->string('unit'); // ড্রপডাউন থেকে আসা ভ্যালু
+            $table->integer('serial_priority')->default(1);
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }
