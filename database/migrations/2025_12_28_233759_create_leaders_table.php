@@ -17,6 +17,7 @@ class CreateLeadersTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('designation');
+            $table->string('mobile');
             $table->string('unit'); // ড্রপডাউন থেকে আসা ভ্যালু
             $table->integer('serial_priority')->default(1);
             $table->string('image')->nullable();
