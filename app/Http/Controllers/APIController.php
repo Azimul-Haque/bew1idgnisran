@@ -94,16 +94,13 @@ class APIController extends Controller
 
     public function updateProgram(Request $request, $id)
     {
-        // ১. ভ্যালিডেশন
-        $request->validate([
-            'name' => 'required|string',
-            'type' => 'required|string',
-            'venue' => 'required|string',
-            'program_date' => 'required', // ফ্লাটার থেকে Y-m-d H:i:s ফরম্যাটে আসবে
-        ]);
+        $program = Program::find($id);
 
-        // ২. নতুন প্রোগ্রাম অবজেক্ট তৈরি
-        $program = new Program();
+        if (!$program) {
+            return response()->json(['message' => 'কর্মসূচি পাওয়া যায়নি'], 404);
+        }
+
+        // ডাটা আপডেট করা
         $program->name = $request->name;
         $program->type = $request->type;
         $program->venue = $request->venue;
@@ -112,27 +109,28 @@ class APIController extends Controller
         $program->phone = $request->phone;
         $program->info = $request->info;
 
-        // ৩. ইমেজ/পোস্টার আপলোড হ্যান্ডেলিং
+        // যদি নতুন ইমেজ আপলোড করা হয়
         if ($request->hasFile('image')) {
-            $image      = $request->file('image');
-            $filename   = 'program-' . time().'.'.$image->getClientOriginalExtension();
-            $directory = public_path('images/programs/');
-            if (!file_exists($directory)) {
-                mkdir($directory, 0777, true);
+            // আগের ইমেজটি ডিলিট করা (ঐচ্ছিক কিন্তু ভালো প্র্যাকটিস)
+            if ($program->image && file_exists(public_path('images/programs/' . $program->image))) {
+                unlink(public_path('images/programs/' . $program->image));
             }
-            $location = $directory . $filename;
-            \Image::make($image)->resize(400, null, function ($constraint) { $constraint->aspectRatio(); $constraint->upsize(); })->save($location);
-            // Image::make($image)->fit(600, 315)->save($location);
+
+            $image = $request->file('image');
+            $filename = 'program-' . time() . '.' . $image->getClientOriginalExtension();
+            $location = public_path('images/programs/' . $filename);
+            
+            // ইমেজ রিসাইজ ও সেভ
+            \Image::make($image)->resize(400, null, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($location);
+
             $program->image = $filename;
         }
 
         $program->save();
 
-        return response()->json([
-            'status' => 'success',
-            'message' => 'কর্মসূচি সফলভাবে সংরক্ষিত হয়েছে!',
-            'data' => $program
-        ], 201);
+        return response()->json(['status' => 'success', 'message' => 'সফলভাবে আপডেট হয়েছে']);
     }
 
     public function getPrograms()
