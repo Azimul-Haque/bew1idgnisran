@@ -31,6 +31,8 @@ Route::post('leaders/store', 'APIController@storeLeader')->name('api.store.neade
 Route::post('leaders/update/{id}', 'APIController@updateLeader')->name('api.update.neader');
 Route::delete('leaders/delete/{id}', 'APIController@deleteLeader')->name('api.delete.neader');
 
+Route::get('admin/stats', 'APIController@getAdminStats')->name('api.admin.stats');
+
 
 
 
