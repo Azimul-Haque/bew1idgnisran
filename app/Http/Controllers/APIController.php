@@ -427,6 +427,20 @@ class APIController extends Controller
         return response()->json(['message' => 'পাওয়া যায়নি'], 404);
     }
 
+    public function getAdminStats()
+    {
+        $leader = Leader::find($id);
+        if ($leader) {
+            if ($leader->image && file_exists(public_path('images/leaders/' . $leader->image))) {
+                unlink(public_path('images/leaders/' . $leader->image));
+            }
+            $leader->delete();
+            Cache::forget('leaders_list');
+            return response()->json(['status' => 'success', 'message' => 'মুছে ফেলা হয়েছে']);
+        }
+        return response()->json(['message' => 'পাওয়া যায়নি'], 404);
+    }
+
 
 
 
