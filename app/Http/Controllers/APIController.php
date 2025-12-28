@@ -400,7 +400,7 @@ class APIController extends Controller
         } 
         // যদি ইউজার ইমেজ রিমুভ করে সাবমিট করে (ফ্লাটার থেকে নাল পাঠালে)
         elseif (!$request->hasFile('image') && $request->image == null && $request->remove_image == 1) {
-             if ($leader->image && file_exists(public_path('images/leaders/' . $leader->image))) {
+            if ($leader->image && file_exists(public_path('images/leaders/' . $leader->image))) {
                 unlink(public_path('images/leaders/' . $leader->image));
             }
             $leader->image = null;
