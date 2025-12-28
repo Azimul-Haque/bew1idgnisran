@@ -92,6 +92,49 @@ class APIController extends Controller
         ], 201);
     }
 
+    public function updateProgram(Request $request)
+    {
+        // ১. ভ্যালিডেশন
+        $request->validate([
+            'name' => 'required|string',
+            'type' => 'required|string',
+            'venue' => 'required|string',
+            'program_date' => 'required', // ফ্লাটার থেকে Y-m-d H:i:s ফরম্যাটে আসবে
+        ]);
+
+        // ২. নতুন প্রোগ্রাম অবজেক্ট তৈরি
+        $program = new Program();
+        $program->name = $request->name;
+        $program->type = $request->type;
+        $program->venue = $request->venue;
+        $program->map_link = $request->map_link;
+        $program->program_date = $request->program_date;
+        $program->phone = $request->phone;
+        $program->info = $request->info;
+
+        // ৩. ইমেজ/পোস্টার আপলোড হ্যান্ডেলিং
+        if ($request->hasFile('image')) {
+            $image      = $request->file('image');
+            $filename   = 'program-' . time().'.'.$image->getClientOriginalExtension();
+            $directory = public_path('images/programs/');
+            if (!file_exists($directory)) {
+                mkdir($directory, 0777, true);
+            }
+            $location = $directory . $filename;
+            \Image::make($image)->resize(400, null, function ($constraint) { $constraint->aspectRatio(); $constraint->upsize(); })->save($location);
+            // Image::make($image)->fit(600, 315)->save($location);
+            $program->image = $filename;
+        }
+
+        $program->save();
+
+        return response()->json([
+            'status' => 'success',
+            'message' => 'কর্মসূচি সফলভাবে সংরক্ষিত হয়েছে!',
+            'data' => $program
+        ], 201);
+    }
+
     public function getPrograms()
     {
         $programs = Program::orderBy('program_date', 'desc')->get();
