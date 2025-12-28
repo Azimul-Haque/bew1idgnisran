@@ -316,7 +316,7 @@ class APIController extends Controller
 
     public function getUnits()
     {
-        $units = Cache::remember('unit_list', now()->addDays(5), function () {
+        $units = Cache::remember('units', now()->addDays(5), function () {
             return Unit::orderBy('id', 'asc')->pluck('name');
         });
 
