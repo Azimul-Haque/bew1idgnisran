@@ -171,12 +171,14 @@ class APIController extends Controller
             $program->delete();
 
             Cache::forget('programs_list'); // ক্যাশ মুছে ফেলা হলো
-            
+
             return response()->json(['status' => 'success', 'message' => 'মুছে ফেলা হয়েছে']);
         }
 
         return response()->json(['message' => 'পাওয়া যায়নি'], 404);
     }
+
+    
 
 
 
