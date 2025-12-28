@@ -314,23 +314,17 @@ class APIController extends Controller
         return response()->json(['message' => 'পাওয়া যায়নি'], 404);
     }
 
-    // ৪. নোটিস ডিলিট
     public function getUnits()
     {
-        $notice = Notice::find($id);
+        // 'unit_list' কি-তে ৫ দিনের জন্য ক্যাশ করা
+        $units = Cache::remember('unit_list', now()->addDays(5), function () {
+            return [
+                '১ নং ওয়ার্ড', '২ নং ওয়ার্ড', '৩ নং ওয়ার্ড', 
+                '৪ নং ওয়ার্ড', '৫ নং ওয়ার্ড', 'পৌরসভা ইউনিট'
+            ]; // আপনি চাইলে DB::table('units')->pluck('name') ব্যবহার করতে পারেন
+        });
 
-        if ($notice) {
-            if ($notice->image && file_exists(public_path('images/notices/' . $notice->image))) {
-                unlink(public_path('images/notices/' . $notice->image));
-            }
-            
-            $notice->delete();
-            Cache::forget('notices_list'); // ডিলিট হলে ক্যাশ ক্লিয়ার
-            
-            return response()->json(['status' => 'success', 'message' => 'ঘোষণাটি মুছে ফেলা হয়েছে']);
-        }
-
-        return response()->json(['message' => 'পাওয়া যায়নি'], 404);
+        return response()->json(['data' => $units]);
     }
 
 
