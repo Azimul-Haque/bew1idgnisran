@@ -429,7 +429,11 @@ class APIController extends Controller
 
     public function getAdminStats()
     {
-        //
+        return response()->json([
+            'programs' => Program::count(),
+            'notices' => Notice::count(),
+            'leaders' => Leader::count(),
+        ]);
     }
 
 
