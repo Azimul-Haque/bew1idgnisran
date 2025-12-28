@@ -264,6 +264,14 @@ class APIController extends Controller
         $notice->level = $request->level;
         $notice->important_info = $request->important_info;
 
+        // ইউজার ইমেজটি রিমুভ করতে চাইলে
+        if (!$request->hasFile('image') && $request->image == null) {
+            if ($item->image && file_exists(public_path('images/programs/' . $item->image))) {
+                unlink(public_path('images/programs/' . $item->image));
+            }
+            $item->image = null; // ডাটাবেসে ইমেজ কলাম নাল করে দিচ্ছে
+        }
+
         if ($request->hasFile('image')) {
             // পুরনো ইমেজ ডিলিট
             if ($notice->image && file_exists(public_path('images/notices/' . $notice->image))) {
