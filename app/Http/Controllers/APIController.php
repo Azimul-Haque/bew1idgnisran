@@ -134,10 +134,10 @@ class APIController extends Controller
 
         // ইউজার ইমেজটি রিমুভ করতে চাইলে
         if (!$request->hasFile('image') && $request->image == null) {
-            if ($item->image && file_exists(public_path('images/programs/' . $item->image))) {
-                unlink(public_path('images/programs/' . $item->image));
+            if ($program->image && file_exists(public_path('images/programs/' . $program->image))) {
+                unlink(public_path('images/programs/' . $program->image));
             }
-            $item->image = null; // ডাটাবেসে ইমেজ কলাম নাল করে দিচ্ছে
+            $program->image = null; // ডাটাবেসে ইমেজ কলাম নাল করে দিচ্ছে
         }
 
         // যদি নতুন ইমেজ আপলোড করা হয়
