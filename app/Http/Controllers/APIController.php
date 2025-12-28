@@ -379,7 +379,7 @@ class APIController extends Controller
             'unit' => 'required',
             'serial_priority' => 'required|numeric',
         ]);
-        
+
         $leader = Leader::find($id);
         $leader->name = $request->name;
         $leader->designation = $request->designation;
@@ -399,7 +399,7 @@ class APIController extends Controller
             $leader->image = $filename;
         } 
         // যদি ইউজার ইমেজ রিমুভ করে সাবমিট করে (ফ্লাটার থেকে নাল পাঠালে)
-        elseif (!$request->hasFile('image') && $request->image == null) {
+        elseif (!$request->hasFile('image') && $request->image == null && $request->remove_image == 1) {
              if ($leader->image && file_exists(public_path('images/leaders/' . $leader->image))) {
                 unlink(public_path('images/leaders/' . $leader->image));
             }
