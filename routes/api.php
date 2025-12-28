@@ -26,10 +26,10 @@ Route::post('notices/update/{id}', 'APIController@updateNotice')->name('api.upda
 Route::delete('notices/delete/{id}', 'APIController@deleteNotice')->name('api.delete.notice');
 
 Route::get('units', 'APIController@getUnits')->name('api.get.units');
-Route::get('leaders/list', 'APIController@getNotices')->name('api.list.notices');
-Route::post('leaders/store', 'APIController@storeNotice')->name('api.store.notice');
-Route::post('leaders/update/{id}', 'APIController@updateNotice')->name('api.update.notice');
-Route::delete('leaders/delete/{id}', 'APIController@deleteNotice')->name('api.delete.notice');
+Route::get('leaders/list', 'APIController@getLeaders')->name('api.list.notices');
+Route::post('leaders/store', 'APIController@storeLeader')->name('api.store.Leader');
+Route::post('leaders/update/{id}', 'APIController@updateLeader')->name('api.update.Leader');
+Route::delete('leaders/delete/{id}', 'APIController@deleteLeader')->name('api.delete.Leader');
 
 
 
