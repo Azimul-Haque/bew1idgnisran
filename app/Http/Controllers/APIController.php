@@ -97,6 +97,8 @@ class APIController extends Controller
 
         $program->save();
 
+        Cache::forget('programs_list'); // ক্যাশ মুছে ফেলা হলো
+
         return response()->json([
             'status' => 'success',
             'message' => 'কর্মসূচি সফলভাবে সংরক্ষিত হয়েছে!',
