@@ -375,7 +375,6 @@ class APIController extends Controller
         $request->validate([
             'name' => 'required',
             'designation' => 'required',
-            'mobile' => 'required',
             'unit' => 'required',
             'serial_priority' => 'required|numeric',
         ]);
