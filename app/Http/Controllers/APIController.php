@@ -441,8 +441,8 @@ class APIController extends Controller
             'serial' => 'nullable|integer',
         ]);
 
-        if ($request->hasFile('image')) {
-
+        if ($request->hasFile('image'))
+        {
             $image = $request->file('image');
             $filename = 'slider-' . time() . '.' . $image->getClientOriginalExtension();
             $location = public_path('images/sliders/' . $filename);
