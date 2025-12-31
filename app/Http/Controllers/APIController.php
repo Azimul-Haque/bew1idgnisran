@@ -163,7 +163,8 @@ class APIController extends Controller
 
         $program->save();
 
-        Cache::forget('programs_list'); // ক্যাশ মুছে ফেলা হলো
+        Cache::forget('programs_list');
+        Cache::forget('admin_stats');
 
         return response()->json(['status' => 'success', 'message' => 'সফলভাবে আপডেট হয়েছে']);
     }
@@ -180,7 +181,8 @@ class APIController extends Controller
             
             $program->delete();
 
-            Cache::forget('programs_list'); // ক্যাশ মুছে ফেলা হলো
+            Cache::forget('programs_list');
+            Cache::forget('admin_stats');
 
             return response()->json(['status' => 'success', 'message' => 'মুছে ফেলা হয়েছে']);
         }
