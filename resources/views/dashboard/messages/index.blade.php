@@ -42,9 +42,10 @@
                       @if($message->status == 1)
                         <i class="fas fa-calendar-check"></i>
                       @endif
-                      {{ $message->name }}
+                      {{ $message->name }}</b>
+                      <small>{{ $message->mobile }}</small>
                     </td>
-                    <td>{{ $message->mobile }}</td>
+                    <td>{{ $message->type }}</td>
                     <td>{{ $message->message }}</td>
                     <td>{{ date('F d, Y h:m A', strtotime($message->created_at)) }}</td>
                 		
