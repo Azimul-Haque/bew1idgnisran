@@ -460,6 +460,7 @@ class APIController extends Controller
 
             // নতুন ডাটা যোগ হওয়ায় ক্যাশ ক্লিয়ার করা হচ্ছে
             Cache::forget('sliders_list');
+            Cache::forget('admin_stats');
 
             return response()->json(['message' => 'সফলভাবে আপলোড করা হয়েছে!', 'data' => $slider], 201);
         }
@@ -482,6 +483,7 @@ class APIController extends Controller
 
         // ডাটা ডিলিট হওয়ায় ক্যাশ ক্লিয়ার করা হচ্ছে
         Cache::forget('sliders_list');
+        Cache::forget('admin_stats');
 
         return response()->json(['message' => 'মুছে ফেলা হয়েছে'], 200);
     }
