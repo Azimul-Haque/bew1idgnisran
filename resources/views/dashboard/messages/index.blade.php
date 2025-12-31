@@ -30,6 +30,7 @@
               <thead>
                 <tr>
                   <th>প্রেরণকারীর তথ্য</th>
+                  <th>ধরণ</th>
                   <th>মেসেজ</th>
                   <th>সময়</th>
                   <th>Action</th>
