@@ -12,6 +12,7 @@ use App\Userotp;
 use App\Program;
 use App\Notice;
 use App\Leader;
+use App\Slider;
 
 use App\Message;
 
