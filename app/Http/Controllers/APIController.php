@@ -211,6 +211,7 @@ class APIController extends Controller
             'title' => 'required|string',
             'short_desc' => 'required|string',
             'level' => 'required|string', // কেন্দ্রীয় / ওয়ার্ড ভিত্তিক
+            'push_notification' => 'required',
         ]);
 
         $notice = new Notice();
@@ -245,7 +246,7 @@ class APIController extends Controller
         if($request->push_notification == 1) {
 
         }
-        
+
         Cache::forget('notices_list');
         Cache::forget('admin_stats');
 
