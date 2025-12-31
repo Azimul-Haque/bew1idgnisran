@@ -870,6 +870,7 @@ class APIController extends Controller
         $this->validate($request,array(
             'mobile'    =>   'required',
             'message'    =>   'required',
+            'type'    =>   'required',
         ));
 
         $user = User::where('mobile', $request->mobile)->first();
