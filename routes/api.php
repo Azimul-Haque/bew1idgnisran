@@ -31,9 +31,9 @@ Route::post('leaders/store', 'APIController@storeLeader')->name('api.store.neade
 Route::post('leaders/update/{id}', 'APIController@updateLeader')->name('api.update.neader');
 Route::delete('leaders/delete/{id}', 'APIController@deleteLeader')->name('api.delete.neader');
 
-Route::get('/sliders/list', [SliderController::class, 'index']);
-Route::post('/sliders/store', [SliderController::class, 'store']);
-Route::delete('/sliders/delete/{id}', [SliderController::class, 'destroy']);
+Route::get('/sliders/list', [APIController::class, 'index']);
+Route::post('/sliders/store', [APIController::class, 'store']);
+Route::delete('/sliders/delete/{id}', [APIController::class, 'destroy']);
 
 Route::get('admin/stats', 'APIController@getAdminStats')->name('api.admin.stats');
 
