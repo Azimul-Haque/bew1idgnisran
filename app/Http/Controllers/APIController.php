@@ -434,11 +434,11 @@ class APIController extends Controller
         return response()->json(['data' => $sliders], 200);
     }
 
-    public function store(Request $request)
+    public function storeSlider(Request $request)
     {
         $request->validate([
             'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
-            'serial' => 'nullable|integer', // সিরিয়াল ভ্যালিডেশন
+            'serial' => 'nullable|integer',
         ]);
 
         if ($request->hasFile('image')) {
