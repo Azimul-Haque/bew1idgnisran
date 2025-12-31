@@ -258,7 +258,7 @@ class APIController extends Controller
             'title' => 'required|string',
             'short_desc' => 'required|string',
             'level' => 'required|string',
-            'push_notification' => 'required|string',
+            'push_notification' => 'required',
         ]);
 
         $notice = Notice::find($id);
