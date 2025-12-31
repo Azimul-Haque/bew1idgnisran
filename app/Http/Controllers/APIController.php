@@ -409,6 +409,7 @@ class APIController extends Controller
 
         $leader->save();
         Cache::forget('leaders_list');
+        Cache::forget('admin_stats');
 
         return response()->json(['status' => 'success', 'message' => 'আপডেট সফল হয়েছে']);
     }
@@ -423,6 +424,7 @@ class APIController extends Controller
             }
             $leader->delete();
             Cache::forget('leaders_list');
+            Cache::forget('admin_stats');
             return response()->json(['status' => 'success', 'message' => 'মুছে ফেলা হয়েছে']);
         }
         return response()->json(['message' => 'পাওয়া যায়নি'], 404);
