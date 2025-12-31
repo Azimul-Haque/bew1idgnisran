@@ -451,7 +451,7 @@ class APIController extends Controller
             $location = public_path('images/sliders/' . $filename);
             
             // ইমেজ রিসাইজ ও সেভ
-            \Image::make($image)->fit(850, 400)->save($location);
+            \Image::make($image)->fit(850, 400)->encode('webp', 80)->save($location);
 
             $slider = Slider::create([
                 'image' => $filename,
