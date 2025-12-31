@@ -446,11 +446,11 @@ class APIController extends Controller
             $image = $request->file('image');
             $filename = 'slider-' . time() . '.' . $image->getClientOriginalExtension();
             $location = public_path('images/sliders/' . $filename);
-            \Image::make($image)->fit(300, 300)->save($location);
+            \Image::make($image)->fit(850, 400)->save($location);
 
             $slider = Slider::create([
                 'image' => $filename,
-                'serial' => $request->serial ?? 0 // যদি ইউজার সিরিয়াল না দেয় তবে ডিফল্ট ০
+                'serial' => $request->serial ?? 1 // যদি ইউজার সিরিয়াল না দেয় তবে ডিফল্ট ০
             ]);
 
             return response()->json(['message' => 'Uploaded successfully', 'data' => $slider], 201);
