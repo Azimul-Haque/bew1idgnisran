@@ -244,7 +244,14 @@ class APIController extends Controller
         $notice->save();
 
         if($request->push_notification == 1) {
-
+            OneSignal::sendNotificationToAll(
+                $request->message,
+                $url = null, 
+                $data = null, 
+                $buttons = null, 
+                $schedule = null,
+                $headings = $request->headings,
+            );
         }
 
         Cache::forget('notices_list');
