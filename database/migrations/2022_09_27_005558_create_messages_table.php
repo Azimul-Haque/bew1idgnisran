@@ -19,6 +19,7 @@ class CreateMessagesTable extends Migration
             $table->string('name')->nullable();
             $table->string('mobile')->nullable();
             $table->string('message');
+            $table->string('type');
             $table->integer('status');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
