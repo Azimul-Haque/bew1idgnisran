@@ -14,9 +14,10 @@ class CreateSlidersTable extends Migration
     public function up()
     {
         Schema::create('sliders', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
+        $table->id();
+        $table->string('image'); // ইমেজের ফাইলের নাম সেভ হবে
+        $table->timestamps();
+    });
     }
 
     /**
