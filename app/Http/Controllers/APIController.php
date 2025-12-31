@@ -472,14 +472,18 @@ class APIController extends Controller
             return response()->json(['message' => 'Not found'], 404);
         }
 
-        // ফোল্ডার থেকে ফাইল ডিলিট করা
+        // ফোল্ডার থেকে ফাইল ডিলিট
         $imagePath = public_path('/images/sliders/' . $slider->image);
-        if (File::exists($imagePath)) {
-            File::delete($imagePath);
+        if (\File::exists($imagePath)) {
+            \File::delete($imagePath);
         }
 
         $slider->delete();
-        return response()->json(['message' => 'মুছে ফেলা হয়েছে'], 200);
+
+        // ডাটা ডিলিট হওয়ায় ক্যাশ ক্লিয়ার করা হচ্ছে
+        \Cache::forget('sliders_list');
+
+        return response()->json(['message' => 'মুছে ফেলা হয়েছে'], 200);
     }
 
     public function getAdminStats()
