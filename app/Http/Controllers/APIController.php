@@ -878,6 +878,7 @@ class APIController extends Controller
         $message = new Message;
         $message->user_id = $user->id;
         $message->message = $request->message;
+        $message->type = $request->type;
         $message->save();
         
         return response()->json([
