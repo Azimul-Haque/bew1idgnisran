@@ -365,7 +365,8 @@ class APIController extends Controller
         }
 
         $leader->save();
-        Cache::forget('leaders_list'); // ক্যাশ ক্লিয়ার
+        Cache::forget('leaders_list');
+        Cache::forget('admin_stats');
 
         return response()->json(['status' => 'success', 'message' => 'তথ্য সংরক্ষিত হয়েছে'], 201);
     }
