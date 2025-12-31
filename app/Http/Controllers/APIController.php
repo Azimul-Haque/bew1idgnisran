@@ -298,7 +298,10 @@ class APIController extends Controller
 
         $notice->save();
 
-        if($request->push_notification)
+        if($request->push_notification == 1) {
+
+        }
+        
         Cache::forget('notices_list');
         Cache::forget('admin_stats');
 
