@@ -430,7 +430,11 @@ class APIController extends Controller
 
     public function getSliders()
     {
-        $sliders = Slider::orderBy('serial', 'asc')->get();
+        // 'sliders_list' কী (key) ব্যবহার করে ক্যাশ থেকে ডেটা রিটার্ন করবে
+        $sliders = \Cache::rememberForever('sliders_list', function () {
+            return Slider::orderBy('serial', 'asc')->get();
+        });
+
         return response()->json(['data' => $sliders], 200);
     }
 
