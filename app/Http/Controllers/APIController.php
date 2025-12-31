@@ -481,7 +481,7 @@ class APIController extends Controller
         $slider->delete();
 
         // ডাটা ডিলিট হওয়ায় ক্যাশ ক্লিয়ার করা হচ্ছে
-        \Cache::forget('sliders_list');
+        Cache::forget('sliders_list');
 
         return response()->json(['message' => 'মুছে ফেলা হয়েছে'], 200);
     }
