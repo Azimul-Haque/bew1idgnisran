@@ -447,10 +447,9 @@ class APIController extends Controller
             $filename = 'slider-' . time() . '.' . $image->getClientOriginalExtension();
             $location = public_path('images/sliders/' . $filename);
             \Image::make($image)->fit(300, 300)->save($location);
-            $leader->image = $filename;
 
             $slider = Slider::create([
-                'image' => $name,
+                'image' => $filename,
                 'serial' => $request->serial ?? 0 // যদি ইউজার সিরিয়াল না দেয় তবে ডিফল্ট ০
             ]);
 
