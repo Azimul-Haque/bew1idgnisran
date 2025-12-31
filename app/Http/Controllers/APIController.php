@@ -486,13 +486,19 @@ class APIController extends Controller
         return response()->json(['message' => 'মুছে ফেলা হয়েছে'], 200);
     }
 
-    public function getAdminStats()
+    public function getAdminStats() 
     {
-        return response()->json([
-            'programs' => Program::count(),
-            'notices' => Notice::count(),
-            'leaders' => Leader::count(),
-        ]);
+        // 'admin_stats' কী (key) ব্যবহার করে ১০ মিনিটের জন্য ক্যাশ করা হচ্ছে
+        $stats = \Cache::remember('admin_stats', 600, function () {
+            return [
+                'programs' => \App\Models\Program::count(),
+                'notices'  => \App\Models\Notice::count(),
+                'leaders'  => \App\Models\Leader::count(),
+                'sliders'  => \App\Models\Slider::count(),
+            ];
+        });
+
+        return response()->json($stats, 200);
     }
 
 
