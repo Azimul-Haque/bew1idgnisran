@@ -29,8 +29,7 @@
             <table class="table">
               <thead>
                 <tr>
-                  <th>নাম</th>
-                  <th>যোগাযোগ</th>
+                  <th>প্রেরণকারীর তথ্য</th>
                   <th>মেসেজ</th>
                   <th>সময়</th>
                   <th>Action</th>
