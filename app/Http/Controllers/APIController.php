@@ -471,7 +471,7 @@ class APIController extends Controller
         }
 
         $slider->delete();
-        return response()->json(['message' => 'Deleted successfully'], 200);
+        return response()->json(['message' => 'মুছে ফেলা হয়েছে'], 200);
     }
 
     public function getAdminStats()
