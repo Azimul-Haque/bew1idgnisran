@@ -427,6 +427,12 @@ class APIController extends Controller
         return response()->json(['message' => 'পাওয়া যায়নি'], 404);
     }
 
+    public function getSliders()
+    {
+        $sliders = Slider::orderBy('serial', 'asc')->get();
+        return response()->json(['data' => $sliders], 200);
+    }
+
     public function getAdminStats()
     {
         return response()->json([
