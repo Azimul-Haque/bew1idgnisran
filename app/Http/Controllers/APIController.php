@@ -100,7 +100,8 @@ class APIController extends Controller
 
         $program->save();
 
-        Cache::forget('programs_list'); // ক্যাশ মুছে ফেলা হলো
+        Cache::forget('programs_list');
+        Cache::forget('admin_stats');
 
         return response()->json([
             'status' => 'success',
