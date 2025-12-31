@@ -245,7 +245,7 @@ class APIController extends Controller
 
         if($request->push_notification == 1) {
             OneSignal::sendNotificationToAll(
-                $request->message,
+                $request->short_desc,
                 $url = null, 
                 $data = null, 
                 $buttons = null, 
