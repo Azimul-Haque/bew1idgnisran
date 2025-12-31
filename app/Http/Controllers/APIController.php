@@ -501,10 +501,10 @@ class APIController extends Controller
     {
         $stats = Cache::remember('admin_stats', now()->addDays(5), function () {
             return [
-                'programs' => \App\Models\Program::count(),
-                'notices'  => \App\Models\Notice::count(),
-                'leaders'  => \App\Models\Leader::count(),
-                'sliders'  => \App\Models\Slider::count(),
+                'programs' => Program::count(),
+                'notices'  => Notice::count(),
+                'leaders'  => Leader::count(),
+                'sliders'  => Slider::count(),
             ];
         });
 
