@@ -457,22 +457,22 @@ class APIController extends Controller
         }
     }
 
-    public function destroy($id)
-        {
-            $slider = Slider::find($id);
-            if (!$slider) {
-                return response()->json(['message' => 'Not found'], 404);
-            }
-
-            // ফোল্ডার থেকে ফাইল ডিলিট করা
-            $imagePath = public_path('/images/sliders/' . $slider->image);
-            if (File::exists($imagePath)) {
-                File::delete($imagePath);
-            }
-
-            $slider->delete();
-            return response()->json(['message' => 'Deleted successfully'], 200);
+    public function deleteSlider($id)
+    {
+        $slider = Slider::find($id);
+        if (!$slider) {
+            return response()->json(['message' => 'Not found'], 404);
         }
+
+        // ফোল্ডার থেকে ফাইল ডিলিট করা
+        $imagePath = public_path('/images/sliders/' . $slider->image);
+        if (File::exists($imagePath)) {
+            File::delete($imagePath);
+        }
+
+        $slider->delete();
+        return response()->json(['message' => 'Deleted successfully'], 200);
+    }
 
     public function getAdminStats()
     {
