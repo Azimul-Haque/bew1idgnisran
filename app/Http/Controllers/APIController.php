@@ -500,7 +500,7 @@ class APIController extends Controller
     public function getAdminStats() 
     {
         // 'admin_stats' কী (key) ব্যবহার করে ১০ মিনিটের জন্য ক্যাশ করা হচ্ছে
-        $stats = \Cache::remember('admin_stats', 600, function () {
+        $stats = Cache::remember('admin_stats', 600, function () {
             return [
                 'programs' => \App\Models\Program::count(),
                 'notices'  => \App\Models\Notice::count(),
