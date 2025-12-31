@@ -453,7 +453,7 @@ class APIController extends Controller
                 'serial' => $request->serial ?? 1 // যদি ইউজার সিরিয়াল না দেয় তবে ডিফল্ট ০
             ]);
 
-            return response()->json(['message' => 'Uploaded successfully', 'data' => $slider], 201);
+            return response()->json(['message' => 'সফলভাবে আপলোড করা হয়েছে!', 'data' => $slider], 201);
         }
     }
 
