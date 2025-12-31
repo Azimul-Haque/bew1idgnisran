@@ -250,7 +250,7 @@ class APIController extends Controller
                 $data = null, 
                 $buttons = null, 
                 $schedule = null,
-                $headings = $request->headings,
+                $headings = $request->title,
             );
         }
 
