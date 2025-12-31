@@ -238,7 +238,8 @@ class APIController extends Controller
         }
 
         $notice->save();
-        Cache::forget('notices_list'); // নতুন ডাটা আসলে ক্যাশ ক্লিয়ার
+        Cache::forget('notices_list');
+        Cache::forget('admin_stats');
 
         return response()->json([
             'status' => 'success',
