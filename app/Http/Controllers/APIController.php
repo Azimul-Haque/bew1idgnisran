@@ -440,7 +440,7 @@ class APIController extends Controller
     public function getSliders()
     {
         // 'sliders_list' কী (key) ব্যবহার করে ক্যাশ থেকে ডেটা রিটার্ন করবে
-        $sliders = \Cache::rememberForever('sliders_list', function () {
+        $sliders = Cache::rememberForever('sliders_list', function () {
             return Slider::orderBy('serial', 'asc')->get();
         });
 
