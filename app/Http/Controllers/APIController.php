@@ -443,10 +443,10 @@ class APIController extends Controller
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');
-            $name = 'slider_' . time() . '.' . $image->getClientOriginalExtension();
-            
-            $destinationPath = public_path('/images/sliders');
-            $image->move($destinationPath, $name);
+            $filename = 'leader-' . time() . '.' . $image->getClientOriginalExtension();
+            $location = public_path('images/leaders/' . $filename);
+            \Image::make($image)->fit(300, 300)->save($location);
+            $leader->image = $filename;
 
             $slider = Slider::create([
                 'image' => $name,
