@@ -434,6 +434,29 @@ class APIController extends Controller
         return response()->json(['data' => $sliders], 200);
     }
 
+    public function store(Request $request)
+    {
+        $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'serial' => 'nullable|integer', // সিরিয়াল ভ্যালিডেশন
+        ]);
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $name = 'slider_' . time() . '.' . $image->getClientOriginalExtension();
+            
+            $destinationPath = public_path('/images/sliders');
+            $image->move($destinationPath, $name);
+
+            $slider = Slider::create([
+                'image' => $name,
+                'serial' => $request->serial ?? 0 // যদি ইউজার সিরিয়াল না দেয় তবে ডিফল্ট ০
+            ]);
+
+            return response()->json(['message' => 'Uploaded successfully', 'data' => $slider], 201);
+        }
+    }
+
     public function getAdminStats()
     {
         return response()->json([
