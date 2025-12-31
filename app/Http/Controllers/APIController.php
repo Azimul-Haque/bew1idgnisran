@@ -308,7 +308,8 @@ class APIController extends Controller
             }
             
             $notice->delete();
-            Cache::forget('notices_list'); // ডিলিট হলে ক্যাশ ক্লিয়ার
+            Cache::forget('notices_list');
+            Cache::forget('admin_stats');
             
             return response()->json(['status' => 'success', 'message' => 'ঘোষণাটি মুছে ফেলা হয়েছে']);
         }
