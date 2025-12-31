@@ -445,19 +445,23 @@ class APIController extends Controller
             'serial' => 'nullable|integer',
         ]);
 
-        if ($request->hasFile('image'))
-        {
+        if ($request->hasFile('image')) {
             $image = $request->file('image');
             $filename = 'slider-' . time() . '.' . $image->getClientOriginalExtension();
             $location = public_path('images/sliders/' . $filename);
+            
+            // ইমেজ রিসাইজ ও সেভ
             \Image::make($image)->fit(850, 400)->save($location);
 
             $slider = Slider::create([
                 'image' => $filename,
-                'serial' => $request->serial ?? 1 // যদি ইউজার সিরিয়াল না দেয় তবে ডিফল্ট ০
+                'serial' => $request->serial ?? 1 
             ]);
 
-            return response()->json(['message' => 'সফলভাবে আপলোড করা হয়েছে!', 'data' => $slider], 201);
+            // নতুন ডাটা যোগ হওয়ায় ক্যাশ ক্লিয়ার করা হচ্ছে
+            \Cache::forget('sliders_list');
+
+            return response()->json(['message' => 'সফলভাবে আপলোড করা হয়েছে!', 'data' => $slider], 201);
         }
     }
 
