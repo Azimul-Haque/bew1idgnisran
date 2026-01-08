@@ -78,6 +78,7 @@ class APIController extends Controller
         $program = new Program();
         $program->name = $request->name;
         $program->type = $request->type;
+        $program->organizer = $request->organizer;
         $program->venue = $request->venue;
         $program->map_link = $request->map_link;
         $program->program_date = $request->program_date;
@@ -129,6 +130,7 @@ class APIController extends Controller
         // ডাটা আপডেট করা
         $program->name = $request->name;
         $program->type = $request->type;
+        $program->organizer = $request->organizer;
         $program->venue = $request->venue;
         $program->map_link = $request->map_link;
         $program->program_date = $request->program_date;

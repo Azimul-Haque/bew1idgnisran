@@ -17,6 +17,7 @@ class CreateProgramsTable extends Migration
         $table->id();
         $table->string('name'); // কর্মসূচির নাম
         $table->string('type'); // ধরন (জনসংযোগ, মিছিল ইত্যাদি)
+        $table->string('organizer'); // আয়োজক
         $table->string('venue'); // সমাবেশের স্থান
         $table->text('map_link')->nullable(); // গুগল ম্যাপ লিংক
         $table->dateTime('program_date'); // তারিখ ও সময়
