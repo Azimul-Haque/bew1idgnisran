@@ -195,10 +195,8 @@ class APIController extends Controller
         return response()->json(['message' => 'পাওয়া যায়নি'], 404);
     }
 
-    public function storeProgramAtt(Request $request, $id)
+    public function storeProgramAtt(Request $request)
     {
-        $program = Program::find($id);
-
         $validator = Validator::make($request->all(), [
             'program_id'    => 'required|integer',
             'device_id'     => 'required|string',
