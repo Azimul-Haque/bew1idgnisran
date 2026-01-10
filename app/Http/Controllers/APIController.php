@@ -254,7 +254,7 @@ class APIController extends Controller
                               ->get();
         });
 
-        return response()->json(['status' => 'success', 'data' => $data]);
+        return response()->json(['status' => 'success', 'data' => $data], 200);
     }
 
     // ১. সব নোটিস ক্যাশ থেকে রিটার্ন করা
