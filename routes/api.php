@@ -35,6 +35,10 @@ Route::get('/sliders/list', 'APIController@getSliders')->name('api.list.sliders'
 Route::post('/sliders/store', 'APIController@storeSlider')->name('api.store.slider');
 Route::delete('/sliders/delete/{id}', 'APIController@deleteSlider')->name('api.delete.slider');
 
+Route::get('/sliders/list', 'APIController@getSliders')->name('api.list.sliders');
+Route::post('/sliders/store', 'APIController@storeSlider')->name('api.store.slider');
+Route::delete('/sliders/delete/{id}', 'APIController@deleteSlider')->name('api.delete.slider');
+
 Route::get('admin/stats', 'APIController@getAdminStats')->name('api.admin.stats');
 
 
