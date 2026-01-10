@@ -197,29 +197,25 @@ class APIController extends Controller
 
     public function storeProgramAtt(Request $request)
     {
-        $this->validate($request,array(
-            'program_id'        => 'required',
-            'device_id'         => 'required',
-            'attendee_name'     => 'required|string|max:255',
-        ));
-
-        return response()->json([
-            'status' => 'success',
-            'message' => 'এ পর্যন্ত'
-        ], 200);
+        // ১. ভ্যালিডেশন
+        $this->validate($request, [
+            'program_id'    => 'required',
+            'device_id'     => 'required',
+            'attendee_name' => 'required|string|max:255',
+        ]);
 
         try {
-            // ২. চেক করা হচ্ছে এই ডিভাইস আইডি দিয়ে এই প্রোগ্রামে আগে এন্ট্রি হয়েছে কি না
-            // এখানে আমরা 'firstOrCreate' বা 'where' ব্যবহার করতে পারি
+            // ২. চেক করা: এই ডিভাইস থেকে এই প্রোগ্রামে আগে এন্ট্রি হয়েছে কি না
+            // নিশ্চিত হয়ে নিন আপনার মডেলের নাম 'Programatt'
             $alreadyExists = Programatt::where('program_id', $request->program_id)
-                                ->where('device_id', $request->device_id)
-                                ->exists();
+                                        ->where('device_id', $request->device_id)
+                                        ->exists();
 
             if ($alreadyExists) {
                 return response()->json([
                     'status' => 'duplicate',
                     'message' => 'এই ডিভাইস থেকে ইতিমধ্যে উপস্থিতি নিশ্চিত করা হয়েছে।'
-                ], 403);
+                ], 403); // ডুপ্লিকেটের জন্য ৪‌০৩ স্ট্যাটাস কোড
             }
 
             // ৩. ডাটাবেসে সেভ করা
@@ -236,6 +232,7 @@ class APIController extends Controller
             ], 200);
 
         } catch (\Exception $e) {
+            // কোনো এরর হলে এখানে আসবে
             return response()->json([
                 'status' => 'error',
                 'message' => 'সার্ভারে সমস্যা হয়েছে: ' . $e->getMessage()
