@@ -617,6 +617,7 @@ class ComposerStaticInitd99be2aa22b662638be63ef18831ea06
         'App\\Notice' => __DIR__ . '/../..' . '/app/Notice.php',
         'App\\Notification' => __DIR__ . '/../..' . '/app/Notification.php',
         'App\\Program' => __DIR__ . '/../..' . '/app/Program.php',
+        'App\\Programatt' => __DIR__ . '/../..' . '/app/Programatt.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',

@@ -14,6 +14,7 @@ use App\Notice;
 use App\Leader;
 use App\Slider;
 use App\Gallery;
+use App\Programatt;
 
 use App\Message;
 
@@ -192,6 +193,55 @@ class APIController extends Controller
         }
 
         return response()->json(['message' => 'পাওয়া যায়নি'], 404);
+    }
+
+    public function storeProgramAtt(Request $request, $id)
+    {
+        $program = Program::find($id);
+
+        $validator = Validator::make($request->all(), [
+            'program_id'    => 'required|integer',
+            'device_id'     => 'required|string',
+            'attendee_name' => 'required|string|max:255',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['status' => 'error', 'errors' => $validator->errors()], 422);
+        }
+
+        try {
+            // ২. চেক করা হচ্ছে এই ডিভাইস আইডি দিয়ে এই প্রোগ্রামে আগে এন্ট্রি হয়েছে কি না
+            // এখানে আমরা 'firstOrCreate' বা 'where' ব্যবহার করতে পারি
+            $alreadyExists = Programatt::where('program_id', $request->program_id)
+                                ->where('device_id', $request->device_id)
+                                ->exists();
+
+            if ($alreadyExists) {
+                return response()->json([
+                    'status' => 'duplicate',
+                    'message' => 'এই ডিভাইস থেকে ইতিমধ্যে উপস্থিতি নিশ্চিত করা হয়েছে।'
+                ], 403);
+            }
+
+            // ৩. ডাটাবেসে সেভ করা
+            $attendance = new Programatt();
+            $attendance->program_id    = $request->program_id;
+            $attendance->device_id     = $request->device_id;
+            $attendance->attendee_name = $request->attendee_name;
+            $attendance->save();
+
+            return response()->json([
+                'status' => 'success',
+                'message' => 'উপস্থিতি সফলভাবে সংরক্ষিত হয়েছে।',
+                'data' => $attendance
+            ], 200);
+
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'সার্ভারে সমস্যা হয়েছে: ' . $e->getMessage()
+            ], 500);
+        }
     }
 
     // ১. সব নোটিস ক্যাশ থেকে রিটার্ন করা

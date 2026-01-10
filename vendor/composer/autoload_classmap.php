@@ -41,6 +41,7 @@ return array(
     'App\\Notice' => $baseDir . '/app/Notice.php',
     'App\\Notification' => $baseDir . '/app/Notification.php',
     'App\\Program' => $baseDir . '/app/Program.php',
+    'App\\Programatt' => $baseDir . '/app/Programatt.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',
     'App\\Providers\\BroadcastServiceProvider' => $baseDir . '/app/Providers/BroadcastServiceProvider.php',
