@@ -225,6 +225,8 @@ class APIController extends Controller
             $attendance->attendee_name = $request->attendee_name;
             $attendance->save();
 
+            Cache::forget('programs_list');
+
             return response()->json([
                 'status' => 'success',
                 'message' => 'উপস্থিতি সফলভাবে সংরক্ষিত হয়েছে।',
