@@ -39,6 +39,8 @@ Route::get('/gallery/list', 'APIController@getGallery')->name('api.list.gallery'
 Route::post('/gallery/store', 'APIController@storeGallery')->name('api.store.gallery');
 Route::delete('/gallery/delete/{id}', 'APIController@deleteGallery')->name('api.delete.gallery');
 
+Route::get('/election/manifesto', 'APIController@deleteGallery')->name('api.delete.gallery');
+
 Route::get('admin/stats', 'APIController@getAdminStats')->name('api.admin.stats');
 
 
