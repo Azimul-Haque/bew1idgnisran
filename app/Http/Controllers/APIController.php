@@ -209,7 +209,7 @@ class APIController extends Controller
             // নিশ্চিত হয়ে নিন আপনার মডেলের নাম 'Programatt'
             $alreadyExists = Programatt::where('program_id', $request->program_id)
                                         ->where('device_id', $request->device_id)
-                                        ->exists();
+                                        ->first();
 
             if ($alreadyExists) {
                 return response()->json([
