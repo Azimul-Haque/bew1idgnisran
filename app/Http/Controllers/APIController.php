@@ -215,7 +215,7 @@ class APIController extends Controller
                 return response()->json([
                     'status' => 'duplicate',
                     'message' => 'এই ডিভাইস থেকে ইতিমধ্যে উপস্থিতি নিশ্চিত করা হয়েছে।'
-                ], 403); // ডুপ্লিকেটের জন্য ৪‌০৩ স্ট্যাটাস কোড
+                ], 403); 
             }
 
             // ৩. ডাটাবেসে সেভ করা
