@@ -536,39 +536,39 @@ class APIController extends Controller
     }
 
     public function storeGallery(Request $request)
-{
-    $request->validate([
-        'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
-        'serial' => 'nullable|integer',
-    ]);
-
-    if ($request->hasFile('image')) {
-        $image = $request->file('image');
-        $filename = 'gallery-' . time() . '.webp';
-        $location = public_path('images/gallery/' . $filename);
-        
-        // ডিরেক্টরি না থাকলে তৈরি করা
-        if (!\File::isDirectory(public_path('images/gallery/'))) {
-            \File::makeDirectory(public_path('images/gallery/'), 0777, true);
-        }
-
-        // গ্যালারি ইমেজের জন্য রিসাইজ (৮০০x৮০০ বা আপনার পছন্দমতো)
-        \Image::make($image)->resize(500, null, function ($constraint) {
-            $constraint->aspectRatio();
-        })->encode('webp', 90)->save($location);
-
-        $gallery = Gallery::create([
-            'image' => $filename,
-            'serial' => $request->serial ?? 1 
+    {
+        $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'serial' => 'nullable|integer',
         ]);
 
-        // ক্যাশ ক্লিয়ার করা
-        Cache::forget('gallery_list');
-        Cache::forget('admin_stats');
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $filename = 'gallery-' . time() . '.webp';
+            $location = public_path('images/gallery/' . $filename);
+            
+            // ডিরেক্টরি না থাকলে তৈরি করা
+            if (!\File::isDirectory(public_path('images/gallery/'))) {
+                \File::makeDirectory(public_path('images/gallery/'), 0777, true);
+            }
 
-        return response()->json(['message' => 'সফলভাবে আপলোড করা হয়েছে!', 'data' => $gallery], 201);
+            // গ্যালারি ইমেজের জন্য রিসাইজ (৮০০x৮০০ বা আপনার পছন্দমতো)
+            \Image::make($image)->resize(500, null, function ($constraint) {
+                $constraint->aspectRatio();
+            })->encode('webp', 90)->save($location);
+
+            $gallery = Gallery::create([
+                'image' => $filename,
+                'serial' => $request->serial ?? 1 
+            ]);
+
+            // ক্যাশ ক্লিয়ার করা
+            Cache::forget('gallery_list');
+            Cache::forget('admin_stats');
+
+            return response()->json(['message' => 'সফলভাবে আপলোড করা হয়েছে!', 'data' => $gallery], 201);
+        }
     }
-}
 
     public function deleteGallery($id)
     {
