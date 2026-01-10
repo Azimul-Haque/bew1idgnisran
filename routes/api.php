@@ -20,7 +20,7 @@ Route::post('programs/store', 'APIController@storeProgram')->name('api.store.pro
 Route::post('programs/update/{id}', 'APIController@updateProgram')->name('api.update.program');
 Route::delete('programs/delete/{id}', 'APIController@deleteProgram')->name('api.delete.program');
 Route::post('program/attend', 'APIController@storeProgramAtt')->name('api.attend.program');
-Route::get('programs/{id}/attendees', 'APIController@storeProgramAtt')->name('api.attend.program');
+Route::get('programs/{id}/attendees', 'APIController@getAttendees')->name('api.programs.attendees');
 
 Route::get('notices/list', 'APIController@getNotices')->name('api.list.notices');
 Route::post('notices/store', 'APIController@storeNotice')->name('api.store.notice');
