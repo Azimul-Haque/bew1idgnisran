@@ -197,18 +197,10 @@ class APIController extends Controller
 
     public function storeProgramAtt(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'program_id'    => 'required|integer',
-            'device_id'     => 'required|string',
-            'attendee_name' => 'required|string|max:255',
-        ]);
-
         $this->validate($request,array(
             'program_id'        => 'required',
             'device_id'         => 'required',
-            'attendee_name'     => 'required',
-            'name'        => 'required|max:191',
-            'softtoken'   => 'required|max:191'
+            'attendee_name'     => 'required|string|max:255',
         ));
 
         if ($validator->fails()) {
