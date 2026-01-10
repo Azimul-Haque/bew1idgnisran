@@ -204,9 +204,9 @@ class APIController extends Controller
         ]);
 
         $this->validate($request,array(
-            'mobile'         => 'required',
-            'uid'         => 'required',
-            'onesignal_id'         => 'sometimes',
+            'program_id'         => 'required',
+            'device_id'         => 'required',
+            'attendee_name'         => 'sometimes',
             'name'        => 'required|max:191',
             'softtoken'   => 'required|max:191'
         ));
