@@ -12,4 +12,8 @@ class Programatt extends Model
     {
         return $this->belongsTo(Program::class);
     }
+
+    public function program() {
+      return $this->belongsTo('App\User');
+    }
 }
