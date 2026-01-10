@@ -204,8 +204,8 @@ class APIController extends Controller
         ));
 
         return response()->json([
-            'status' => 'duplicate',
-            'message' => 'এই ডিভাইস থেকে ইতিমধ্যে উপস্থিতি নিশ্চিত করা হয়েছে।'
+            'status' => 'success',
+            'message' => 'এ পর্যন্ত'
         ], 200);
 
         try {
