@@ -572,21 +572,21 @@ class APIController extends Controller
 
     public function deleteGallery($id)
     {
-        $slider = Slider::find($id);
-        if (!$slider) {
+        $gallery = Gallery::find($id);
+        if (!$gallery) {
             return response()->json(['message' => 'Not found'], 404);
         }
 
         // ফোল্ডার থেকে ফাইল ডিলিট
-        $imagePath = public_path('/images/sliders/' . $slider->image);
+        $imagePath = public_path('/images/gallery/' . $gallery->image);
         if (\File::exists($imagePath)) {
             \File::delete($imagePath);
         }
 
-        $slider->delete();
+        $gallery->delete();
 
-        // ডাটা ডিলিট হওয়ায় ক্যাশ ক্লিয়ার করা হচ্ছে
-        Cache::forget('sliders_list');
+        // ক্যাশ ক্লিয়ার করা
+        Cache::forget('gallery_list');
         Cache::forget('admin_stats');
 
         return response()->json(['message' => 'মুছে ফেলা হয়েছে'], 200);
