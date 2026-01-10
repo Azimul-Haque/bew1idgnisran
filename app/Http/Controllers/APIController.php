@@ -553,7 +553,7 @@ class APIController extends Controller
         }
 
         // গ্যালারি ইমেজের জন্য রিসাইজ (৮০০x৮০০ বা আপনার পছন্দমতো)
-        \Image::make($image)->resize(800, null, function ($constraint) {
+        \Image::make($image)->resize(500, null, function ($constraint) {
             $constraint->aspectRatio();
         })->encode('webp', 90)->save($location);
 
