@@ -203,10 +203,6 @@ class APIController extends Controller
             'attendee_name'     => 'required|string|max:255',
         ));
 
-        if ($validator->fails()) {
-            return response()->json(['status' => 'error', 'errors' => $validator->errors()], 422);
-        }
-
         try {
             // ২. চেক করা হচ্ছে এই ডিভাইস আইডি দিয়ে এই প্রোগ্রামে আগে এন্ট্রি হয়েছে কি না
             // এখানে আমরা 'firstOrCreate' বা 'where' ব্যবহার করতে পারি
