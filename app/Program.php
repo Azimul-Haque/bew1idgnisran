@@ -10,4 +10,8 @@ class Program extends Model
     {
         return $this->hasMany(ProgramAttendance::class);
     }
+
+    public function attendances() {
+      return $this->belongsTo('App\Program');
+    }
 }
