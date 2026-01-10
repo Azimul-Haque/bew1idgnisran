@@ -227,6 +227,7 @@ class APIController extends Controller
             $attendance->attendee_name = $request->attendee_name;
             $attendance->save();
 
+            Cache::forget('attendees_list_' . $request->program_id);
             Cache::forget('programs_list');
 
             return response()->json([
