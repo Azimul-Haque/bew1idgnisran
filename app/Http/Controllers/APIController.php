@@ -525,6 +525,66 @@ class APIController extends Controller
         return response()->json(['message' => 'মুছে ফেলা হয়েছে'], 200);
     }
 
+    public function getGallery()
+    {
+        // 'sliders_list' কী (key) ব্যবহার করে ক্যাশ থেকে ডেটা রিটার্ন করবে
+        $sliders = Cache::rememberForever('sliders_list', function () {
+            return Slider::orderBy('serial', 'asc')->get();
+        });
+
+        return response()->json(['data' => $sliders], 200);
+    }
+
+    public function storeGallery(Request $request)
+    {
+        $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'serial' => 'nullable|integer',
+        ]);
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $filename = 'slider-' . time() . '.webp';
+            $location = public_path('images/sliders/' . $filename);
+            
+            // ইমেজ রিসাইজ ও সেভ
+            \Image::make($image)->fit(850, 400)->encode('webp', 90)->save($location);
+
+            $slider = Slider::create([
+                'image' => $filename,
+                'serial' => $request->serial ?? 1 
+            ]);
+
+            // নতুন ডাটা যোগ হওয়ায় ক্যাশ ক্লিয়ার করা হচ্ছে
+            Cache::forget('sliders_list');
+            Cache::forget('admin_stats');
+
+            return response()->json(['message' => 'সফলভাবে আপলোড করা হয়েছে!', 'data' => $slider], 201);
+        }
+    }
+
+    public function deleteGallery($id)
+    {
+        $slider = Slider::find($id);
+        if (!$slider) {
+            return response()->json(['message' => 'Not found'], 404);
+        }
+
+        // ফোল্ডার থেকে ফাইল ডিলিট
+        $imagePath = public_path('/images/sliders/' . $slider->image);
+        if (\File::exists($imagePath)) {
+            \File::delete($imagePath);
+        }
+
+        $slider->delete();
+
+        // ডাটা ডিলিট হওয়ায় ক্যাশ ক্লিয়ার করা হচ্ছে
+        Cache::forget('sliders_list');
+        Cache::forget('admin_stats');
+
+        return response()->json(['message' => 'মুছে ফেলা হয়েছে'], 200);
+    }
+
     public function getAdminStats() 
     {
         $stats = Cache::remember('admin_stats', now()->addDays(5), function () {
