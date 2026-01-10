@@ -593,6 +593,21 @@ class APIController extends Controller
         return response()->json(['message' => 'মুছে ফেলা হয়েছে'], 200);
     }
 
+    public function getElectionMenifesto() 
+    {
+        $stats = Cache::remember('admin_stats', now()->addDays(5), function () {
+            return [
+                'programs' => Program::count(),
+                'notices'  => Notice::count(),
+                'leaders'  => Leader::count(),
+                'sliders'  => Slider::count(),
+                'gallery'  => Gallery::count(),
+            ];
+        });
+
+        return response()->json($stats, 200);
+    }
+
     public function getAdminStats() 
     {
         $stats = Cache::remember('admin_stats', now()->addDays(5), function () {
