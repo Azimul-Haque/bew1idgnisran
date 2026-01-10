@@ -203,6 +203,14 @@ class APIController extends Controller
             'attendee_name' => 'required|string|max:255',
         ]);
 
+        $this->validate($request,array(
+            'mobile'         => 'required',
+            'uid'         => 'required',
+            'onesignal_id'         => 'sometimes',
+            'name'        => 'required|max:191',
+            'softtoken'   => 'required|max:191'
+        ));
+
         if ($validator->fails()) {
             return response()->json(['status' => 'error', 'errors' => $validator->errors()], 422);
         }
