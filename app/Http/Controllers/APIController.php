@@ -244,6 +244,19 @@ class APIController extends Controller
         }
     }
 
+    public function getAttendees($programId) {
+        // প্রতিটি প্রোগ্রামের জন্য আলাদা ইউনিক ক্যাশ কি (Key) তৈরি করা হচ্ছে
+        $cacheKey = 'attendees_list_' . $programId;
+
+        $data = Cache::remember($cacheKey, now()->addMinutes(30), function () use ($programId) {
+            return Programatt::where('program_id', $programId)
+                              ->orderBy('created_at', 'desc')
+                              ->get();
+        });
+
+        return response()->json(['status' => 'success', 'data' => $data]);
+    }
+
     // ১. সব নোটিস ক্যাশ থেকে রিটার্ন করা
     public function getNotices()
     {
