@@ -206,7 +206,7 @@ class APIController extends Controller
         return response()->json([
             'status' => 'duplicate',
             'message' => 'এই ডিভাইস থেকে ইতিমধ্যে উপস্থিতি নিশ্চিত করা হয়েছে।'
-        ], 403);
+        ], 200);
 
         try {
             // ২. চেক করা হচ্ছে এই ডিভাইস আইডি দিয়ে এই প্রোগ্রামে আগে এন্ট্রি হয়েছে কি না
