@@ -36,8 +36,8 @@ Route::post('/sliders/store', 'APIController@storeSlider')->name('api.store.slid
 Route::delete('/sliders/delete/{id}', 'APIController@deleteSlider')->name('api.delete.slider');
 
 Route::get('/gallery/list', 'APIController@getGallery')->name('api.list.gallery');
-Route::post('/gallery/store', 'APIController@storeSlider')->name('api.store.slider');
-Route::delete('/gallery/delete/{id}', 'APIController@deleteSlider')->name('api.delete.slider');
+Route::post('/gallery/store', 'APIController@storeGallery')->name('api.store.gallery');
+Route::delete('/gallery/delete/{id}', 'APIController@deleteGallery')->name('api.delete.gallery');
 
 Route::get('admin/stats', 'APIController@getAdminStats')->name('api.admin.stats');
 
