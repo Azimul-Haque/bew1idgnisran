@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Program extends Model
 {
-    public function attendances() {
+    public function programatts() {
       return $this->hasMany('App\Programatt');
     }
 }
