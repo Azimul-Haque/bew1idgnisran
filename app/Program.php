@@ -12,6 +12,6 @@ class Program extends Model
     }
 
     public function attendances() {
-      return $this->belongsTo('App\Program');
+      return $this->hasMany('App\ProgramAtt');
     }
 }
