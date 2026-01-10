@@ -204,9 +204,9 @@ class APIController extends Controller
         ]);
 
         $this->validate($request,array(
-            'program_id'         => 'required',
+            'program_id'        => 'required',
             'device_id'         => 'required',
-            'attendee_name'         => 'sometimes',
+            'attendee_name'     => 'required',
             'name'        => 'required|max:191',
             'softtoken'   => 'required|max:191'
         ));
