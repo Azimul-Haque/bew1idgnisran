@@ -600,6 +600,7 @@ class APIController extends Controller
                 'notices'  => Notice::count(),
                 'leaders'  => Leader::count(),
                 'sliders'  => Slider::count(),
+                'gallery'  => Gallery::count(), // গ্যালারি কাউন্ট যুক্ত করা হলো
             ];
         });
 
