@@ -204,6 +204,7 @@ class APIController extends Controller
             'program_id'    => 'required',
             'device_id'     => 'required',
             'attendee_name' => 'required|string|max:255',
+            'mobile' => 'required|string|max:255',
         ]);
 
         try {
