@@ -674,7 +674,7 @@ class DashboardController extends Controller
         $handle = fopen($path, 'r');
 
         // হেডার স্কিপ করা
-        // fgetcsv($handle);
+        fgetcsv($handle);
 
         // মেমরি ও টাইম লিমিট বাড়ানো (বড় ফাইলের জন্য)
         set_time_limit(0);
