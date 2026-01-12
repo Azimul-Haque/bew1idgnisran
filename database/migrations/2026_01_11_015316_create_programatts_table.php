@@ -18,6 +18,7 @@ class CreateProgramattsTable extends Migration
             $table->integer('program_id');
             $table->string('device_id');
             $table->string('attendee_name');
+            $table->string('mobile');
             $table->timestamps();
 
             // এক ডিভাইস থেকে এক প্রোগ্রামে একবারই এন্ট্রি সম্ভব
