@@ -51,6 +51,7 @@ return array(
     'App\\Slider' => $baseDir . '/app/Slider.php',
     'App\\User' => $baseDir . '/app/User.php',
     'App\\Userotp' => $baseDir . '/app/Userotp.php',
+    'App\\Voter' => $baseDir . '/app/Voter.php',
     'Asm89\\Stack\\Cors' => $vendorDir . '/asm89/stack-cors/src/Asm89/Stack/Cors.php',
     'Asm89\\Stack\\CorsService' => $vendorDir . '/asm89/stack-cors/src/Asm89/Stack/CorsService.php',
     'Attribute' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',

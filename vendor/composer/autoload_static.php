@@ -627,6 +627,7 @@ class ComposerStaticInitd99be2aa22b662638be63ef18831ea06
         'App\\Slider' => __DIR__ . '/../..' . '/app/Slider.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'App\\Userotp' => __DIR__ . '/../..' . '/app/Userotp.php',
+        'App\\Voter' => __DIR__ . '/../..' . '/app/Voter.php',
         'Asm89\\Stack\\Cors' => __DIR__ . '/..' . '/asm89/stack-cors/src/Asm89/Stack/Cors.php',
         'Asm89\\Stack\\CorsService' => __DIR__ . '/..' . '/asm89/stack-cors/src/Asm89/Stack/CorsService.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
