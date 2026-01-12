@@ -15,6 +15,7 @@ use App\Leader;
 use App\Slider;
 use App\Gallery;
 use App\Programatt;
+use App\Voter;
 
 use App\Message;
 
