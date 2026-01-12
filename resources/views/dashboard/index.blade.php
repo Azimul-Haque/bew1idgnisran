@@ -155,7 +155,7 @@
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>
-                        <a href="{{ route('dashboard.clearquerycache') }}" class="btn btn-success">ক্যাশ ক্লিয়ার করুন</a>
+                        <button type="submit" class="btn btn-primary">আপলোড শুরু করুন</button>
                       </div>
                       </form> 
                   </div>
