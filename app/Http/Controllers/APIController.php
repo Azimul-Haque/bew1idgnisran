@@ -671,29 +671,34 @@ class APIController extends Controller
 
     public function getVoters(Request $request)
     {
-        // ১. কুয়েরি শুরু করা
-        $query = Voter::query();
+        $area = $request->area_name;
+        $search = $request->search;
+        $page = $request->page ?? 1;
 
-        // ২. এরিয়া বা ভোটকেন্দ্র অনুযায়ী ফিল্টার (আবশ্যিক)
-        if ($request->has('area_name') && $request->area_name != "") {
-            $query->where('area_name', $request->area_name);
+        // ১. সার্চ থাকলে ক্যাশ ছাড়াই সরাসরি কুয়েরি (সার্চ সবসময় পরিবর্তনশীল হয়)
+        if ($request->filled('search')) {
+            $voters = Voter::where('area_name', $area)
+                ->where(function($q) use ($search) {
+                    $q->where('name', 'LIKE', "%$search%")
+                      ->orWhere('voter_no', 'LIKE', "$search%");
+                })
+                ->orderBy('serial', 'asc')
+                ->paginate(15);
+                
+            return response()->json($voters, 200);
         }
 
-        // ৩. সার্চ লজিক (নাম অথবা ভোটার নম্বর দিয়ে)
-        if ($request->has('search') && $request->search != "") {
-            $search = $request->search;
-            $query->where(function($q) use ($search) {
-                $q->where('name', 'LIKE', "%$search%")
-                  ->orWhere('voter_no', 'LIKE', "$search%"); // ভোটার নং এ LIKE % শুরুতে না দেওয়া ভালো পারফরম্যান্সের জন্য
-            });
-        }
+        // ২. সার্চ না থাকলে ক্যাশ লজিক (৫০০ ইউজারের জন্য সুপার ফাস্ট পারফরম্যান্স দেবে)
+        // ক্যাশ কি (Cache Key) হিসেবে এরিয়া এবং পেজ নম্বর ব্যবহার করা হয়েছে
+        $cacheKey = "voters_list_" . str_replace(' ', '_', $area) . "_page_" . $page;
 
-        // ৪. সিরিয়াল অনুযায়ী সর্টিং এবং পেজিনেশন
-        // প্রতি পেজে ১৫টি করে ডাটা লোড হবে
-        $voters = $query->orderBy('serial', 'asc')
-                        ->paginate(15);
+        $voters = \Cache::remember($cacheKey, now()->addHours(24), function () use ($area) {
+            return Voter::where('area_name', $area)
+                ->orderBy('serial', 'asc')
+                ->paginate(15);
+        });
 
-        // ৫. জেএসন রেসপন্স পাঠানো
+        // ৩. জেএসন রেসপন্স পাঠানো
         return response()->json($voters, 200);
     }
 
