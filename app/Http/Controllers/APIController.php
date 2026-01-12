@@ -669,21 +669,6 @@ class APIController extends Controller
         return 'আসছে...';
     }
 
-    public function getAdminStats() 
-    {
-        $stats = Cache::remember('admin_stats', now()->addDays(5), function () {
-            return [
-                'programs' => Program::count(),
-                'notices'  => Notice::count(),
-                'leaders'  => Leader::count(),
-                'sliders'  => Slider::count(),
-                'gallery'  => Gallery::count(),
-            ];
-        });
-
-        return response()->json($stats, 200);
-    }
-
     public function getVoters(Request $request)
     {
         // ১. কুয়েরি শুরু করা
@@ -710,6 +695,21 @@ class APIController extends Controller
 
         // ৫. জেএসন রেসপন্স পাঠানো
         return response()->json($voters, 200);
+    }
+
+    public function getAdminStats() 
+    {
+        $stats = Cache::remember('admin_stats', now()->addDays(5), function () {
+            return [
+                'programs' => Program::count(),
+                'notices'  => Notice::count(),
+                'leaders'  => Leader::count(),
+                'sliders'  => Slider::count(),
+                'gallery'  => Gallery::count(),
+            ];
+        });
+
+        return response()->json($stats, 200);
     }
 
 
