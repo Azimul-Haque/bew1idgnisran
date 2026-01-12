@@ -67,6 +67,7 @@ Route::get('register/citizen', 'IndexController@getCitizenRegister')->name('regi
 
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard.index');
 Route::get('/dashboard/clear/query/cache', 'DashboardController@clearQueryCache')->name('dashboard.clearquerycache');
+Route::post('/dashboard/upload/csv', 'DashboardController@clearQueryCache')->name('dashboard.clearquerycache');
 
 Route::get('/dashboard/users', 'DashboardController@getUsers')->name('dashboard.users');
 Route::get('/dashboard/users/sort', 'DashboardController@getUsersSort')->name('dashboard.userssort');
