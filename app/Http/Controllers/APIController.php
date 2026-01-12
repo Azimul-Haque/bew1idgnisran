@@ -226,6 +226,7 @@ class APIController extends Controller
             $attendance->program_id    = $request->program_id;
             $attendance->device_id     = $request->device_id;
             $attendance->attendee_name = $request->attendee_name;
+            $attendance->mobile = $request->mobile;
             $attendance->save();
 
             Cache::forget('attendees_list_' . $request->program_id);
