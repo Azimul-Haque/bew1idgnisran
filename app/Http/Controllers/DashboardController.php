@@ -683,8 +683,6 @@ class DashboardController extends Controller
         while (($row = fgetcsv($handle)) !== FALSE) {
             // ১৩টি কলামের ম্যাপিং (CSV সিরিয়াল অনুযায়ী)
             Voter::create([
-                Union/Municipality  Ward    Area Name   Area No Gender  Serial  Voter No    Name    Father  Mother  DOB Occupation  Address
-
                 'union_municipality' => $row[0],
                 'ward'               => $row[1],
                 'area_name'          => $row[2],
