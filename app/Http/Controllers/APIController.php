@@ -443,6 +443,7 @@ class APIController extends Controller
         $request->validate([
             'name' => 'required',
             'designation' => 'required',
+            'type' => 'required',
             'unit' => 'required',
             'serial_priority' => 'required|numeric',
         ]);
