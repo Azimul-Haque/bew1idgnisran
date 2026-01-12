@@ -5,108 +5,123 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy - Narsingdi-1</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Hind+Siliguri:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Hind+Siliguri:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Roboto', sans-serif; background-color: #f8f9fa; color: #333; }
-        .lang-bn { font-family: 'Hind Siliguri', sans-serif; display: none; }
-        .card { border: none; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        .btn-toggle { background-color: #006a4e; color: white; border-radius: 20px; padding: 8px 25px; }
-        .btn-toggle:hover { background-color: #00563f; color: white; }
-        .section-title { color: #006a4e; font-weight: bold; margin-top: 25px; border-left: 4px solid #f42a32; padding-left: 10px; }
+        body { font-family: 'Roboto', sans-serif; background-color: #f4f7f6; color: #2c3e50; line-height: 1.6; }
+        .lang-bn { font-family: 'Hind Siliguri', sans-serif; display: none; text-align: right; }
+        .card { border: none; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); background: white; }
+        .btn-toggle { background: linear-gradient(135deg, #006a4e 0%, #004d39 100%); color: white; border-radius: 30px; padding: 10px 30px; border: none; font-weight: bold; transition: 0.3s; }
+        .btn-toggle:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,106,78,0.3); color: white; }
+        .section-title { color: #006a4e; font-weight: 700; margin-top: 35px; margin-bottom: 15px; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+        .policy-header { background: #006a4e; color: white; padding: 40px; border-radius: 20px 20px 0 0; margin: -48px -48px 40px -48px; }
+        ul li { margin-bottom: 8px; }
+        .highlight { color: #f42a32; font-weight: bold; }
     </style>
 </head>
 <body>
 
 <div class="container my-5">
     <div class="row justify-content-center">
-        <div class="col-md-10">
+        <div class="col-lg-9">
             <div class="card p-4 p-md-5">
-                <div class="d-flex justify-content-between align-items-center mb-4">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Flag_of_Bangladesh.svg" alt="App Logo" style="height: 50px; border-radius: 5px;">
-                    <button class="btn btn-toggle" onclick="toggleLanguage()" id="toggleBtn">Switch to বাংলা</button>
+                
+                <div class="d-flex justify-content-end mb-4">
+                    <button class="btn btn-toggle" onclick="toggleLanguage()" id="toggleBtn">বাংলা সংস্করণ</button>
                 </div>
 
                 <div id="content-en" class="lang-en">
-                    <h1 class="text-center mb-4">Privacy Policy</h1>
-                    <p class="text-muted text-center">Last Updated: January 2026</p>
-                    <p>Welcome to <strong>Narsingdi-1</strong>. This app is developed by <strong>Innova Tech Ltd</strong> as a non-profit, fan-made project to support volunteers and supporters during election campaigns. Your privacy is our priority.</p>
+                    <div class="policy-header text-center">
+                        <h1 class="display-5 fw-bold">Privacy Policy</h1>
+                        <p class="lead mb-0">Narsingdi-1 Application</p>
+                        <small>Effective Date: January 13, 2026</small>
+                    </div>
 
-                    <h3 class="section-title">1. Information Collection</h3>
-                    <p>We only collect data when you voluntarily provide it.
-                        <ul>
-                            <li><strong>Personal Data:</strong> Name and Mobile number are collected only if you choose to record your attendance at a program.</li>
-                            <li><strong>Device Data:</strong> We collect a unique Device ID to prevent duplicate attendance records and ensure data accuracy.</li>
-                        </ul>
-                    </p>
+                    <p><strong>Narsingdi-1</strong> ("the App") is developed by <strong>Innova Tech Ltd</strong>. We are committed to protecting your privacy. This App is a non-profit, fan-based platform designed for supporters and volunteers to stay updated on election campaigns. This policy explains how we handle your data.</p>
 
-                    <h3 class="section-title">2. Use of Device Permissions</h3>
-                    <p>
-                        <ul>
-                            <li><strong>Storage/Gallery:</strong> Used only by Admin users to upload optional program images or notices.</li>
-                            <li><strong>Location:</strong> We do <strong>NOT</strong> track or collect your live or background location. Google Maps is only used to show program venues.</li>
-                        </ul>
-                    </p>
+                    <h3 class="section-title">1. Information We Collect</h3>
+                    <p>We believe in data minimization. We only collect the following:</p>
+                    <ul>
+                        <li><strong>Voluntary Personal Information:</strong> If you choose to confirm attendance at a program, we collect your <strong>Name</strong> and <strong>Mobile Number</strong>. This is not mandatory to use the App.</li>
+                        <li><strong>Device Identifiers:</strong> We collect a unique <strong>Device ID</strong>. This is used solely to prevent duplicate attendance entries and to provide accurate analytics to program organizers.</li>
+                        <li><strong>Media Files:</strong> Administrative users may upload images for notices or programs. We do not access the galleries of regular supporters.</li>
+                    </ul>
 
-                    <h3 class="section-title">3. Data Usage & Security</h3>
-                    <p>Data is used strictly for campaign analysis by leaders. We ensure:
-                        <ul>
-                            <li><strong>No Third-Party Sharing:</strong> We never sell or share your data with any third party.</li>
-                            <li><strong>Non-Political Exploitation:</strong> This data is not used for direct voting targets or hate speech.</li>
-                        </ul>
-                    </p>
+                    <h3 class="section-title">2. How We Use Your Information</h3>
+                    <p>Your data is used strictly for the following purposes:</p>
+                    <ul>
+                        <li>To provide updates regarding election campaigns and notices.</li>
+                        <li>To analyze supporter engagement at various programs.</li>
+                        <li>To ensure the technical functionality of the App.</li>
+                    </ul>
+                    <p class="highlight">We do NOT use your data for commercial marketing, direct voting targets, or profiling.</p>
 
-                    <h3 class="section-title">4. Data Deletion Rights</h3>
-                    <p>Users have the right to request the deletion of their data (Mobile, Name, Device ID) at any time. Please contact us via the app's contact section.</p>
+                    <h3 class="section-title">3. Permissions & Sensors</h3>
+                    <ul>
+                        <li><strong>Location:</strong> While the App uses Google Maps to show venues, we <span class="highlight">DO NOT</span> collect, track, or share your GPS location.</li>
+                        <li><strong>Camera/Storage:</strong> Access is only requested when an authorized admin uploads a photo. Regular users' private files are never accessed.</li>
+                    </ul>
 
-                    <h3 class="section-title">5. Children's Privacy</h3>
-                    <p>This app is intended for users aged <strong>16+</strong> and is preferable for voters. We do not knowingly collect data from children.</p>
+                    <h3 class="section-title">4. Third-Party Services</h3>
+                    <p>We do not sell, trade, or rent your information. The App may use Google Services (like Google Maps) which may collect data independently according to Google’s own privacy policies. We have no direct control over Google’s data collection.</p>
 
-                    <h3 class="section-title">6. Ownership & Contact</h3>
-                    <p>Narsingdi-1 is a supporter-developed, charity-based app. For any queries, please reach out to Innova Tech Ltd through the contact information provided in the app.</p>
+                    <h3 class="section-title">5. Data Retention & Deletion</h3>
+                    <p>We keep your data only as long as necessary for campaign analysis. 
+                    <br><strong>Your Right to Delete:</strong> You can request the removal of your Name, Mobile Number, and Device ID at any time. Please use the "Contact" section within the App to send a deletion request, and we will process it within 7 business days.</p>
+
+                    <h3 class="section-title">6. Safety & Non-Political Ethics</h3>
+                    <p>This App is built on the principles of charity and support. It does not promote hate speech, violence, or any illegal activities. It is purely an information-sharing tool for fans and supporters.</p>
+
+                    <h3 class="section-title">7. Contact Us</h3>
+                    <p>For any questions regarding this policy, contact us at:<br>
+                    <strong>Innova Tech Ltd</strong><br>
+                    Email: support@innovatech.com (Placeholder)<br>
+                    Narsingdi, Bangladesh.</p>
                 </div>
 
-                <div id="content-bn" class="lang-bn text-end" dir="rtl">
-                    <h1 class="text-center mb-4">গোপনীয়তা নীতি</h1>
-                    <p class="text-muted text-center">সর্বশেষ আপডেট: জানুয়ারি ২০২৬</p>
-                    <p><strong>নরসিংদী-১</strong> অ্যাপে আপনাকে স্বাগতম। এটি একটি অলাভজনক এবং সমর্থকদের দ্বারা পরিচালিত অ্যাপ যা নির্বাচনী প্রচারণার আপডেট প্রদানের জন্য <strong>ইনোভা টেক লিমিটেড</strong> দ্বারা তৈরি করা হয়েছে।</p>
+                <div id="content-bn" class="lang-bn" dir="rtl">
+                    <div class="policy-header text-center">
+                        <h1 class="display-5 fw-bold text-white">গোপনীয়তা নীতি</h1>
+                        <p class="lead mb-0 text-white">নরসিংদী-১ অ্যাপ্লিকেশন</p>
+                        <small class="text-white">কার্যকরী তারিখ: ১৩ জানুয়ারি, ২০২৬</small>
+                    </div>
 
-                    <h3 class="section-title text-start">১. তথ্য সংগ্রহ</h3>
-                    <p class="text-start">আমরা শুধুমাত্র তখনই তথ্য সংগ্রহ করি যখন আপনি স্বেচ্ছায় তা প্রদান করেন।
-                        <ul class="text-start">
-                            <li><strong>ব্যক্তিগত তথ্য:</strong> আপনি যদি কোনো প্রোগ্রামে উপস্থিতির তথ্য দিতে চান, তবেই নাম এবং মোবাইল নম্বর সংগ্রহ করা হয়। এটি বাধ্যতামূলক নয়।</li>
-                            <li><strong>ডিভাইস তথ্য:</strong> ইউনিক ডিভাইস আইডি সংগ্রহ করা হয় যাতে উপস্থিতির সঠিক সংখ্যা গণনা করা যায়।</li>
-                        </ul>
-                    </p>
+                    <p><strong>নরসিংদী-১</strong> ("অ্যাপ") <strong>ইনোভা টেক লিমিটেড</strong> দ্বারা তৈরি। আমরা আপনার গোপনীয়তা রক্ষায় প্রতিশ্রুতিবদ্ধ। এটি একটি অলাভজনক, ফ্যান-ভিত্তিক প্ল্যাটফর্ম যা সমর্থক এবং স্বেচ্ছাসেবকদের নির্বাচনী প্রচারণার আপডেট প্রদানের জন্য তৈরি করা হয়েছে।</p>
 
-                    <h3 class="section-title text-start">২. হার্ডওয়্যার পারমিশন</h3>
-                    <p class="text-start">
-                        <ul class="text-start">
-                            <li><strong>গ্যালারি:</strong> শুধুমাত্র অ্যাডমিন ইউজাররা নোটিশ বা প্রোগ্রামের ছবি আপলোড করার জন্য এটি ব্যবহার করতে পারেন।</li>
-                            <li><strong>লোকেশন:</strong> আমরা আপনার লাইভ লোকেশন বা ডিভাইসের অবস্থান ট্র্যাক করি না। গুগল ম্যাপ শুধুমাত্র প্রোগ্রামের স্থান দেখানোর জন্য ব্যবহৃত হয়।</li>
-                        </ul>
-                    </p>
+                    <h3 class="section-title">১. সংগৃহীত তথ্য</h3>
+                    <p>আমরা শুধুমাত্র প্রয়োজনীয় তথ্য সংগ্রহ করি:</p>
+                    <ul>
+                        <li><strong>স্বেচ্ছায় প্রদত্ত ব্যক্তিগত তথ্য:</strong> আপনি যদি কোনো প্রোগ্রামে উপস্থিতি নিশ্চিত করতে চান, তবেই আমরা আপনার <strong>নাম</strong> এবং <strong>মোবাইল নম্বর</strong> সংগ্রহ করি। এটি ব্যবহার করা বাধ্যতামূলক নয়।</li>
+                        <li><strong>ডিভাইস তথ্য:</strong> আমরা একটি ইউনিক <strong>ডিভাইস আইডি</strong> সংগ্রহ করি। এটি শুধুমাত্র উপস্থিতির সঠিক গণনা নিশ্চিত করতে এবং ডুপ্লিকেট এন্ট্রি রোধ করতে ব্যবহৃত হয়।</li>
+                        <li><strong>মিডিয়া ফাইল:</strong> শুধুমাত্র অ্যাডমিন ইউজাররা নোটিশ বা ছবির জন্য গ্যালারি ব্যবহার করতে পারেন। সাধারণ ইউজারদের ফাইল আমরা এক্সেস করি না।</li>
+                    </ul>
 
-                    <h3 class="section-title text-start">৩. তথ্যের ব্যবহার ও নিরাপত্তা</h3>
-                    <p class="text-start">সংগৃহীত তথ্য শুধুমাত্র প্রচারণার বিশ্লেষণের জন্য ব্যবহৃত হয়। আমরা নিশ্চিত করি:
-                        <ul class="text-start">
-                            <li><strong>তৃতীয় পক্ষের সাথে শেয়ার না করা:</strong> আপনার তথ্য কোনো থার্ড-পার্টি বা বাণিজ্যিক প্রতিষ্ঠানের কাছে বিক্রি বা শেয়ার করা হয় না।</li>
-                            <li><strong>নিরাপত্তা:</strong> এটি সম্পূর্ণ অরাজনৈতিক প্রচারণা ভিত্তিক অ্যাপ, এখানে কোনো ঘৃণা ছড়ানো বা অসদুপায়ে ভোট সংগ্রহের লজিক নেই।</li>
-                        </ul>
-                    </p>
+                    <h3 class="section-title">২. তথ্যের ব্যবহার</h3>
+                    <p>আপনার তথ্য শুধুমাত্র নিচের উদ্দেশ্যে ব্যবহৃত হয়:</p>
+                    <ul>
+                        <li>নির্বাচনী প্রচারণা এবং নোটিশ সম্পর্কে আপডেট প্রদান।</li>
+                        <li>প্রোগ্রামগুলোতে সমর্থকদের অংশগ্রহণের হার বিশ্লেষণ।</li>
+                        <li>অ্যাপের কারিগরি কার্যকারিতা বজায় রাখা।</li>
+                    </ul>
+                    <p class="highlight text-start">আমরা আপনার তথ্য কোনো বাণিজ্যিক মার্কেটিং বা অসদুপায়ে ভোট সংগ্রহের কাজে ব্যবহার করি না।</p>
 
-                    <h3 class="section-title text-start">৪. তথ্য মুছে ফেলার অধিকার</h3>
-                    <p class="text-start">ব্যবহারকারী চাইলে যেকোনো সময় তার নাম, মোবাইল বা ডিভাইস আইডি মুছে ফেলার অনুরোধ করতে পারেন। অ্যাপের যোগাযোগ সেকশন থেকে আমাদের সাথে যোগাযোগ করুন।</p>
+                    <h3 class="section-title">৩. পারমিশন এবং সেন্সর</h3>
+                    <ul>
+                        <li><strong>লোকেশন:</strong> অ্যাপটি ভেন্যু দেখানোর জন্য গুগল ম্যাপ ব্যবহার করলেও, আমরা আপনার জিপিএস লোকেশন <span class="highlight">ট্র্যাক বা সংগ্রহ করি না</span>।</li>
+                        <li><strong>ক্যামেরা/স্টোরেজ:</strong> শুধুমাত্র অনুমোদিত অ্যাডমিন ছবি আপলোড করার সময় এই পারমিশন প্রয়োজন হয়।</li>
+                    </ul>
 
-                    <h3 class="section-title text-start">৫. শিশুদের সুরক্ষা</h3>
-                    <p class="text-start">এই অ্যাপটি <strong>১৬+</strong> বছর বয়সীদের জন্য তৈরি। আমরা শিশুদের কোনো তথ্য সংগ্রহ করি না।</p>
+                    <h3 class="section-title">৪. তথ্য মুছে ফেলার অধিকার</h3>
+                    <p>ব্যবহারকারীরা যেকোনো সময় তাদের নাম, মোবাইল নম্বর এবং ডিভাইস আইডি মুছে ফেলার অনুরোধ করতে পারেন। অ্যাপের "যোগাযোগ" সেকশনের মাধ্যমে অনুরোধ জানালে আমরা ৭ কার্যদিবসের মধ্যে তা কার্যকর করি।</p>
 
-                    <h3 class="section-title text-start">৬. অ্যাপের মালিকানা ও যোগাযোগ</h3>
-                    <p class="text-start">নরসিংদী-১ একটি অলাভজনক চ্যারিটি ভিত্তিক অ্যাপ। যেকোনো প্রয়োজনে অ্যাপে দেওয়া ঠিকানায় ইনোভা টেক লিমিটেডের সাথে যোগাযোগ করুন।</p>
+                    <h3 class="section-title text-start">৫. যোগাযোগ</h3>
+                    <p class="text-start">যেকোনো প্রশ্নের জন্য আমাদের সাথে যোগাযোগ করুন:<br>
+                    <strong>ইনোভা টেক লিমিটেড</strong><br>
+                    নরসিংদী, বাংলাদেশ।</p>
                 </div>
 
             </div>
-            <div class="text-center mt-4 text-muted small">
-                &copy; 2026 Innova Tech Ltd | Narsingdi-1 Project
+            <div class="text-center mt-4 text-muted">
+                <small>&copy; 2026 Innova Tech Ltd. All Rights Reserved.</small>
             </div>
         </div>
     </div>
@@ -117,15 +132,14 @@
         const en = document.getElementById('content-en');
         const bn = document.getElementById('content-bn');
         const btn = document.getElementById('toggleBtn');
-
         if (en.style.display === "none") {
             en.style.display = "block";
             bn.style.display = "none";
-            btn.innerText = "Switch to বাংলা";
+            btn.innerText = "বাংলা সংস্করণ";
         } else {
             en.style.display = "none";
             bn.style.display = "block";
-            btn.innerText = "Switch to English";
+            btn.innerText = "English Version";
         }
     }
 </script>
