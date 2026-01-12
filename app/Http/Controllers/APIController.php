@@ -686,7 +686,7 @@ class APIController extends Controller
                       ->orWhere('dob', 'LIKE', "%$search%")
                       ->orWhere('address', 'LIKE', "%$search%");
                 })
-                ->orderBy('serial', 'asc')
+                ->orderBy('id', 'asc')
                 ->paginate(20);
                 
             return response()->json($voters, 200);
