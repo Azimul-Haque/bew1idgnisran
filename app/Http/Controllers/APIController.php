@@ -684,6 +684,34 @@ class APIController extends Controller
         return response()->json($stats, 200);
     }
 
+    public function index(Request $request)
+    {
+        // ১. কুয়েরি শুরু করা
+        $query = Voter::query();
+
+        // ২. এরিয়া বা ভোটকেন্দ্র অনুযায়ী ফিল্টার (আবশ্যিক)
+        if ($request->has('area_name') && $request->area_name != "") {
+            $query->where('area_name', $request->area_name);
+        }
+
+        // ৩. সার্চ লজিক (নাম অথবা ভোটার নম্বর দিয়ে)
+        if ($request->has('search') && $request->search != "") {
+            $search = $request->search;
+            $query->where(function($q) use ($search) {
+                $q->where('name', 'LIKE', "%$search%")
+                  ->orWhere('voter_no', 'LIKE', "$search%"); // ভোটার নং এ LIKE % শুরুতে না দেওয়া ভালো পারফরম্যান্সের জন্য
+            });
+        }
+
+        // ৪. সিরিয়াল অনুযায়ী সর্টিং এবং পেজিনেশন
+        // প্রতি পেজে ১৫টি করে ডাটা লোড হবে
+        $voters = $query->orderBy('serial', 'asc')
+                        ->paginate(15);
+
+        // ৫. জেএসন রেসপন্স পাঠানো
+        return response()->json($voters, 200);
+    }
+
 
 
 
