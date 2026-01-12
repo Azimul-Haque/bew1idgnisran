@@ -128,6 +128,7 @@
                 <div class="section-title">৫. যোগাযোগ</div>
                 <p>গোপনীয়তা নীতি সংক্রান্ত যেকোনো প্রশ্নের জন্য আমাদের সাথে যোগাযোগ করুন:<br>
                 <strong>ইনোভা টেক লিমিটেড</strong><br>
+                Email: support@innovatechbd.net<br>
                 ঢাকা, বাংলাদেশ।</p>
             </div>
         </div>
