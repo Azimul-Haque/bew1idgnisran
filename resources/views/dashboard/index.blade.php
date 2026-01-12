@@ -149,10 +149,6 @@
                               <label>সিএসভি ফাইল সিলেক্ট করুন:</label>
                               <input type="file" name="csv_file" class="form-control" required>
                           </div>
-                          <button type="submit" class="btn btn-primary">আপলোড শুরু করুন</button>
-                        
-                        
-                          আপনি কি নিশ্চিতভাবে সকল কোয়েরি ক্যাশ ক্লিয়ার করতে চান?<br/>
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>
