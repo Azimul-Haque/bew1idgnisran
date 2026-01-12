@@ -128,7 +128,7 @@
             {{-- Modal Code --}}
 
             <button class="btn btn-success" data-toggle="modal" data-target="#clearQueryCacheModal">
-              <i class="fas fa-tools"></i> সকল কোয়েরি ক্যাশ (API) ক্লিয়ার করুন
+              <i class="fas fa-files"></i> CSV ফাইল আপলোড
             </button>
             {{-- Modal Code --}}
             {{-- Modal Code --}}
