@@ -34,8 +34,8 @@ class CreateVotersTable extends Migration
 
             $table->timestamps();
 
-            $table->index(['voter_no', 'area_no', 'serial']);
-            $table->index(['voter_no', 'area_name', 'serial']);
+            $table->index(['voter_no', 'area_no', 'gender']);
+            $table->index(['voter_no', 'area_name', 'gender']);
         });
     }
 
