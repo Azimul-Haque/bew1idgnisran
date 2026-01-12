@@ -92,7 +92,7 @@
                 <div class="section-title">6. Contact Information</div>
                 <p>If you have any questions regarding this Privacy Policy, please contact our developer team:<br>
                 <strong>Innova Tech Ltd</strong><br>
-                Email: support@innovatech.com<br>
+                Email: support@innovatechbd.net<br>
                 Address: Dhaka, Bangladesh.</p>
             </div>
 
