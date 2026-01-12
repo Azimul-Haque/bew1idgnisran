@@ -662,6 +662,48 @@ class DashboardController extends Controller
         return redirect()->route('dashboard.blogs');
     }
 
+
+
+
+
+    public function upload(Request $request)
+        {
+            $request->validate(['csv_file' => 'required|mimes:csv,txt']);
+
+            $path = $request->file('csv_file')->getRealPath();
+            $handle = fopen($path, 'r');
+
+            // হেডার স্কিপ করা
+            fgetcsv($handle);
+
+            // মেমরি ও টাইম লিমিট বাড়ানো (বড় ফাইলের জন্য)
+            set_time_limit(0);
+            ini_set('memory_limit', '512M');
+
+            while (($row = fgetcsv($handle)) !== FALSE) {
+                // ১৩টি কলামের ম্যাপিং (CSV সিরিয়াল অনুযায়ী)
+                Voter::create([
+                    'union_municipality' => $row[0],
+                    'ward'               => $row[1],
+                    'area_name'          => $row[2],
+                    'area_no'            => $row[3],
+                    'gender'             => $row[4],
+                    // row[5] (expected_rows) স্কিপ করা হয়েছে
+                    'serial'             => $row[6],
+                    'voter_no'           => $row[7],
+                    'name'               => $row[8],
+                    'father'             => $row[9],
+                    'mother'             => $row[10],
+                    'dob'                => $row[11],
+                    'occupation'         => $row[12],
+                    'address'            => $row[13],
+                ]);
+            }
+
+            fclose($handle);
+            return back()->with('success', 'ডেটা সফলভাবে আপলোড হয়েছে!');
+        }
+
     // clear configs, routes and serve
     public function clear()
     {
