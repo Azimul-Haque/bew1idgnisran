@@ -675,9 +675,7 @@ class APIController extends Controller
         $search = $request->search;
         $page = $request->page ?? 1;
 
-        if ($request->has('gender')) {
-            $query->where('gender', $request->gender);
-        }
+        
 
         // ১. সার্চ থাকলে ক্যাশ ছাড়াই সরাসরি কুয়েরি (সার্চ সবসময় পরিবর্তনশীল হয়)
         if ($request->filled('search')) {
