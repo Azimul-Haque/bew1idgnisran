@@ -676,6 +676,12 @@ class APIController extends Controller
         $page = $request->page ?? 1;
         $gender = $request->gender ?? 2; // ডিফল্ট ২ (মহিলা)
 
+        // শুধুমাত্র যে কলামগুলো ফ্লাটার অ্যাপে প্রদর্শিত হচ্ছে সেগুলো সিলেক্ট করা হলো
+        $selectedColumns = [
+            'id', 'serial', 'voter_no', 'name', 
+            'dob', 'father', 'mother', 'address'
+        ];
+
         // ১. সার্চ মোড
         if ($request->filled('search')) {
             $voters = Voter::where('area_name', $area)
