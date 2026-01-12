@@ -93,7 +93,7 @@
                 <p>If you have any questions regarding this Privacy Policy, please contact our developer team:<br>
                 <strong>Innova Tech Ltd</strong><br>
                 Email: support@innovatech.com<br>
-                Address: Narsingdi, Bangladesh.</p>
+                Address: Dhaka, Bangladesh.</p>
             </div>
 
             <div id="content-bn" class="lang-bn">
