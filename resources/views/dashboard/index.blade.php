@@ -127,7 +127,7 @@
             {{-- Modal Code --}}
             {{-- Modal Code --}}
 
-            <button class="btn btn-warning" data-toggle="modal" data-target="#clearQueryCacheModal">
+            <button class="btn btn-success" data-toggle="modal" data-target="#clearQueryCacheModal">
               <i class="fas fa-tools"></i> সকল কোয়েরি ক্যাশ (API) ক্লিয়ার করুন
             </button>
             {{-- Modal Code --}}
@@ -136,7 +136,7 @@
             <div class="modal fade" id="clearQueryCacheModal" tabindex="-1" role="dialog" aria-labelledby="clearQueryCacheModalLabel" aria-hidden="true" data-backdrop="static">
                 <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                    <div class="modal-header bg-warning">
+                    <div class="modal-header bg-success">
                     <h5 class="modal-title" id="clearQueryCacheModalLabel">কোয়েরি ক্যাশ ক্লিয়ার</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -147,7 +147,7 @@
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>
-                    <a href="{{ route('dashboard.clearquerycache') }}" class="btn btn-warning">ক্যাশ ক্লিয়ার করুন</a>
+                    <a href="{{ route('dashboard.clearquerycache') }}" class="btn btn-success">ক্যাশ ক্লিয়ার করুন</a>
                     </div>
                 </div>
                 </div>
