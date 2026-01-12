@@ -680,6 +680,7 @@ class APIController extends Controller
             $voters = Voter::where('area_name', $area)
                 ->where(function($q) use ($search) {
                     $q->where('name', 'LIKE', "%$search%")
+                      ->orWhere('area_name', 'LIKE', "%$search%");
                       ->orWhere('voter_no', 'LIKE', "$search%");
                       ->orWhere('father', 'LIKE', "%$search%");
                       ->orWhere('mother', 'LIKE', "%$search%");
