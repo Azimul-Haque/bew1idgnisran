@@ -674,7 +674,7 @@ class APIController extends Controller
         $area = $request->area_name;
         $search = $request->search;
         $page = $request->page ?? 1;
-        $gender = $request->gender ?? 2; // ডিফল্ট ২ (মহিলা)
+        $gender = $request->gender ?? 2;
 
         // শুধুমাত্র যে কলামগুলো ফ্লাটার অ্যাপে প্রদর্শিত হচ্ছে সেগুলো সিলেক্ট করা হলো
         $selectedColumns = [
@@ -684,8 +684,9 @@ class APIController extends Controller
 
         // ১. সার্চ মোড
         if ($request->filled('search')) {
-            $voters = Voter::where('area_name', $area)
-                ->where('gender', $gender) // জেন্ডার ফিল্টার যোগ করা হয়েছে
+            return Voter::select($selectedColumns)
+                ->where('area_name', $area)
+                ->where('gender', $gender)
                 ->where(function($q) use ($search) {
                     $q->where('name', 'LIKE', "%$search%")
                       ->orWhere('voter_no', 'LIKE', "$search%")
@@ -694,25 +695,20 @@ class APIController extends Controller
                       ->orWhere('dob', 'LIKE', "%$search%")
                       ->orWhere('address', 'LIKE', "%$search%");
                 })
-                ->orderBy('id', 'asc')
+                ->orderBy('serial', 'asc') // সিরিয়াল অনুযায়ী সর্টিং
                 ->paginate(20);
-                
-            return response()->json($voters, 200);
         }
 
         // ২. সাধারণ লিস্ট মোড (ক্যাশ লজিক)
-        // ক্যাশ কি-তে gender যুক্ত করা হয়েছে যাতে জেন্ডার পরিবর্তনে ডেটা ভুল না আসে
-        $cacheKey = "voters_list_" . str_replace(' ', '_', $area) . "_g_" . $gender . "_page_" . $page;
+        $cacheKey = "voters_clean_list_" . str_replace(' ', '_', $area) . "_g_" . $gender . "_p_" . $page;
 
-        $voters = Cache::remember($cacheKey, now()->addHours(24), function () use ($area, $gender) {
-            return Voter::where('area_name', $area)
-                ->where('gender', $gender) // জেন্ডার ফিল্টার যোগ করা হয়েছে
+        return Cache::remember($cacheKey, now()->addHours(24), function () use ($area, $gender, $selectedColumns) {
+            return Voter::select($selectedColumns)
+                ->where('area_name', $area)
+                ->where('gender', $gender)
                 ->orderBy('serial', 'asc')
                 ->paginate(20);
         });
-
-        // ৩. জেএসন রেসপন্স পাঠানো
-        return response()->json($voters, 200);
     }
 
     public function getAdminStats() 
