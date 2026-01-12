@@ -695,7 +695,7 @@ class APIController extends Controller
                       ->orWhere('dob', 'LIKE', "%$search%")
                       ->orWhere('address', 'LIKE', "%$search%");
                 })
-                ->orderBy('serial', 'asc') // সিরিয়াল অনুযায়ী সর্টিং
+                ->orderBy('id', 'asc') // সিরিয়াল অনুযায়ী সর্টিং
                 ->paginate(20);
         }
 
@@ -706,7 +706,7 @@ class APIController extends Controller
             return Voter::select($selectedColumns)
                 ->where('area_name', $area)
                 ->where('gender', $gender)
-                ->orderBy('serial', 'asc')
+                ->orderBy('id', 'asc')
                 ->paginate(20);
         });
     }
