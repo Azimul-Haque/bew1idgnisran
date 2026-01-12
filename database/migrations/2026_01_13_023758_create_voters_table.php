@@ -15,7 +15,6 @@ class CreateVotersTable extends Migration
     {
         Schema::create('voters', function (Blueprint $table) {
             $table->id();
-            // ইউনিক ইনডেক্স সরিয়ে দিয়ে সাধারণ ইনডেক্স করা হয়েছে
             $table->string('voter_no', 20)->index(); 
             $table->string('area_no', 15)->index();
             
