@@ -34,8 +34,9 @@ class CreateVotersTable extends Migration
 
             $table->timestamps();
 
-            $table->index(['voter_no', 'area_no', 'gender']);
-            $table->index(['voter_no', 'area_name', 'gender']);
+            $table->index(['area_name', 'voter_no'], 'idx_area_voter');
+            // ২. জেন্ডার ভিত্তিক ফিল্টারিং এর জন্য (যদি আপনি নারী/পুরুষ আলাদা করতে চান)
+            $table->index(['area_name', 'gender', 'serial'], 'idx_area_gender_serial');
         });
     }
 
