@@ -666,7 +666,7 @@ class DashboardController extends Controller
 
 
 
-    public function uploadVoters(Request $request)
+    public function uploadCSV(Request $request)
     {
         $request->validate(['csv_file' => 'required|mimes:csv,txt']);
 
