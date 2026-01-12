@@ -684,6 +684,7 @@ class APIController extends Controller
                       ->orWhere('father', 'LIKE', "%$search%");
                       ->orWhere('mother', 'LIKE', "%$search%");
                       ->orWhere('dob', 'LIKE', "%$search%");
+                      ->orWhere('address', 'LIKE', "%$search%");
                 })
                 ->orderBy('serial', 'asc')
                 ->paginate(20);
