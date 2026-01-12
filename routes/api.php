@@ -43,6 +43,8 @@ Route::delete('/gallery/delete/{id}', 'APIController@deleteGallery')->name('api.
 
 Route::get('/election/manifesto', 'APIController@getElectionMenifesto')->name('api.election.manifesto');
 
+Route::get('/voters', 'APIController@getVoters');
+
 Route::get('admin/stats', 'APIController@getAdminStats')->name('api.admin.stats');
 
 
