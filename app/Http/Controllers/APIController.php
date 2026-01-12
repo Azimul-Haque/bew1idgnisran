@@ -674,10 +674,12 @@ class APIController extends Controller
         $area = $request->area_name;
         $search = $request->search;
         $page = $request->page ?? 1;
+        $gender = $request->gender ?? 2; // ডিফল্ট ২ (মহিলা)
 
-        // ১. সার্চ থাকলে ক্যাশ ছাড়াই সরাসরি কুয়েরি (সার্চ সবসময় পরিবর্তনশীল হয়)
+        // ১. সার্চ মোড
         if ($request->filled('search')) {
             $voters = Voter::where('area_name', $area)
+                ->where('gender', $gender) // জেন্ডার ফিল্টার যোগ করা হয়েছে
                 ->where(function($q) use ($search) {
                     $q->where('name', 'LIKE', "%$search%")
                       ->orWhere('voter_no', 'LIKE', "$search%")
@@ -692,12 +694,13 @@ class APIController extends Controller
             return response()->json($voters, 200);
         }
 
-        // ২. সার্চ না থাকলে ক্যাশ লজিক (৫০০ ইউজারের জন্য সুপার ফাস্ট পারফরম্যান্স দেবে)
-        // ক্যাশ কি (Cache Key) হিসেবে এরিয়া এবং পেজ নম্বর ব্যবহার করা হয়েছে
-        $cacheKey = "voters_list_" . str_replace(' ', '_', $area) . "_page_" . $page;
+        // ২. সাধারণ লিস্ট মোড (ক্যাশ লজিক)
+        // ক্যাশ কি-তে gender যুক্ত করা হয়েছে যাতে জেন্ডার পরিবর্তনে ডেটা ভুল না আসে
+        $cacheKey = "voters_list_" . str_replace(' ', '_', $area) . "_g_" . $gender . "_page_" . $page;
 
-        $voters = Cache::remember($cacheKey, now()->addHours(24), function () use ($area) {
+        $voters = Cache::remember($cacheKey, now()->addHours(24), function () use ($area, $gender) {
             return Voter::where('area_name', $area)
+                ->where('gender', $gender) // জেন্ডার ফিল্টার যোগ করা হয়েছে
                 ->orderBy('serial', 'asc')
                 ->paginate(20);
         });
