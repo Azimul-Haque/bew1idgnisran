@@ -142,7 +142,7 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                       </div>
-                      <form action="{{ url('/voter-upload') }}" method="POST" enctype="multipart/form-data">
+                      <form action="{{ route('dashboard.uploadcsv')) }}" method="POST" enctype="multipart/form-data">
                         <div class="modal-body">
                           @csrf
                           <div class="form-group mb-3">
