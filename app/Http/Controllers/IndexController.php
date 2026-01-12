@@ -67,7 +67,8 @@ class IndexController extends Controller
 
     public function privacyPolicy()
     {
-        return view('index.privacypolicy');
+        // return view('index.privacypolicy');
+        return view('index.appprivacypolicy');
     }
 
     public function refundPolicy()
