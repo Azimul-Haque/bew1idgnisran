@@ -683,7 +683,7 @@ class APIController extends Controller
                       ->orWhere('voter_no', 'LIKE', "$search%");
                 })
                 ->orderBy('serial', 'asc')
-                ->paginate(15);
+                ->paginate(20);
                 
             return response()->json($voters, 200);
         }
@@ -695,7 +695,7 @@ class APIController extends Controller
         $voters = \Cache::remember($cacheKey, now()->addHours(24), function () use ($area) {
             return Voter::where('area_name', $area)
                 ->orderBy('serial', 'asc')
-                ->paginate(15);
+                ->paginate(20);
         });
 
         // ৩. জেএসন রেসপন্স পাঠানো
