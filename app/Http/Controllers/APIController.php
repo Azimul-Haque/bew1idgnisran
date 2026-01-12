@@ -696,7 +696,7 @@ class APIController extends Controller
         // ক্যাশ কি (Cache Key) হিসেবে এরিয়া এবং পেজ নম্বর ব্যবহার করা হয়েছে
         $cacheKey = "voters_list_" . str_replace(' ', '_', $area) . "_page_" . $page;
 
-        $voters = \Cache::remember($cacheKey, now()->addHours(24), function () use ($area) {
+        $voters = Cache::remember($cacheKey, now()->addHours(24), function () use ($area) {
             return Voter::where('area_name', $area)
                 ->orderBy('serial', 'asc')
                 ->paginate(20);
