@@ -143,7 +143,7 @@
                         </button>
                       </div>
                       <form action="{{ url('/voter-upload') }}" method="POST" enctype="multipart/form-data">
-                      <div class="modal-body">
+                        <div class="modal-body">
                           @csrf
                           <div class="form-group mb-3">
                               <label>সিএসভি ফাইল সিলেক্ট করুন:</label>
@@ -153,11 +153,11 @@
                         
                         
                           আপনি কি নিশ্চিতভাবে সকল কোয়েরি ক্যাশ ক্লিয়ার করতে চান?<br/>
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>
-                        <button type="submit" class="btn btn-primary">আপলোড শুরু করুন</button>
-                      </div>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>
+                          <button type="submit" class="btn btn-primary">আপলোড শুরু করুন</button>
+                        </div>
                       </form> 
                   </div>
                 </div>
