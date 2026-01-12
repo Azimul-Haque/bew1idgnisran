@@ -14,7 +14,7 @@
             --bg-light: #f9fbfd;
         }
         body { font-family: 'Inter', sans-serif; background-color: var(--bg-light); color: var(--text-dark); line-height: 1.8; }
-        .lang-bn { font-family: 'Hind Siliguri', sans-serif; display: none; text-align: right; }
+        .lang-bn { font-family: 'Hind Siliguri', sans-serif; display: none; text-align: left; }
         
         /* Elegant Card Design */
         .policy-container { max-width: 900px; margin: 50px auto; background: #ffffff; border-radius: 24px; box-shadow: 0 20px 60px rgba(0,0,0,0.05); overflow: hidden; border: 1px solid rgba(0,0,0,0.03); }
