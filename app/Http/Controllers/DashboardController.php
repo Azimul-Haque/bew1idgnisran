@@ -688,7 +688,6 @@ class DashboardController extends Controller
                 'area_name'          => $row[2],
                 'area_no'            => $row[3],
                 'gender'             => $row[4],
-                // row[5] (expected_rows) স্কিপ করা হয়েছে
                 'serial'             => $row[6],
                 'voter_no'           => $row[7],
                 'name'               => $row[8],
