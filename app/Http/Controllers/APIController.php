@@ -684,7 +684,7 @@ class APIController extends Controller
         return response()->json($stats, 200);
     }
 
-    public function index(Request $request)
+    public function getVoters(Request $request)
     {
         // ১. কুয়েরি শুরু করা
         $query = Voter::query();
