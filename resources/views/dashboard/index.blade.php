@@ -127,13 +127,13 @@
             {{-- Modal Code --}}
             {{-- Modal Code --}}
 
-            <button class="btn btn-success" data-toggle="modal" data-target="#clearQueryCacheModal">
+            <button class="btn btn-success" data-toggle="modal" data-target="#uploadCSVFileModal">
               <i class="fas fa-files"></i> CSV ফাইল আপলোড
             </button>
             {{-- Modal Code --}}
             {{-- Modal Code --}}
             <!-- Modal -->
-            <div class="modal fade" id="clearQueryCacheModal" tabindex="-1" role="dialog" aria-labelledby="clearQueryCacheModalLabel" aria-hidden="true" data-backdrop="static">
+            <div class="modal fade" id="uploadCSVFileModal" tabindex="-1" role="dialog" aria-labelledby="uploadCSVFileModalLabel" aria-hidden="true" data-backdrop="static">
                 <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header bg-success">
