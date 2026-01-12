@@ -10,6 +10,7 @@ use App\Message;
 use App\Notification;
 use App\Blog;
 use App\Blogcategory;
+use App\Voter;
 
 use Carbon\Carbon;
 use Illuminate\Validation\Rule;
