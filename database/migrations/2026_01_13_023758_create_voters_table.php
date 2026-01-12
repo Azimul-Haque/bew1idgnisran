@@ -33,6 +33,8 @@ class CreateVotersTable extends Migration
             $table->string('area_name')->nullable();
 
             $table->timestamps();
+
+            $table->index(['voter_no', 'area_no', 'serial']);
         });
     }
 
