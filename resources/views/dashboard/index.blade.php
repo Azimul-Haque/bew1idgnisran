@@ -143,18 +143,19 @@
                         </button>
                       </div>
                       <form action="{{ route('dashboard.uploadcsv') }}" method="POST" enctype="multipart/form-data">
-                        <div class="modal-body">
-                          @csrf
-                          <div class="form-group mb-3">
-                              <label>সিএসভি ফাইল সিলেক্ট করুন:</label>
-                              <input type="file" name="csv_file" class="form-control" required>
+                          <div class="modal-body">
+                              @csrf
+                              <div class="form-group mb-3">
+                                  <label class="font-weight-bold">সিএসভি ফাইলগুলো একসাথে সিলেক্ট করুন (১০-২০টি):</label>
+                                  <input type="file" name="csv_files[]" class="form-control" multiple required>
+                                  <small class="text-muted">আপনি কিবোর্ডের Ctrl চেপে ধরে একাধিক ফাইল সিলেক্ট করতে পারেন।</small>
+                              </div>
                           </div>
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>
-                          <button type="submit" class="btn btn-primary">আপলোড শুরু করুন</button>
-                        </div>
-                      </form> 
+                          <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>
+                              <button type="submit" class="btn btn-primary">সবগুলো আপলোড শুরু করুন</button>
+                          </div>
+                      </form>
                   </div>
                 </div>
             </div>

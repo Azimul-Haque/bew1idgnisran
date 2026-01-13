@@ -668,39 +668,54 @@ class DashboardController extends Controller
 
     public function uploadCSV(Request $request)
     {
-        $request->validate(['csv_file' => 'required|mimes:csv,txt']);
+        // ১. ভ্যালিডেশন আপডেট (একাধিক ফাইলের জন্য)
+        $request->validate([
+            'csv_files' => 'required',
+            'csv_files.*' => 'mimes:csv,txt'
+        ]);
 
-        $path = $request->file('csv_file')->getRealPath();
-        $handle = fopen($path, 'r');
+        $files = $request->file('csv_files');
 
-        // হেডার স্কিপ করা
-        fgetcsv($handle);
-
-        // মেমরি ও টাইম লিমিট বাড়ানো (বড় ফাইলের জন্য)
+        // টাইম ও মেমরি লিমিট বাড়ানো
         set_time_limit(0);
-        ini_set('memory_limit', '512M');
+        ini_set('memory_limit', '1024M');
 
-        while (($row = fgetcsv($handle)) !== FALSE) {
-            // ১৩টি কলামের ম্যাপিং (CSV সিরিয়াল অনুযায়ী)
-            Voter::create([
-                'union_municipality' => $row[0],
-                'ward'               => $row[1],
-                'area_name'          => $row[2],
-                'area_no'            => $row[3],
-                'gender'             => $row[4],
-                'serial'             => $row[5],
-                'voter_no'           => $row[6],
-                'name'               => $row[7],
-                'father'             => $row[8],
-                'mother'             => $row[9],
-                'dob'                => $row[10],
-                'occupation'         => $row[11],
-                'address'            => $row[12],
-            ]);
+        $totalUploaded = 0;
+
+        foreach ($files as $file) {
+            $path = $file->getRealPath();
+            
+            if (($handle = fopen($path, 'r')) !== FALSE) {
+                // হেডার স্কিপ করা
+                fgetcsv($handle);
+
+                while (($row = fgetcsv($handle)) !== FALSE) {
+                    // ১৩টি কলামের ম্যাপিং
+                    \App\Voter::create([
+                        'union_municipality' => $row[0],
+                        'ward'               => $row[1],
+                        'area_name'          => $row[2],
+                        'area_no'            => $row[3],
+                        'gender'             => $row[4],
+                        'serial'             => $row[5],
+                        'voter_no'           => $row[6],
+                        'name'               => $row[7],
+                        'father'             => $row[8],
+                        'mother'             => $row[9],
+                        'dob'                => $row[10],
+                        'occupation'         => $row[11],
+                        'address'            => $row[12],
+                    ]);
+                    $totalUploaded++;
+                }
+                fclose($handle);
+            }
+
+            // ২ সেকেন্ড বিরতি (আপনার রিকোয়েস্ট অনুযায়ী)
+            sleep(2);
         }
 
-        fclose($handle);
-        return back()->with('success', 'ডেটা সফলভাবে আপলোড হয়েছে!');
+        return back()->with('success', "মোট $totalUploaded টি ডেটা সফলভাবে আপলোড হয়েছে!");
     }
 
     // clear configs, routes and serve
