@@ -1065,7 +1065,7 @@ class APIController extends Controller
         // $user = User::where('mobile', $request->mobile)->first();
 
         $message = new Message;
-        $message->user_id = $user->id;
+        // $message->user_id = $user->id;
         $message->message = $request->message;
         $message->type = $request->type;
         $message->save();
