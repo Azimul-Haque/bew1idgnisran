@@ -665,7 +665,7 @@ class APIController extends Controller
 
     public function getElectionMenifesto() 
     {
-        return redirect('https://www.bnpbd.org/pdf/31%20Points%20English%202.5k.pdf');
+        return redirect('https://www.bnpbd.org/31-points');
         return 'আসছে...';
     }
 
