@@ -1063,7 +1063,7 @@ class APIController extends Controller
         ));
 
         $message = new Message;
-        $message->name = $user->name;
+        $message->name = $request->name;
         $message->message = $request->message;
         $message->type = $request->type;
         $message->save();
