@@ -665,7 +665,7 @@ class APIController extends Controller
 
     public function getElectionMenifesto() 
     {
-        return redirect('https://play.google.com/store/apps/details?id=com.orbachinujbuk.bcs');
+        return redirect('https://www.bnpbd.org/pdf/31%20Points%20English%202.5k.pdf');
         return 'আসছে...';
     }
 
