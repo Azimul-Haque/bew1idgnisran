@@ -1057,7 +1057,7 @@ class APIController extends Controller
     public function storeMessage(Request $request)
     {
         $this->validate($request,array(
-            // 'mobile'    =>   'required',
+            'name'    =>   'required',
             'message'    =>   'required',
             'type'    =>   'required',
         ));
