@@ -84,7 +84,7 @@
 
                 <div class="section-title">4. User Rights & Data Deletion</div>
                 <p>You have full control over your data. You may request the permanent deletion of your Name, Mobile, and Device ID from our database at any time. 
-                <br><strong>How to delete:</strong> Navigate to the "Contact" section in the App and send a "Data Deletion Request." Our team will remove all associated records within <span class="highlight">7 business days</span>.</p>
+                <br><strong>How to delete:</strong> Navigate to the "Contact" section in the App and send a "Data Deletion Request" or use this link <a href="{{ route('index.contact') }}"><strong>Data Deletation Form</strong></a>. Our team will remove all associated records within <span class="highlight">7 business days</span>.</p>
 
                 <div class="section-title">5. Commitment to Ethics</div>
                 <p>This App is a non-profit initiative for supporters. It strictly prohibits hate speech, direct political targeting, or the exploitation of voter data. It is purely an informational and organizational tool for volunteers.</p>
