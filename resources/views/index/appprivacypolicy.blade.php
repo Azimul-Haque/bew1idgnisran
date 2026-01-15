@@ -123,7 +123,7 @@
 
                 <div class="section-title">৪. তথ্য মুছে ফেলার অধিকার</div>
                 <p>ব্যবহারকারী যেকোনো সময় তাদের নাম, মোবাইল নম্বর এবং ডিভাইস আইডি ডাটাবেস থেকে মুছে ফেলার অনুরোধ করতে পারেন।
-                <br><strong>পদ্ধতি:</strong> অ্যাপের "যোগাযোগ" সেকশন থেকে "Data Deletion Request" পাঠালে আমরা <span class="highlight">৭ কার্যদিবসের</span> মধ্যে তা কার্যকর করব।</p>
+                <br><strong>পদ্ধতি:</strong> অ্যাপের "যোগাযোগ" সেকশন থেকে "Data Deletion Request" অথবা <a href="{{ route('index.contact') }}"><strong>Data Deletation Form</strong></a> এর রিকুয়েস্ট মাধ্যমে পাঠালে আমরা <span class="highlight">৭ কার্যদিবসের</span> মধ্যে তা কার্যকর করব।</p>
 
                 <div class="section-title">৫. যোগাযোগ</div>
                 <p>গোপনীয়তা নীতি সংক্রান্ত যেকোনো প্রশ্নের জন্য আমাদের সাথে যোগাযোগ করুন:<br>
