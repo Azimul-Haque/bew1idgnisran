@@ -1057,13 +1057,13 @@ class APIController extends Controller
     public function storeMessage(Request $request)
     {
         $this->validate($request,array(
-            'name'    =>   'required',
+            'name'    =>   'sometimes',
             'message'    =>   'required',
             'type'    =>   'required',
         ));
 
         $message = new Message;
-        $message->name = $request->name;
+        $message->name = $request->name ?? '';
         $message->message = $request->message;
         $message->type = $request->type;
         $message->save();
