@@ -692,7 +692,7 @@ class APIController extends Controller
                       ->orWhere('father_name', 'LIKE', "%$search%");
                 })
                 ->orderBy('id', 'asc')
-                ->cursorPaginate(20); // দ্রুতগতির জন্য কারসর প্যাজিনেশন
+                ->paginate(20); // দ্রুতগতির জন্য কারসর প্যাজিনেশন
         }
 
         // ২. সাধারণ লিস্ট মোড (ক্যাশ লজিক)
@@ -704,7 +704,7 @@ class APIController extends Controller
                 ->where('area_id', $areaId)
                 ->where('gender', $gender == 1 ? 'পুরুষ' : 'মহিলা')
                 ->orderBy('id', 'asc')
-                ->cursorPaginate(20);
+                ->paginate(20);
         });
     }
 
