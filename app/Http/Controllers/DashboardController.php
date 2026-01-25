@@ -717,6 +717,11 @@ class DashboardController extends Controller
 
         return back()->with('success', "মোট $totalUploaded টি ডেটা সফলভাবে আপলোড হয়েছে!");
     }
+    
+    public function makeAreasJson()
+    {
+        
+    }
 
     // clear configs, routes and serve
     public function clear()
