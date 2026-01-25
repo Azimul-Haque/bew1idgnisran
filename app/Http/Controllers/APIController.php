@@ -685,7 +685,7 @@ class APIController extends Controller
 
         $cacheKey = "voters_id_{$areaId}_g_{$gender}_p_{$page}_with_center_" . ($search ?? 'none');
 
-        return Cache::remember($cacheKey, now()->addHours(24), function () use ($areaId, $gender, $selectedColumns, $search) {
+        return Cache::remember($cacheKey, now()->addDays(5), function () use ($areaId, $gender, $selectedColumns, $search) {
             $query = Voter::select($selectedColumns)
                 ->with(['center' => function($q) {
                     $q->select('id', 'code', 'name'); // সেন্টার টেবিল থেকে শুধু নাম এবং আইডি নেওয়া হচ্ছে
