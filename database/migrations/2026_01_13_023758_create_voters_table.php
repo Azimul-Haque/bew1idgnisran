@@ -37,6 +37,9 @@ class CreateVotersTable extends Migration
 
             // ২. যদি এরিয়া, সেন্টার এবং জেন্ডার—এই তিনটি দিয়েই ফিল্টার করেন
             $table->index(['area_id', 'center_id', 'gender']);
+
+            // ৩. শুধু সেন্টার ভিত্তিক কুয়েরির জন্য
+            $table->index('center_id');
             
             $table->timestamps();
         });
