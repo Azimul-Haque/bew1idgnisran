@@ -11,6 +11,7 @@ use App\Notification;
 use App\Blog;
 use App\Blogcategory;
 use App\Voter;
+use App\Area;
 
 use Carbon\Carbon;
 use Illuminate\Validation\Rule;
@@ -720,7 +721,7 @@ class DashboardController extends Controller
     
     public function makeAreasJson()
     {
-        $areas = \App\Models\Area::select('id', 'name', 'council_id')->get();
+        $areas = Area::select('id', 'name', 'council_id')->get();
         file_put_contents('areas.json', $areas->toJson(JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
     }
 
