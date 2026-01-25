@@ -40,6 +40,8 @@ class CreateVotersTable extends Migration
 
             // ৩. শুধু সেন্টার ভিত্তিক কুয়েরির জন্য
             $table->index('center_id');
+
+            $table->index('voter_id');
             
             $table->timestamps();
         });
