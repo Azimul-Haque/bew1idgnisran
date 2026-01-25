@@ -127,9 +127,9 @@
             {{-- Modal Code --}}
             {{-- Modal Code --}}
 
-            <button class="btn btn-success" data-toggle="modal" data-target="#uploadCSVFileModal">
+            {{-- <button class="btn btn-success" data-toggle="modal" data-target="#uploadCSVFileModal">
               <i class="fas fa-files"></i> CSV ফাইল আপলোড
-            </button>
+            </button> --}}
             {{-- Modal Code --}}
             {{-- Modal Code --}}
             <!-- Modal -->
