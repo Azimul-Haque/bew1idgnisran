@@ -670,43 +670,43 @@ class APIController extends Controller
     }
 
     public function getVoters(Request $request)
-{
-    $areaId = $request->area_id; // area_name এর বদলে area_id
-    $search = $request->search;
-    $gender = $request->gender ?? 2; // মহিলা ডিফল্ট
+    {
+        $areaId = $request->area_id; // area_name এর বদলে area_id
+        $search = $request->search;
+        $gender = $request->gender ?? 2; // মহিলা ডিফল্ট
 
-    $selectedColumns = [
-        'id', 'sl_no as serial', 'voter_id as voter_no', 'name', 
-        'birth_date as dob', 'father_name as father', 
-        'mother_name as mother', 'address'
-    ];
+        $selectedColumns = [
+            'id', 'sl_no as serial', 'voter_id as voter_no', 'name', 
+            'birth_date as dob', 'father_name as father', 
+            'mother_name as mother', 'address'
+        ];
 
-    // ১. সার্চ মোড (সার্চের সময় ক্যাশ দরকার নেই কারণ এটি ডাইনামিক)
-    if ($request->filled('search')) {
-        return Voter::select($selectedColumns)
-            ->where('area_id', $areaId)
-            ->where('gender', $gender == 1 ? 'পুরুষ' : 'মহিলা')
-            ->where(function($q) use ($search) {
-                $q->where('name', 'LIKE', "%$search%")
-                  ->orWhere('voter_id', 'LIKE', "$search%")
-                  ->orWhere('father_name', 'LIKE', "%$search%");
-            })
-            ->orderBy('id', 'asc')
-            ->cursorPaginate(20); // দ্রুতগতির জন্য কারসর প্যাজিনেশন
+        // ১. সার্চ মোড (সার্চের সময় ক্যাশ দরকার নেই কারণ এটি ডাইনামিক)
+        if ($request->filled('search')) {
+            return Voter::select($selectedColumns)
+                ->where('area_id', $areaId)
+                ->where('gender', $gender == 1 ? 'পুরুষ' : 'মহিলা')
+                ->where(function($q) use ($search) {
+                    $q->where('name', 'LIKE', "%$search%")
+                      ->orWhere('voter_id', 'LIKE', "$search%")
+                      ->orWhere('father_name', 'LIKE', "%$search%");
+                })
+                ->orderBy('id', 'asc')
+                ->cursorPaginate(20); // দ্রুতগতির জন্য কারসর প্যাজিনেশন
+        }
+
+        // ২. সাধারণ লিস্ট মোড (ক্যাশ লজিক)
+        $page = $request->page ?? 1;
+        $cacheKey = "voters_id_{$areaId}_g_{$gender}_p_{$page}";
+
+        return Cache::remember($cacheKey, now()->addHours(24), function () use ($areaId, $gender, $selectedColumns) {
+            return Voter::select($selectedColumns)
+                ->where('area_id', $areaId)
+                ->where('gender', $gender == 1 ? 'পুরুষ' : 'মহিলা')
+                ->orderBy('id', 'asc')
+                ->cursorPaginate(20);
+        });
     }
-
-    // ২. সাধারণ লিস্ট মোড (ক্যাশ লজিক)
-    $page = $request->page ?? 1;
-    $cacheKey = "voters_id_{$areaId}_g_{$gender}_p_{$page}";
-
-    return Cache::remember($cacheKey, now()->addHours(24), function () use ($areaId, $gender, $selectedColumns) {
-        return Voter::select($selectedColumns)
-            ->where('area_id', $areaId)
-            ->where('gender', $gender == 1 ? 'পুরুষ' : 'মহিলা')
-            ->orderBy('id', 'asc')
-            ->cursorPaginate(20);
-    });
-}
 
     public function getAdminStats() 
     {
