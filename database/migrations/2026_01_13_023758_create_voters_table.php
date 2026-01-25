@@ -18,7 +18,7 @@ class CreateVotersTable extends Migration
             $table->id();
             $table->string('sl_no')->nullable();
             $table->string('name')->nullable();
-            $table->string('voter_id')->nullable()->unique(); // ভোটার আইডি ইউনিক এবং ইনডেক্সড
+            $table->string('voter_id')->nullable();
             $table->string('father_name')->nullable();
             $table->string('husband_name')->nullable();
             $table->string('mother_name')->nullable();
