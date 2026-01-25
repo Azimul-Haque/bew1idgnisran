@@ -32,8 +32,11 @@ class CreateVotersTable extends Migration
             $table->foreignId('center_id')->nullable()->constrained('centers')->onDelete('set null');
             
             // Composite index for ultra-fast filtering
-            $table->index(['area_id', 'center_id']);
-            $table->index(['voter_id', 'center_id', 'gender']);
+            // ১. এরিয়া এবং জেন্ডার ফিল্টারিং দ্রুত করার জন্য কম্পোজিট ইনডেক্স
+            $table->index(['area_id', 'gender']);
+
+            // ২. যদি এরিয়া, সেন্টার এবং জেন্ডার—এই তিনটি দিয়েই ফিল্টার করেন
+            $table->index(['area_id', 'center_id', 'gender']);
             
             $table->timestamps();
         });
