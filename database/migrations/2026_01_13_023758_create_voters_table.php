@@ -33,7 +33,7 @@ class CreateVotersTable extends Migration
             
             // Composite index for ultra-fast filtering
             $table->index(['area_id', 'center_id']);
-            $table->index(['voter_id', 'center_id']);
+            $table->index(['voter_id', 'center_id', 'gender']);
             
             $table->timestamps();
         });
