@@ -671,40 +671,36 @@ class APIController extends Controller
 
     public function getVoters(Request $request)
     {
-        $areaId = $request->area_id; // area_name এর বদলে area_id
+        $areaId = $request->area_id;
         $search = $request->search;
-        $gender = $request->gender ?? 2; // মহিলা ডিফল্ট
+        $gender = $request->gender ?? 2;
+        $page = $request->page ?? 1;
 
+        // ১. ভোটার টেবিলের কলামসমূহ
         $selectedColumns = [
             'id', 'sl_no as serial', 'voter_id as voter_no', 'name', 
             'birth_date as dob', 'father_name as father', 
-            'mother_name as mother', 'address'
+            'mother_name as mother', 'address', 'center_id' // center_id অবশ্যই নিতে হবে
         ];
 
-        // ১. সার্চ মোড (সার্চের সময় ক্যাশ দরকার নেই কারণ এটি ডাইনামিক)
-        if ($request->filled('search')) {
-            return Voter::select($selectedColumns)
+        $cacheKey = "voters_id_{$areaId}_g_{$gender}_p_{$page}_with_center_" . ($search ?? 'none');
+
+        return Cache::remember($cacheKey, now()->addHours(24), function () use ($areaId, $gender, $selectedColumns, $search) {
+            $query = Voter::select($selectedColumns)
+                ->with(['center' => function($q) {
+                    $q->select('id', 'name'); // সেন্টার টেবিল থেকে শুধু নাম এবং আইডি নেওয়া হচ্ছে
+                }])
                 ->where('area_id', $areaId)
-                ->where('gender', $gender == 1 ? 'পুরুষ' : 'মহিলা')
-                ->where(function($q) use ($search) {
+                ->where('gender', $gender == 1 ? 'পুরুষ' : 'মহিলা');
+
+            if ($search) {
+                $query->where(function($q) use ($search) {
                     $q->where('name', 'LIKE', "%$search%")
-                      ->orWhere('voter_id', 'LIKE', "$search%")
-                      ->orWhere('father_name', 'LIKE', "%$search%");
-                })
-                ->orderBy('id', 'asc')
-                ->paginate(20); // দ্রুতগতির জন্য কারসর প্যাজিনেশন
-        }
+                      ->orWhere('voter_id', 'LIKE', "$search%");
+                });
+            }
 
-        // ২. সাধারণ লিস্ট মোড (ক্যাশ লজিক)
-        $page = $request->page ?? 1;
-        $cacheKey = "voters_id_{$areaId}_g_{$gender}_p_{$page}";
-
-        return Cache::remember($cacheKey, now()->addHours(24), function () use ($areaId, $gender, $selectedColumns) {
-            return Voter::select($selectedColumns)
-                ->where('area_id', $areaId)
-                ->where('gender', $gender == 1 ? 'পুরুষ' : 'মহিলা')
-                ->orderBy('id', 'asc')
-                ->paginate(20);
+            return $query->orderBy('id', 'asc')->paginate(20);
         });
     }
 
