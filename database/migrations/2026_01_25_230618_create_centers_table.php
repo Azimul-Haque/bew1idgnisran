@@ -15,6 +15,9 @@ class CreateCentersTable extends Migration
     {
         Schema::create('centers', function (Blueprint $table) {
             $table->id();
+            $table->unsignedSmallInteger('constituency_id');
+            $table->string('code', 4)->index();
+            $table->string('name', 255);
             $table->timestamps();
         });
     }
