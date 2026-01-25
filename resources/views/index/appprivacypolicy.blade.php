@@ -76,6 +76,7 @@
                 <ul>
                     <li><strong>Camera & Storage:</strong> Permissions are requested only when an authorized administrator needs to upload relevant media.</li>
                     <li><strong>Network Access:</strong> Required to sync the latest notices and campaign updates from our secure Laravel server.</li>
+                    <li><strong>Bluetooth Access:</strong> Required to sync the latest notices and campaign updates from our secure Laravel server.</li>
                 </ul>
 
                 <div class="section-title">3. Data Security & Third-Party Disclosure</div>
