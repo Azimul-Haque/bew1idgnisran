@@ -71,7 +71,7 @@
 
                 <div class="section-title">2. Use of Device Permissions</div>
                 <div class="info-box">
-                    <strong>Zero-Location Tracking:</strong> Although the App integrates Google Maps to provide directions to program venues, we <span class="highlight">do not</span> collect, store, or share your GPS location data.
+                    <strong>Zero-Location Tracking:</strong> Although the App integrates Google Maps to provide directions to program venues, and phones under android 11 requires location on for discovering bluetooth, we <span class="highlight">do not</span> collect, store, or share your GPS location data.
                 </div>
                 <ul>
                     <li><strong>Camera & Storage:</strong> Permissions are requested only when an authorized administrator needs to upload relevant media.</li>
