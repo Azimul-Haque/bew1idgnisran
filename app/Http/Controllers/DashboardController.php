@@ -720,7 +720,8 @@ class DashboardController extends Controller
     
     public function makeAreasJson()
     {
-        
+        $areas = \App\Models\Area::select('id', 'name', 'council_id')->get();
+        file_put_contents('areas.json', $areas->toJson(JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
     }
 
     // clear configs, routes and serve
