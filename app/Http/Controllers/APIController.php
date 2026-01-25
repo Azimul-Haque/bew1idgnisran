@@ -688,7 +688,7 @@ class APIController extends Controller
         return Cache::remember($cacheKey, now()->addHours(24), function () use ($areaId, $gender, $selectedColumns, $search) {
             $query = Voter::select($selectedColumns)
                 ->with(['center' => function($q) {
-                    $q->select('id', 'name'); // সেন্টার টেবিল থেকে শুধু নাম এবং আইডি নেওয়া হচ্ছে
+                    $q->select('name'); // সেন্টার টেবিল থেকে শুধু নাম এবং আইডি নেওয়া হচ্ছে
                 }])
                 ->where('area_id', $areaId)
                 ->where('gender', $gender == 1 ? 'পুরুষ' : 'মহিলা');
