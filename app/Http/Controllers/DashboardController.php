@@ -718,11 +718,18 @@ class DashboardController extends Controller
 
         return back()->with('success', "মোট $totalUploaded টি ডেটা সফলভাবে আপলোড হয়েছে!");
     }
-    
+
     public function makeAreasJson()
     {
         $areas = Area::select('id', 'name', 'council_id')->get();
-        file_put_contents('areas.json', $areas->toJson(JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
+            
+        $jsonData = json_encode([
+            'areas' => $areas
+        ], JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+
+        return response($jsonData)
+            ->header('Content-Type', 'application/json')
+            ->header('Content-Disposition', 'attachment; filename="areas.json"');
     }
 
     // clear configs, routes and serve
