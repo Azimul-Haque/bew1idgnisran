@@ -32,7 +32,8 @@ class CreateVotersTable extends Migration
             $table->foreignId('center_id')->nullable()->constrained('centers')->onDelete('set null');
             
             // Composite index for ultra-fast filtering
-            $table->index(['area_id', 'center_id']); 
+            $table->index(['area_id', 'center_id']);
+            $table->index(['voter_id', 'center_id']);
             
             $table->timestamps();
         });
