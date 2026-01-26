@@ -69,7 +69,7 @@
             <a href="{{ url('voters/areas/'.$council->id) }}" class="text-decoration-none">
                 <div class="card council-card shadow-sm h-90 position-relative">
                     <i class="fas fa-city council-icon"></i>
-                    <div class="card-body p-4">
+                    <div class="card-body p-2">
                         <h5 class="font-weight-bold text-dark mb-3">{{ $council->name }}</h5>
                         
                         <div class="voter-stats d-flex justify-content-between align-items-center border-top pt-3 mt-2">
