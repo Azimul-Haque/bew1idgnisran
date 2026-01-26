@@ -71,9 +71,9 @@
         <div class="col-xl-3 col-lg-3 col-md-4 col-6 mb-3 px-2">
             <a href="{{ route('dashboard.councils.voters', $area->id) }}" class="compact-area-card shadow-xs">
                 <div class="area-content">
-                    <div class="mb-1">
+                    {{-- <div class="mb-1">
                         <i class="fas fa-map-marker-alt text-primary" style="opacity: 0.3; font-size: 0.7rem;"></i>
-                    </div>
+                    </div> --}}
                     
                     <span class="area-title text-truncate mb-1" title="{{ $area->name }}">
                         {{ $area->name }}
