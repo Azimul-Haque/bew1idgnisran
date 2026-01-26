@@ -68,7 +68,7 @@
 <div class="container-fluid">
     <div class="row">
         @foreach($areas as $area)
-        <div class="col-xl-3 col-lg-3 col-md-4 col-6 mb-3 ">
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-3 ">
             <a href="{{ route('dashboard.councils.voters', $area->id) }}" class="compact-area-card shadow-xs">
                 <div class="area-content">
                     {{-- <div class="mb-1">
