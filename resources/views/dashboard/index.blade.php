@@ -15,6 +15,7 @@
   @endsection
     <div class="container-fluid">
       <div class="row">
+        @if(Auth::user()->role == 'admin')
         <div class="col-lg-3 col-6">
           <!-- small box -->
           <div class="small-box bg-info">
@@ -29,6 +30,7 @@
             <a href="{{ route('dashboard.users') }}" class="small-box-footer">ব্যবহারকারী পাতা <i class="fas fa-arrow-circle-right"></i></a>
           </div>
         </div>
+        @endif
         
         {{-- <div class="col-lg-3 col-6">
           <div class="small-box bg-success">
