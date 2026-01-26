@@ -2,6 +2,12 @@
 @section('title', 'এলাকা নির্বাচন')
 
 @section('content')
+@section('page-header-right')
+  <ol class="breadcrumb float-sm-right">
+      <li class="breadcrumb-item"><a href="{{ route('dashboard.index') }}">ড্যাশবোর্ড</a></li>
+      <li class="breadcrumb-item active">ইউনিয়ন-পৌরসভা</li>
+  </ol>
+@endsection
 <style>
     /* ক্লিকেবল এবং কম্প্যাক্ট রাউন্ডেড কার্ড */
     .compact-area-card {
