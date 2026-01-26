@@ -65,7 +65,7 @@
     .back-btn-simple:hover { color: #000; }
 </style>
 
-<div class="container-fluid pt-4">
+<div class="container-fluid">
 
     <div class="row px-2">
         @foreach($areas as $area)
