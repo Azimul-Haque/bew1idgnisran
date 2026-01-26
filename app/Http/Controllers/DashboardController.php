@@ -756,7 +756,7 @@ class DashboardController extends Controller
         // নির্দিষ্ট কাউন্সিলের অধীনে এলাকা/ওয়ার্ডের তালিকা
         $council = Council::where('id', $council_id)->first();
         $areas = Area::where('council_id', $council_id)->get();
-        return view('dashboardoters.areas', compact('areas', 'council'));
+        return view('dashboard.voters.areas', compact('areas', 'council'));
     }
 
 
