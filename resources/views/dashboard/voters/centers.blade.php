@@ -1,16 +1,16 @@
 @extends('layouts.app')
-@section('title') ড্যাশবোর্ড | নোটিফিকেশন @endsection
+@section('title') ড্যাশবোর্ড | ভোটকেন্দ্র @endsection
 
 @section('third_party_stylesheets')
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 @endsection
 
 @section('content')
-    @section('page-header') নোটিফিকেশন @endsection
+    @section('page-header') ভোটকেন্দ্র @endsection
   @section('page-header-right')
     <ol class="breadcrumb float-sm-right">
         <li class="breadcrumb-item"><a href="{{ route('dashboard.index') }}">ড্যাশবোর্ড</a></li>
-        <li class="breadcrumb-item active">নোটিফিকেশন</li>
+        <li class="breadcrumb-item active">ভোটকেন্দ্র</li>
     </ol>
   @endsection
     <div class="container-fluid">
@@ -18,11 +18,11 @@
         <div class="col-md-9">
               <div class="card">
                 <div class="card-header">
-                  <h3 class="card-title">নোটিফিকেশন তালিকা</h3>
+                  <h3 class="card-title">ভোটকেন্দ্র তালিকা</h3>
 
                   <div class="card-tools">
-                    <button type="button" class="btn btn-success btn-sm"  data-toggle="modal" data-target="#newNotifModal" title="" rel="tooltip" data-original-title="নতুন নোটিফিকেশন">
-                      <i class="fas fa-bell"></i> নতুন নোটিফিকেশন
+                    <button type="button" class="btn btn-success btn-sm"  data-toggle="modal" data-target="#newNotifModal" title="" rel="tooltip" data-original-title="নতুন ভোটকেন্দ্র">
+                      <i class="fas fa-bell"></i> নতুন ভোটকেন্দ্র
                     </button>
                   </div>
                 </div>
@@ -32,7 +32,7 @@
                     <thead>
                       <tr>
                         <th>ধরন</th>
-                        <th>নোটিফিকেশন</th>
+                        <th>ভোটকেন্দ্র</th>
                         <th>সময়</th>
                         <th>Action</th>
                       </tr>
@@ -66,7 +66,7 @@
                                 <div class="modal-dialog" role="document">
                                   <div class="modal-content">
                                     <div class="modal-header bg-warning">
-                                      <h5 class="modal-title" id="copyModalLabel">নোটিফিকেশন কপি</h5>
+                                      <h5 class="modal-title" id="copyModalLabel">ভোটকেন্দ্র কপি</h5>
                                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                       </button>
@@ -77,7 +77,7 @@
                                       <input type="hidden" name="headings" value="{{ $notification->headings }}">
                                       <input type="hidden" name="message" value="{{ $notification->message }}">
                                       <div class="modal-body">
-                                        আপনি কি নিশ্চিতভাবে এই নোটিফিকেশনটি আবার পাঠাতে চান?<br/><br/>
+                                        আপনি কি নিশ্চিতভাবে এই ভোটকেন্দ্রটি আবার পাঠাতে চান?<br/><br/>
                                         <center>
                                           @if($notification->type == 'premium')
                                             <i class="far fa-gem"></i> প্রিমিয়াম
@@ -111,13 +111,13 @@
                                 <div class="modal-dialog" role="document">
                                   <div class="modal-content">
                                     <div class="modal-header bg-danger">
-                                      <h5 class="modal-title" id="deleteModalLabel">নোটিফিকেশন ডিলেট</h5>
+                                      <h5 class="modal-title" id="deleteModalLabel">ভোটকেন্দ্র ডিলেট</h5>
                                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                       </button>
                                     </div>
                                     <div class="modal-body">
-                                      আপনি কি নিশ্চিতভাবে এই নোটিফিকেশনটি ডিলেট করতে চান?<br/><br/>
+                                      আপনি কি নিশ্চিতভাবে এই ভোটকেন্দ্রটি ডিলেট করতে চান?<br/><br/>
                                       <div style="margin: 30px; padding: 10px; border: 1px solid #007BFF; border-radius: 10px;">
                                         <small style="color: #7A7B7D;"><span class="fas fa-bell"></span> BJS & Bar Exam</small><br/>
                                         <b><span>{{ $notification->headings }}</span></b><br/>
