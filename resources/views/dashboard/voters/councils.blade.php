@@ -31,8 +31,8 @@
         font-size: 2.5rem;
         opacity: 0.2;
         position: absolute;
-        right: 15px;
-        top: 15px;
+        right: 12px;
+        top: 12px;
         color: #007bff;
     }
     .voter-stats {
