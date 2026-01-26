@@ -735,8 +735,7 @@ class DashboardController extends Controller
     public function compareCenters()
     {
         // টেবিল থেকে প্রয়োজনীয় কলামগুলো নিয়ে আসা
-        $centers = \DB::table('center_list')
-                    ->select('id', 'code', 'name', 'name_detail')
+        $centers = Center::select('id', 'code', 'name', 'name_detail')
                     ->orderByRaw('CAST(id AS UNSIGNED) ASC') // আইডির ক্রমানুসারে সাজানো
                     ->get();
 
