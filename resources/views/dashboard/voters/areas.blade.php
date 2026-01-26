@@ -3,81 +3,77 @@
 
 @section('content')
 <style>
-    /* কম্প্যাক্ট কার্ড ডিজাইন */
+    /* ক্লিকেবল এবং কম্প্যাক্ট রাউন্ডেড কার্ড */
     .compact-area-card {
-        border-radius: 8px;
-        border: 1px solid #dee2e6;
-        background: #fff;
+        border-radius: 12px; /* পুরো কার্ড রাউন্ডেড */
+        border: 1px solid #e2e8f0;
+        background: #ffffff;
         transition: all 0.2s ease-in-out;
-        margin-bottom: 15px;
+        display: block; /* পুরো বক্স ক্লিকেবল করার জন্য */
+        text-decoration: none !important;
+        height: 100%;
     }
     .compact-area-card:hover {
         border-color: #007bff;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-        transform: translateY(-2px);
+        background-color: #f8fbff;
+        box-shadow: 0 6px 12px rgba(0,0,0,0.05);
+        transform: translateY(-3px);
     }
-    .area-info {
-        padding: 12px; /* প্যাডিং কমানো হয়েছে */
+    .area-content {
+        padding: 15px;
+        text-align: center;
     }
     .area-title {
-        font-size: 0.95rem; /* ফন্ট সাইজ ছোট করা হয়েছে */
+        font-size: 0.9rem;
         font-weight: 700;
-        color: #333;
-        margin-bottom: 0;
-        line-height: 1.2;
-    }
-    .btn-view-compact {
-        background-color: #f8f9fa;
-        color: #007bff;
-        border-top: 1px solid #eee;
-        padding: 6px;
-        font-size: 0.8rem;
-        font-weight: 600;
-        text-align: center;
+        color: #334155;
+        margin-bottom: 5px;
         display: block;
-        transition: background 0.2s;
     }
-    .compact-area-card:hover .btn-view-compact {
-        background-color: #007bff;
-        color: #fff;
+    .view-label {
+        font-size: 0.7rem;
+        color: #007bff;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
     }
-    .back-circle {
-        width: 30px;
-        height: 30px;
-        background: #eee;
-        border-radius: 50%;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        color: #555;
-        font-size: 0.8rem;
+    .back-btn-simple {
+        color: #64748b;
+        font-size: 1.1rem;
+        transition: color 0.2s;
     }
+    .back-btn-simple:hover { color: #000; }
 </style>
 
-<div class="container-fluid pt-3">
-    <div class="row mb-3">
-        <div class="col-12">
-            <h5 class="font-weight-bold d-flex align-items-center">
-                <a href="{{ route('dashboard.councils') }}" class="back-circle mr-2 text-decoration-none">
-                    <i class="fas fa-arrow-left"></i>
-                </a>
-                <span>{{ $council->name }} <small class="text-muted font-weight-normal">| এলাকা তালিকা</small></span>
-            </h5>
+<div class="container-fluid pt-4">
+    <div class="row mb-4 align-items-center">
+        <div class="col-12 d-flex align-items-center">
+            <a href="{{ route('dashboard.councils') }}" class="back-btn-simple mr-3">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+            <div>
+                <h5 class="mb-0 font-weight-bold text-dark">{{ $council->name }}</h5>
+                <small class="text-muted">ভোট এলাকা সমূহের তালিকা</small>
+            </div>
         </div>
     </div>
 
-    <div class="row">
+    <div class="row px-2">
         @foreach($areas as $area)
-        <div class="col-xl-3 col-lg-3 col-md-4 col-6 px-2"> <div class="compact-area-card shadow-sm">
-                <div class="area-info text-center">
-                    <h6 class="area-title text-truncate" title="{{ $area->name }}">
+        <div class="col-xl-3 col-lg-3 col-md-4 col-6 mb-3 px-2">
+            <a href="{{ route('dashboard.councils.voters', $area->id) }}" class="compact-area-card shadow-xs">
+                <div class="area-content">
+                    <div class="mb-2">
+                        <i class="fas fa-map-marker-alt text-primary" style="opacity: 0.3; font-size: 0.8rem;"></i>
+                    </div>
+                    <span class="area-title text-truncate" title="{{ $area->name }}">
                         {{ $area->name }}
-                    </h6>
+                    </span>
+                    <span class="view-label">
+                        তালিকা <i class="fas fa-chevron-right ml-1" style="font-size: 0.5rem;"></i>
+                    </span>
                 </div>
-                <a href="{{ route('dashboard.councils.voters', $area->id) }}" class="btn-view-compact text-decoration-none">
-                    তালিকা দেখুন <i class="fas fa-chevron-right ml-1" style="font-size: 0.6rem;"></i>
-                </a>
-            </div>
+            </a>
         </div>
         @endforeach
     </div>
