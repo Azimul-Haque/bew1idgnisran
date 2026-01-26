@@ -3,12 +3,16 @@
 
 @section('content')
 @section('page-header')
-    <a href="{{ route('dashboard.councils') }}" class="back-btn-simple mr-3">
-        <i class="fas fa-arrow-left"></i>
-    </a>
-    <div>
-        <h5 class="mb-0 font-weight-bold text-dark">{{ $council->name }}</h5>
-        <small class="text-muted">ভোট এলাকা সমূহের তালিকা</small>
+    <div class="row mb-4 align-items-center">
+        <div class="col-12 d-flex align-items-center">
+            <a href="{{ route('dashboard.councils') }}" class="back-btn-simple mr-3">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+            <div>
+                <h5 class="mb-0 font-weight-bold text-dark">{{ $council->name }}</h5>
+                <small class="text-muted">ভোট এলাকা সমূহের তালিকা</small>
+            </div>
+        </div>
     </div>
 @endsection
 @section('page-header-right')
