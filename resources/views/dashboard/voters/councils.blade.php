@@ -28,7 +28,7 @@
         box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
     }
     .council-icon {
-        font-size: 2.5rem;
+        font-size: 2.3rem;
         opacity: 0.2;
         position: absolute;
         right: 12px;
