@@ -46,12 +46,12 @@
 @endif
 
 @if(Auth::user()->role == 'admin')
-<li class="nav-item">
+{{-- <li class="nav-item">
     <a href="{{ route('dashboard.blogs') }}" class="nav-link {{ Request::is('dashboard/blogs') ? 'active' : '' }} {{ Request::is('dashboard/blogs/*') ? 'active' : '' }}">
         <i class="nav-icon fas fa-pen-nib"></i>
         <p>ব্লগ</p>
     </a>
-</li>
+</li> --}}
 @endif
 
 {{-- <li class="nav-item">
