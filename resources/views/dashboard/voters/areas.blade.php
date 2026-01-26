@@ -15,7 +15,7 @@
             <div class="card card-outline card-primary shadow-sm h-100 mb-3">
                 <div class="card-body text-center p-3">
                     <h5 class="card-title text-bold d-block mb-3">{{ $area->name }}</h5>
-                    <a href="{{ url('voters/list/'.$area->id) }}" class="btn btn-primary btn-block btn-sm">ভোটার তালিকা দেখুন</a>
+                    <a href="{{ route('dashboard.councils.voters', $area->id) }}" class="btn btn-primary btn-block btn-sm">ভোটার তালিকা দেখুন</a>
                 </div>
             </div>
         </div>
