@@ -24,7 +24,7 @@
                       </div>
                     </div>
                     <!-- /.card-header -->
-                    <div class="card-body p-0">
+                    <div class="card-body ">
                         <div class="table-responsive">
                             <table class="table table-bordered table-hover table-condensed">
                                 <thead class="table-primary">
