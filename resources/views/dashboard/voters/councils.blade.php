@@ -2,6 +2,13 @@
 @section('title', 'ড্যাশবোর্ড | ইউনিয়ন/পৌরসভা')
 
 @section('content')
+@section('page-header') ভোটকেন্দ্র @endsection
+@section('page-header-right')
+  <ol class="breadcrumb float-sm-right">
+      <li class="breadcrumb-item"><a href="{{ route('dashboard.index') }}">ড্যাশবোর্ড</a></li>
+      <li class="breadcrumb-item active">ভোটকেন্দ্র</li>
+  </ol>
+@endsection
 <style>
     /* কাস্টম গ্রেডিয়েন্ট এবং ডিজাইন */
     .council-card {
