@@ -78,7 +78,7 @@
                         {{ $area->name }}
                     </span>
                     <span class="view-label">
-                        তালিকা <i class="fas fa-chevron-right ml-1" style="font-size: 0.5rem;"></i>
+                        ভোটার তালিকা <i class="fas fa-chevron-right ml-1" style="font-size: 0.5rem;"></i>
                     </span>
                 </div>
             </a>
