@@ -55,18 +55,23 @@
                     <div class="card-body p-4">
                         <h5 class="font-weight-bold text-dark mb-3">{{ $council->name }}</h5>
                         
-                        <div class="voter-stats d-flex justify-content-between">
+                        <div class="voter-stats d-flex justify-content-between align-items-center border-top pt-3 mt-2">
                             <span>
-                                <i class="fas fa-mars text-primary small"></i> 
-                                পুরুষ<br/><b class="text-dark">{{ number_format($council->total_male ?? 0) }}</b>
+                                <i class="fas fa-mars text-primary"></i>
+                                পুরুষ<br/>
+                                <b class="text-dark">{{ number_format($council->total_male ?? 0) }}</b>
                             </span>
+                            
                             <span>
-                                <i class="fas fa-venus text-danger small"></i> 
-                                মহিলা<br/><b class="text-dark">{{ number_format($council->total_female ?? 0) }}</b>
+                                <i class="fas fa-venus text-danger"></i>
+                                মহিলা<br/>
+                                <b class="text-dark">{{ number_format($council->total_female ?? 0) }}</b>
                             </span>
+                            
                             <span>
-                                <i class="fas fa-venus text-danger small"></i> 
-                                ৩য় লিঙ্গ<br/><b class="text-dark">{{ number_format($council->total_hijra ?? 0) }}</b>
+                                <i class="fas fa-transgender text-purple" style="color: #6f42c1;"></i>
+                                ৩য় লিঙ্গ<br/>
+                                <b class="text-dark">{{ number_format($council->total_hijra ?? 0) }}</b>
                             </span>
                         </div>
                     </div>
