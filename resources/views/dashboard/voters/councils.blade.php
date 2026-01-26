@@ -76,7 +76,7 @@
                             <span>
                                 <i class="fas fa-mars text-primary"></i>
                                 পুরুষ<br/>
-                                <b class="text-dark">{{ number_format($council->total_male ?? 0) }}</b>
+                                <b class="text-dark">{{ bangla(number_format($council->total_male ?? 0)) }}</b>
                             </span>
                             
                             <span>
