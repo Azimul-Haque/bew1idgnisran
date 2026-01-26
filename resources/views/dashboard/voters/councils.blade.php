@@ -45,32 +45,62 @@
 
     <div class="row">
         @foreach($councils as $council)
-        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+        <style>
+            .council-card {
+                border-radius: 10px;
+                transition: transform 0.2s ease;
+                background: #fff;
+                border: 1px solid #eee;
+            }
+            .council-card:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
+            }
+            .council-icon {
+                font-size: 1.5rem; /* আইকন ছোট করা হয়েছে */
+                opacity: 0.1;
+                position: absolute;
+                right: 10px;
+                top: 10px;
+                color: #007bff;
+            }
+            .voter-stats span {
+                font-size: 0.75rem; /* ফন্ট সাইজ কমানো হয়েছে */
+                display: block;
+            }
+            .council-title {
+                font-size: 1rem; /* টাইটেল সাইজ অ্যাডজাস্ট করা হয়েছে */
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+        </style>
+
+        <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-3">
             <a href="{{ url('voters/areas/'.$council->id) }}" class="text-decoration-none">
                 <div class="card council-card shadow-sm h-100 position-relative">
                     <i class="fas fa-city council-icon"></i>
-                    <div class="card-body p-4">
-                        <h5 class="font-weight-bold text-dark mb-1">{{ $council->name }}</h5>
-                        <span class="text-muted small d-block mb-3">নারায়ণগঞ্জ সদর-১</span>
+                    <div class="card-body p-3"> <h6 class="font-weight-bold text-dark mb-1 council-title">{{ $council->name }}</h6>
+                        <span class="text-muted extra-small d-block mb-2" style="font-size: 0.7rem;">নরসিংদী সদর-১</span>
                         
-                        <div class="voter-stats d-flex justify-content-between">
-                            <span>
-                                <i class="fas fa-mars text-primary small"></i> 
-                                পুরুষ: <b class="text-dark">{{ number_format($council->total_male ?? 0) }}</b>
-                            </span>
-                            <span>
-                                <i class="fas fa-venus text-danger small"></i> 
-                                মহিলা: <b class="text-dark">{{ number_format($council->total_female ?? 0) }}</b>
-                            </span>
-                            <span>
-                                <i class="fas fa-venus text-danger small"></i> 
-                                ৩য় লিঙ্গ: <b class="text-dark">{{ number_format($council->total_hijra ?? 0) }}</b>
-                            </span>
+                        <div class="voter-stats border-top pt-2">
+                            <div class="d-flex justify-content-between mb-1">
+                                <span class="text-secondary"><i class="fas fa-mars text-primary"></i> পু:</span>
+                                <b class="text-dark ml-1">{{ number_format($council->total_male ?? 0) }}</b>
+                            </div>
+                            <div class="d-flex justify-content-between mb-1">
+                                <span class="text-secondary"><i class="fas fa-venus text-danger"></i> ম:</span>
+                                <b class="text-dark ml-1">{{ number_format($council->total_female ?? 0) }}</b>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <span class="text-secondary"><i class="fas fa-transgender text-purple"></i> ৩য়:</span>
+                                <b class="text-dark ml-1">{{ number_format($council->total_hijra ?? 0) }}</b>
+                            </div>
                         </div>
                     </div>
-                    <div class="card-footer bg-white border-0 py-2">
-                        <small class="text-primary font-weight-bold">
-                            বিস্তারিত দেখুন <i class="fas fa-chevron-right ml-1" style="font-size: 0.7rem;"></i>
+                    <div class="card-footer bg-light border-0 py-1 text-center">
+                        <small class="text-primary font-weight-bold" style="font-size: 0.65rem;">
+                            বিস্তারিত <i class="fas fa-chevron-right ml-1"></i>
                         </small>
                     </div>
                 </div>
