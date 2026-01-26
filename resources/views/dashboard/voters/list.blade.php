@@ -38,7 +38,7 @@
                 </tbody>
             </table>
         </div>
-        <div class="card-footer clearfix">
+        <div class="card-footer clearfix p-2">
             <div class="float-left">
                 {{ $voters->links() }}
             </div>
