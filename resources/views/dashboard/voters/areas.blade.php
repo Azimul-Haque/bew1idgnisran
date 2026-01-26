@@ -79,7 +79,7 @@
                         {{ $area->name }}
                     </span>
 
-                    <div class="d-flex justify-content-center mb-2" style="font-size: 0.65rem; gap: 8px;">
+                    <div class="d-flex justify-content-center mb-2" style="font-size: 1rem; gap: 8px;">
                         <span class="text-muted">
                             <i class="fas fa-mars text-primary" style="font-size: 0.6rem;"></i> 
                             {{ bangla(number_format($area->male ?? 0)) }}
