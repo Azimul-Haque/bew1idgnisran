@@ -29,6 +29,7 @@
                         <td>{{ $voters->firstItem() + $loop->index }}</td>
                         <td class="text-primary font-weight-bold">{{ $voter->voter_id }}</td>
                         <td>{{ $voter->name }}</td>
+                        <td>{{ $voter->birth_date }}</td>
                         <td>{{ $voter->father_name }}</td>
                         <td>{{ $voter->mother_name }}</td>
                         <td><span class="badge {{ $voter->gender == 'পুরুষ' ? 'badge-primary' : 'badge-danger' }}">{{ $voter->gender }}</span></td>
