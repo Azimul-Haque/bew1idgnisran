@@ -2,7 +2,7 @@
 @section('title', 'ভোটার তালিকা')
 
 @section('content')
-@section('page-header') ভোটকেন্দ্র @endsection
+@section('page-header') {{ $area->name }} - বিস্তারিত ভোটার তালিকা @endsection
 <div class="container-fluid">
     <div class="card card-primary card-outline">
         <div class="card-header">
