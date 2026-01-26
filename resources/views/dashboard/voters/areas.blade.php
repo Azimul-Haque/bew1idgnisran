@@ -71,14 +71,31 @@
         <div class="col-xl-3 col-lg-3 col-md-4 col-6 mb-3 px-2">
             <a href="{{ route('dashboard.councils.voters', $area->id) }}" class="compact-area-card shadow-xs">
                 <div class="area-content">
-                    <div class="mb-2">
-                        <i class="fas fa-map-marker-alt text-primary" style="opacity: 0.3; font-size: 0.8rem;"></i>
+                    <div class="mb-1">
+                        <i class="fas fa-map-marker-alt text-primary" style="opacity: 0.3; font-size: 0.7rem;"></i>
                     </div>
-                    <span class="area-title text-truncate" title="{{ $area->name }}">
+                    
+                    <span class="area-title text-truncate mb-1" title="{{ $area->name }}">
                         {{ $area->name }}
                     </span>
-                    <span class="view-label">
-                        ভোটার তালিকা <i class="fas fa-chevron-right ml-1" style="font-size: 0.5rem;"></i>
+
+                    <div class="d-flex justify-content-center mb-2" style="font-size: 0.65rem; gap: 8px;">
+                        <span class="text-muted">
+                            <i class="fas fa-mars text-primary" style="font-size: 0.6rem;"></i> 
+                            {{ number_format($area->total_male ?? 0) }}
+                        </span>
+                        <span class="text-muted">
+                            <i class="fas fa-venus text-danger" style="font-size: 0.6rem;"></i> 
+                            {{ number_format($area->total_female ?? 0) }}
+                        </span>
+                        <span class="text-muted">
+                            <i class="fas fa-transgender text-purple" style="font-size: 0.6rem; color: #6f42c1;"></i> 
+                            {{ number_format($area->total_hijra ?? 0) }}
+                        </span>
+                    </div>
+
+                    <span class="view-label" style="border-top: 1px solid #f1f5f9; display: block; pt-1; margin-top: 5px;">
+                        তালিকা <i class="fas fa-chevron-right ml-1" style="font-size: 0.5rem;"></i>
                     </span>
                 </div>
             </a>
