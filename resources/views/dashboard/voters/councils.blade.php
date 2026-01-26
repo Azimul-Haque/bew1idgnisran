@@ -60,6 +60,10 @@
                             </span>
                             <span>
                                 <i class="fas fa-venus text-danger small"></i> 
+                                মহিলা: <b class="text-dark">{{ number_format($council->total_female ?? 0) }}</b>
+                            </span>
+                            <span>
+                                <i class="fas fa-venus text-danger small"></i> 
                                 নারী: <b class="text-dark">{{ number_format($council->total_female ?? 0) }}</b>
                             </span>
                         </div>
