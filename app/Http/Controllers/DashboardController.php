@@ -13,6 +13,7 @@ use App\Blogcategory;
 use App\Voter;
 use App\Area;
 use App\Center;
+use App\Council;
 
 use Carbon\Carbon;
 use Illuminate\Validation\Rule;
