@@ -743,14 +743,7 @@ class DashboardController extends Controller
 
         return view('dashboard.voters.centers', compact('centers'));
     }
-
-    public function getCouncils()
-    {
-        // ১৩টি ইউনিয়ন/পৌরসভার তালিকা
-        $councils = Council::all();
-        return view('dashboard.voters.councils', compact('councils'));
-    }
-
+    
     public function getCouncils()
     {
         // প্রতিটি কাউন্সিলের আন্ডারে থাকা ভোটারদের লিঙ্গভিত্তিক যোগফল বের করা
@@ -765,7 +758,7 @@ class DashboardController extends Controller
             ->groupBy('councils.id')
             ->get();
 
-        return view('voters.councils', compact('councils'));
+        return view('dashboard.voters.councils', compact('councils'));
     }
 
     public function getAreas($council_id)
