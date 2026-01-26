@@ -3,7 +3,7 @@
 
 @section('content')
 @section('page-header')
-    <div class="row mb-4 align-items-center">
+    <div class="row align-items-center">
         <div class="col-12 d-flex align-items-center">
             <a href="{{ route('dashboard.councils') }}" class="back-btn-simple mr-3">
                 <i class="fas fa-arrow-left"></i>
