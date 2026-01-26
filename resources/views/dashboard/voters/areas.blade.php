@@ -9,7 +9,7 @@
             {{ $council->name }} - এর এলাকা সমূহ</h4>
         </div>
     </div>
-    <div class="row">
+    <div class="row p-3">
         @foreach($areas as $area)
         <div class="col-md-4">
             <div class="card card-outline card-primary shadow-sm h-100 mb-3">
