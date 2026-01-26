@@ -3,7 +3,7 @@
 
 @section('content')
 <div class="container-fluid">
-    <div class="card card-primary card-outline mb-2">
+    <div class="card card-primary card-outline">
         <div class="card-header">
             <h3 class="card-title text-bold"><i class="fas fa-users"></i> {{ $area->name }} - বিস্তারিত ভোটার তালিকা</h3>
             <div class="card-tools">
