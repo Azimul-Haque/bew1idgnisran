@@ -11,7 +11,7 @@
             </div>
         </div>
         <div class="card-body p-0">
-            <table class="table table-striped table-hover m-0">
+            <table class="table table-bordered table-hover table-condensed table-hover m-0">
                 <thead class="bg-light">
                     <tr>
                         <th>ক্রমিক</th>
