@@ -35,7 +35,7 @@
             </table>
         </div>
         <div class="card-footer clearfix">
-            <div class="float-right">
+            <div class="float-left">
                 {{ $voters->links() }}
             </div>
         </div>
