@@ -58,15 +58,15 @@
                         <div class="voter-stats d-flex justify-content-between">
                             <span>
                                 <i class="fas fa-mars text-primary small"></i> 
-                                পুরুষ: <b class="text-dark">{{ number_format($council->total_male ?? 0) }}</b>
+                                পুরুষ<br/><b class="text-dark">{{ number_format($council->total_male ?? 0) }}</b>
                             </span>
                             <span>
                                 <i class="fas fa-venus text-danger small"></i> 
-                                মহিলা: <b class="text-dark">{{ number_format($council->total_female ?? 0) }}</b>
+                                মহিলা<br/><b class="text-dark">{{ number_format($council->total_female ?? 0) }}</b>
                             </span>
                             <span>
                                 <i class="fas fa-venus text-danger small"></i> 
-                                ৩য় লিঙ্গ: <b class="text-dark">{{ number_format($council->total_hijra ?? 0) }}</b>
+                                ৩য় লিঙ্গ<br/><b class="text-dark">{{ number_format($council->total_hijra ?? 0) }}</b>
                             </span>
                         </div>
                     </div>
