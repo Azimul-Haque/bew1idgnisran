@@ -62,18 +62,6 @@
 </style>
 
 <div class="container-fluid pt-4">
-    <div class="row mb-4 align-items-center">
-        <div class="col-12 d-flex align-items-center">
-            <a href="{{ route('dashboard.councils') }}" class="back-btn-simple mr-3">
-                <i class="fas fa-arrow-left"></i>
-            </a>
-            <div>
-                <h5 class="mb-0 font-weight-bold text-dark">{{ $council->name }}</h5>
-                <small class="text-muted">ভোট এলাকা সমূহের তালিকা</small>
-            </div>
-        </div>
-    </div>
-
     <div class="row px-2">
         @foreach($areas as $area)
         <div class="col-xl-3 col-lg-3 col-md-4 col-6 mb-3 px-2">
