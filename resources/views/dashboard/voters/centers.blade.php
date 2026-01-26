@@ -28,7 +28,7 @@
                 <div class="card-body p-0">
                     <div class="table-responsive">
                         <table class="table table-bordered table-hover table-condensed">
-                            <thead class="table-dark">
+                            <thead class="">
                                 <tr>
                                     <th>আইডি (ID)</th>
                                     <th>কোড (Code - বাংলা)</th>
