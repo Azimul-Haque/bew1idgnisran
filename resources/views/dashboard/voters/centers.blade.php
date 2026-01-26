@@ -14,7 +14,7 @@
   @endsection
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-9">
+            <div class="col-md-12">
                   <div class="card">
                     <div class="card-header">
                       <h3 class="card-title">ভোটকেন্দ্র তালিকা</h3>
@@ -50,8 +50,7 @@
                     </div>
                     <!-- /.card-body -->
                   </div>
-            </div>  
-            <div class="col-md-3"></div>  
+            </div> 
         </div>
     </div>
 @endsection
