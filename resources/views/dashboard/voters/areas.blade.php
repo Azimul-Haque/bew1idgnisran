@@ -81,15 +81,15 @@
 
                     <div class="d-flex justify-content-center mb-2" style="font-size: 1rem; gap: 8px;">
                         <span class="text-muted">
-                            <i class="fas fa-mars text-primary" style="font-size: 0.6rem;"></i> 
+                            <i class="fas fa-mars text-primary" style="font-size: 1rem;"></i> 
                             {{ bangla(number_format($area->male ?? 0)) }}
                         </span>
                         <span class="text-muted">
-                            <i class="fas fa-venus text-danger" style="font-size: 0.6rem;"></i> 
+                            <i class="fas fa-venus text-danger" style="font-size: 1rem;"></i> 
                             {{ bangla(number_format($area->female ?? 0)) }}
                         </span>
                         <span class="text-muted">
-                            <i class="fas fa-transgender text-purple" style="font-size: 0.6rem; color: #6f42c1;"></i> 
+                            <i class="fas fa-transgender text-purple" style="font-size: 1rem; color: #6f42c1;"></i> 
                             {{ bangla(number_format($area->hijra ?? 0)) }}
                         </span>
                     </div>
