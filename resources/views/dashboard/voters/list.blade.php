@@ -2,6 +2,7 @@
 @section('title', 'ভোটার তালিকা')
 
 @section('content')
+@section('page-header') ভোটকেন্দ্র @endsection
 <div class="container-fluid">
     <div class="card card-primary card-outline">
         <div class="card-header">
