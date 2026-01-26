@@ -751,6 +751,23 @@ class DashboardController extends Controller
         return view('dashboard.voters.councils', compact('councils'));
     }
 
+    public function getCouncils()
+    {
+        // প্রতিটি কাউন্সিলের আন্ডারে থাকা ভোটারদের লিঙ্গভিত্তিক যোগফল বের করা
+        $councils = \DB::table('councils')
+            ->leftJoin('areas', 'councils.id', '=', 'areas.council_id')
+            ->leftJoin('voters', 'areas.id', '=', 'voters.area_id')
+            ->select(
+                'councils.*',
+                \DB::raw("SUM(CASE WHEN voters.gender = 'পুরুষ' THEN 1 ELSE 0 END) as total_male"),
+                \DB::raw("SUM(CASE WHEN voters.gender = 'নারী' THEN 1 ELSE 0 END) as total_female")
+            )
+            ->groupBy('councils.id')
+            ->get();
+
+        return view('voters.councils', compact('councils'));
+    }
+
     public function getAreas($council_id)
     {
         // নির্দিষ্ট কাউন্সিলের অধীনে এলাকা/ওয়ার্ডের তালিকা
