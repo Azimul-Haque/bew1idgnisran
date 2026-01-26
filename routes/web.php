@@ -74,7 +74,7 @@ Route::get('/dashboard/areas/json', 'DashboardController@makeAreasJson')->name('
 // voters data
 Route::get('/dashboard/councils', 'DashboardController@getCouncils')->name('dashboard.councils');
 Route::get('/dashboard/councils/{council_id}/areas', 'DashboardController@getAreas')->name('dashboard.councils.areas');
-Route::get('/dashboard/councils/areas/voters', 'DashboardController@voterList')->name('dashboard.councils.areas');
+Route::get('/dashboard/councils/areas/{area_id}/voters', 'DashboardController@voterList')->name('dashboard.councils.voters');
 Route::get('/dashboard/centers', 'DashboardController@compareCenters')->name('dashboard.centers');
 
 Route::get('/dashboard/users', 'DashboardController@getUsers')->name('dashboard.users');
