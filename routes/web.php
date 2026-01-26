@@ -72,7 +72,7 @@ Route::get('/dashboard/areas/json', 'DashboardController@makeAreasJson')->name('
 
 // voters data
 // voters data
-Route::get('/dashboard/councils', 'DashboardController@compareCenters')->name('dashboard.centers');
+Route::get('/dashboard/councils', 'DashboardController@getCouncils')->name('dashboard.councils');
 Route::get('/dashboard/centers', 'DashboardController@compareCenters')->name('dashboard.centers');
 
 Route::get('/dashboard/users', 'DashboardController@getUsers')->name('dashboard.users');
