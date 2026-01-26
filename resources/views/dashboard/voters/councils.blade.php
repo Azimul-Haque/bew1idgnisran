@@ -72,7 +72,7 @@
                     <div class="card-body p-3">
                         <h5 class="font-weight-bold text-dark mb-2">{{ $council->name }}</h5>
                         
-                        <div class="voter-stats d-flex justify-content-between align-items-center border-top pt-3 mt-2">
+                        <div class="voter-stats d-flex justify-content-between align-items-center border-top pt-3 mt-1">
                             <span>
                                 <i class="fas fa-mars text-primary"></i>
                                 পুরুষ<br/>
