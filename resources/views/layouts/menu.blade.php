@@ -48,7 +48,8 @@
 @if(Auth::user()->role == 'admin')
 <li class="nav-item">
     <a href="{{ route('dashboard.notifications') }}" class="nav-link {{ Request::is('dashboard/notifications') ? 'active' : '' }} {{ Request::is('dashboard/notification/*') ? 'active' : '' }}">
-        <i class="nav-icon fas fa-bell"></i>
+        <i class="nav-icon fas fa-person-booth"></i>
+        <i class=""></i>
         <p>ভোটকেন্দ্রসমূহ</p>
     </a>
 </li>
