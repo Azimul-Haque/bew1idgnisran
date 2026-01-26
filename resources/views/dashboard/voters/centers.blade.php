@@ -26,7 +26,28 @@
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body p-0">
-                    
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>আইডি (ID)</th>
+                                    <th>কোড (Code - বাংলা)</th>
+                                    <th>নাম (Short Name)</th>
+                                    <th>বিস্তারিত নাম (Detailed Name)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($centers as $center)
+                                <tr>
+                                    <td>{{ $center->id }}</td>
+                                    <td class="fw-bold text-primary">{{ $center->code }}</td>
+                                    <td>{{ $center->name }}</td>
+                                    <td class="text-success">{{ $center->name_detail }}</td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
                 <!-- /.card-body -->
               </div>
