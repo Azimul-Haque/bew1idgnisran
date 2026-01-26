@@ -743,7 +743,7 @@ class DashboardController extends Controller
 
         return view('dashboard.voters.centers', compact('centers'));
     }
-    
+
     public function getCouncils()
     {
         // প্রতিটি কাউন্সিলের আন্ডারে থাকা ভোটারদের লিঙ্গভিত্তিক যোগফল বের করা
@@ -753,7 +753,7 @@ class DashboardController extends Controller
             ->select(
                 'councils.*',
                 \DB::raw("SUM(CASE WHEN voters.gender = 'পুরুষ' THEN 1 ELSE 0 END) as total_male"),
-                \DB::raw("SUM(CASE WHEN voters.gender = 'নারী' THEN 1 ELSE 0 END) as total_female")
+                \DB::raw("SUM(CASE WHEN voters.gender = 'মহিলা' THEN 1 ELSE 0 END) as total_female")
             )
             ->groupBy('councils.id')
             ->get();
