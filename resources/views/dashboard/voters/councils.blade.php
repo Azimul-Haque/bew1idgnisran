@@ -33,7 +33,7 @@
     .badge-female { background-color: #fce4ec; color: #880e4f; }
 </style>
 
-<div class="container-fluid py-4">
+<div class="container-fluid">
     <div class="row mb-4">
         <div class="col-12">
             <h3 class="font-weight-bold text-dark">
