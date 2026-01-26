@@ -69,7 +69,7 @@ Route::get('/dashboard', 'DashboardController@index')->name('dashboard.index');
 Route::get('/dashboard/clear/query/cache', 'DashboardController@clearQueryCache')->name('dashboard.clearquerycache');
 Route::post('/dashboard/upload/csv', 'DashboardController@uploadCSV')->name('dashboard.uploadcsv');
 Route::get('/dashboard/areas/json', 'DashboardController@makeAreasJson')->name('dashboard.areas.json');
-Route::get('/dashboard/centers', 'DashboardController@getCenters')->name('dashboard.centers');
+Route::get('/dashboard/centers', 'DashboardController@compareCenters')->name('dashboard.centers');
 
 Route::get('/dashboard/users', 'DashboardController@getUsers')->name('dashboard.users');
 Route::get('/dashboard/users/sort', 'DashboardController@getUsersSort')->name('dashboard.userssort');
