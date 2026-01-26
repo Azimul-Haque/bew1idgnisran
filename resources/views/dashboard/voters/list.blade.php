@@ -2,7 +2,12 @@
 @section('title', 'ভোটার তালিকা')
 
 @section('content')
-@section('page-header') {{ $area->name }} - বিস্তারিত ভোটার তালিকা @endsection
+@section('page-header')
+    <a href="{{ route('dashboard.councils') }}" class="back-btn-simple mr-3">
+        <i class="fas fa-arrow-left"></i>
+    </a>
+    {{ $area->name }} - বিস্তারিত ভোটার তালিকা
+@endsection
 <div class="container-fluid">
     <div class="card card-primary card-outline">
         <div class="card-header">
