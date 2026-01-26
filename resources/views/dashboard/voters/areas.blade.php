@@ -66,7 +66,6 @@
 </style>
 
 <div class="container-fluid">
-
     <div class="row">
         @foreach($areas as $area)
         <div class="col-xl-3 col-lg-3 col-md-4 col-6 mb-3 px-2">
