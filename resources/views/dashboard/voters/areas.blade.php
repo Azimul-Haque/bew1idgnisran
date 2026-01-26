@@ -3,10 +3,13 @@
 
 @section('content')
 @section('page-header')
-    <h3 class="font-weight-bold text-dark">
-        <i class="fas fa-map-marked-alt text-primary mr-2"></i> {{ $council->name }}
-    </h3>
-    <p class="text-muted small">বিস্তারিত দেখতে নির্দিষ্ট প্রশাসনিক ইউনিটে ক্লিক করুন</p>
+    <a href="{{ route('dashboard.councils') }}" class="back-btn-simple mr-3">
+        <i class="fas fa-arrow-left"></i>
+    </a>
+    <div>
+        <h5 class="mb-0 font-weight-bold text-dark">{{ $council->name }}</h5>
+        <small class="text-muted">ভোট এলাকা সমূহের তালিকা</small>
+    </div>
 @endsection
 @section('page-header-right')
   <ol class="breadcrumb float-sm-right">
