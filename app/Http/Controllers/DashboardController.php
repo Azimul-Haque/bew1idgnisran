@@ -759,6 +759,16 @@ class DashboardController extends Controller
         return view('dashboard.voters.areas', compact('areas', 'council'));
     }
 
+    public function voterList($area_id)
+    {
+        // নির্দিষ্ট এলাকার ভোটার তালিকা (Pagination সহ)
+        $area = \DB::table('areas')->where('id', $area_id)->first();
+        $voters = \DB::table('voters')
+                    ->where('area_id', $area_id)
+                    ->paginate(30); 
+        return view('voters.list', compact('voters', 'area'));
+    }
+
 
 
 
