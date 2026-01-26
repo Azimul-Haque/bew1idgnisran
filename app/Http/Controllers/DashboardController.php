@@ -740,7 +740,7 @@ class DashboardController extends Controller
                     ->orderByRaw('CAST(id AS UNSIGNED) ASC') // আইডির ক্রমানুসারে সাজানো
                     ->get();
 
-        return view('centers.compare', compact('centers'));
+        return view('dashboard.voters.centers', compact('centers'));
     }
 
 
