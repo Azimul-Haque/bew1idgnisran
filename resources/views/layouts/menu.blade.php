@@ -49,7 +49,7 @@
 <li class="nav-item">
     <a href="{{ route('dashboard.councils') }}" class="nav-link {{ Request::is('dashboard/councils') ? 'active' : '' }} {{ Request::is('dashboard/councils/*') ? 'active' : '' }}">
         <i class="nav-icon fas fa-person-booth"></i>
-        <p>ভোটকেন্দ্রসমূহ</p>
+        <p>ইউনিয়ন/পৌরসভা</p>
     </a>
 </li>
 @endif
