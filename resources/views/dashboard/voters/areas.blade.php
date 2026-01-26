@@ -11,7 +11,8 @@
 @section('page-header-right')
   <ol class="breadcrumb float-sm-right">
       <li class="breadcrumb-item"><a href="{{ route('dashboard.index') }}">ড্যাশবোর্ড</a></li>
-      <li class="breadcrumb-item active">ইউনিয়ন-পৌরসভা</li>
+      <li class="breadcrumb-item">ইউনিয়ন-পৌরসভা</li>
+      <li class="breadcrumb-item active">{{ $council->name }}</li>
   </ol>
 @endsection
 <style>
