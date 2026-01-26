@@ -58,16 +58,5 @@
 @endsection
 
 @section('third_party_scripts')
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script type="text/javascript">
-        $('#notifdemo').hide();
-        $('#headings').keyup(function () {
-          $('#notifdemo').show();
-          $('#headingstext').text(this.value);
-        });
-        $('#message').keyup(function () {
-          $('#notifdemo').show();
-          $('#messagetext').text(this.value);
-        });
-    </script>
+    
 @endsection
