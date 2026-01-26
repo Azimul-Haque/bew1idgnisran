@@ -49,6 +49,7 @@
 <li class="nav-item">
     <a href="{{ route('dashboard.councils') }}" class="nav-link {{ Request::is('dashboard/councils') ? 'active' : '' }} {{ Request::is('dashboard/councils/*') ? 'active' : '' }}">
         <i class="nav-icon fas fa-person-booth"></i>
+        <i class="fas fa-vote-yea"></i>
         <p>ভোটার তালিকা</p>
     </a>
 </li>
