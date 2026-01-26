@@ -44,6 +44,23 @@
     .badge-male { background-color: #e3f2fd; color: #0d47a1; }
     .badge-female { background-color: #fce4ec; color: #880e4f; }
 </style>
+<style>
+    /* আইকন এবং টেক্সট অ্যালাইনমেন্ট সুন্দর করার জন্য */
+    .voter-stats span {
+        flex: 1; /* প্রতিটি অংশ সমান জায়গা নেবে */
+        text-align: center;
+        font-size: 0.75rem;
+        line-height: 1.2;
+    }
+    .voter-stats span:not(:last-child) {
+        border-right: 1px solid #eee; /* মাঝখানে হালকা ডিভাইডার */
+    }
+    .voter-stats i {
+        display: block;
+        margin-bottom: 4px;
+        font-size: 1rem;
+    }
+</style>
 
 <div class="container-fluid">
     <div class="row">
