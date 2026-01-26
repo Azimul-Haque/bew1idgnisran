@@ -87,8 +87,7 @@
                             মহিলা: {{ bangla(number_format($area->female ?? 0)) }}
                         </span>
                         <span class="text-muted">
-                            <i class="fas fa-transgender text-purple" style="font-size: 1rem; color: #6f42c1;"></i> 
-                            {{ bangla(number_format($area->hijra ?? 0)) }}
+                            ৩য় লিঙ্গ: {{ bangla(number_format($area->hijra ?? 0)) }}
                         </span>
                     </div>
 
