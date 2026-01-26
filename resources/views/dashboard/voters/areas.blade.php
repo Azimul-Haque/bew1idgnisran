@@ -82,15 +82,15 @@
                     <div class="d-flex justify-content-center mb-2" style="font-size: 0.65rem; gap: 8px;">
                         <span class="text-muted">
                             <i class="fas fa-mars text-primary" style="font-size: 0.6rem;"></i> 
-                            {{ number_format($area->total_male ?? 0) }}
+                            {{ number_format($area->male ?? 0) }}
                         </span>
                         <span class="text-muted">
                             <i class="fas fa-venus text-danger" style="font-size: 0.6rem;"></i> 
-                            {{ number_format($area->total_female ?? 0) }}
+                            {{ number_format($area->female ?? 0) }}
                         </span>
                         <span class="text-muted">
                             <i class="fas fa-transgender text-purple" style="font-size: 0.6rem; color: #6f42c1;"></i> 
-                            {{ number_format($area->total_hijra ?? 0) }}
+                            {{ number_format($area->hijra ?? 0) }}
                         </span>
                     </div>
 
