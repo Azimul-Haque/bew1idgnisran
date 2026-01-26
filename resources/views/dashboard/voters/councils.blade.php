@@ -88,7 +88,7 @@
                             <span>
                                 <i class="fas fa-transgender text-purple" style="color: #6f42c1;"></i>
                                 ৩য় লিঙ্গ<br/>
-                                <b class="text-dark">{{ number_format($council->total_hijra ?? 0) }}</b>
+                                <b class="text-dark">{{ bangla(number_format($council->total_hijra ?? 0)) }}</b>
                             </span>
                         </div>
                     </div>
