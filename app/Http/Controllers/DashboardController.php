@@ -744,6 +744,13 @@ class DashboardController extends Controller
         return view('dashboard.voters.centers', compact('centers'));
     }
 
+    public function getCouncils()
+    {
+        // ১৩টি ইউনিয়ন/পৌরসভার তালিকা
+        $councils = \DB::table('councils')->get();
+        return view('voters.councils', compact('councils'));
+    }
+
 
 
 
