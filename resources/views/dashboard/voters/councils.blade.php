@@ -64,7 +64,7 @@
                             </span>
                             <span>
                                 <i class="fas fa-venus text-danger small"></i> 
-                                নারী: <b class="text-dark">{{ number_format($council->total_female ?? 0) }}</b>
+                                হিজড়া: <b class="text-dark">{{ number_format($council->total_female ?? 0) }}</b>
                             </span>
                         </div>
                     </div>
