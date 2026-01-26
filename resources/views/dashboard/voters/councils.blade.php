@@ -50,7 +50,7 @@
         @foreach($councils as $council)
         <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
             <a href="{{ url('voters/areas/'.$council->id) }}" class="text-decoration-none">
-                <div class="card council-card shadow-sm h-100 position-relative">
+                <div class="card council-card shadow-sm h-90 position-relative">
                     <i class="fas fa-city council-icon"></i>
                     <div class="card-body p-4">
                         <h5 class="font-weight-bold text-dark mb-3">{{ $council->name }}</h5>
