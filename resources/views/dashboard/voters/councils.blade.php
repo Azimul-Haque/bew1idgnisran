@@ -82,7 +82,7 @@
                             <span>
                                 <i class="fas fa-venus text-danger"></i>
                                 মহিলা<br/>
-                                <b class="text-dark">{{ number_format($council->total_female ?? 0) }}</b>
+                                <b class="text-dark">{{ bangla(number_format($council->total_female ?? 0)) }}</b>
                             </span>
                             
                             <span>
