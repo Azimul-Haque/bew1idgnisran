@@ -754,6 +754,7 @@ class DashboardController extends Controller
                 'councils.*',
                 \DB::raw("SUM(CASE WHEN voters.gender = 'পুরুষ' THEN 1 ELSE 0 END) as total_male"),
                 \DB::raw("SUM(CASE WHEN voters.gender = 'মহিলা' THEN 1 ELSE 0 END) as total_female")
+                \DB::raw("SUM(CASE WHEN voters.gender = 'হিজড়া' THEN 1 ELSE 0 END) as total_female")
             )
             ->groupBy('councils.id')
             ->get();
