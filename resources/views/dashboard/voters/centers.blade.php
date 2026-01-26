@@ -14,45 +14,45 @@
   @endsection
     <div class="container-fluid">
         <div class="row">
-        <div class="col-md-9">
-              <div class="card">
-                <div class="card-header">
-                  <h3 class="card-title">ভোটকেন্দ্র তালিকা</h3>
+            <div class="col-md-9">
+                  <div class="card">
+                    <div class="card-header">
+                      <h3 class="card-title">ভোটকেন্দ্র তালিকা</h3>
 
-                  <div class="card-tools">
-                    
-                  </div>
-                </div>
-                <!-- /.card-header -->
-                <div class="card-body p-0">
-                    <div class="table-responsive">
-                        <table class="table table-bordered table-hover table-condensed">
-                            <thead class="table-primary">
-                                <tr>
-                                    <th>আইডি (ID)</th>
-                                    <th>কোড (Code - বাংলা)</th>
-                                    <th>নাম (Short Name)</th>
-                                    <th>বিস্তারিত নাম (Detailed Name)</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach($centers as $center)
-                                <tr>
-                                    <td>{{ $center->id }}</td>
-                                    <td class="fw-bold text-primary">{{ $center->code }}</td>
-                                    <td>{{ $center->name }}</td>
-                                    <td class="text-success">{{ $center->name_detail }}</td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
+                      <div class="card-tools">
+                        
+                      </div>
                     </div>
-                </div>
-                <!-- /.card-body -->
-              </div>
-        </div>  
-        <div class="col-md-3"></div>  
-      </div>
+                    <!-- /.card-header -->
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover table-condensed">
+                                <thead class="table-primary">
+                                    <tr>
+                                        <th>আইডি (ID)</th>
+                                        <th>কোড (Code - বাংলা)</th>
+                                        <th>নাম (Short Name)</th>
+                                        <th>বিস্তারিত নাম (Detailed Name)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($centers as $center)
+                                    <tr>
+                                        <td>{{ $center->id }}</td>
+                                        <td class="fw-bold text-primary">{{ $center->code }}</td>
+                                        <td>{{ $center->name }}</td>
+                                        <td class="text-success">{{ $center->name_detail }}</td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+                  </div>
+            </div>  
+            <div class="col-md-3"></div>  
+        </div>
     </div>
 @endsection
 
