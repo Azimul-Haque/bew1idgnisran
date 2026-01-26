@@ -776,7 +776,7 @@ class DashboardController extends Controller
         $area = \DB::table('areas')->where('id', $area_id)->first();
         $voters = \DB::table('voters')
                     ->where('area_id', $area_id)
-                    ->paginate(30); 
+                    ->paginate(30);
         return view('dashboard.voters.list', compact('voters', 'area'));
     }
 
