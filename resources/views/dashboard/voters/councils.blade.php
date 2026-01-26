@@ -11,7 +11,7 @@
     <div class="row">
         @foreach($councils as $council)
         <div class="col-lg-3 col-6">
-            <a href="{{ url('voters/areas/'.$council->id) }}" class="text-decoration-none">
+            <a href="{{ route('dashboard.councils.areas', $council->id) }}" class="text-decoration-none">
                 <div class="small-box bg-info shadow-sm elevation-2">
                     <div class="inner p-4">
                         <h4 class="font-weight-bold">{{ $council->name }}</h4>
