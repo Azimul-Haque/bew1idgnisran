@@ -99,6 +99,7 @@
         </div>
       </div> --}}
       <div class="row">
+        @if(Auth::user()->role == 'admin')
         <div class="col-md-6">
           <button class="btn btn-warning" data-toggle="modal" data-target="#clearQueryCacheModal">
             <i class="fas fa-tools"></i> সকল কোয়েরি ক্যাশ (API) ক্লিয়ার করুন
@@ -127,44 +128,10 @@
           </div>
           {{-- Modal Code --}}
           {{-- Modal Code --}}
-
-          {{-- <button class="btn btn-success" data-toggle="modal" data-target="#uploadCSVFileModal">
-            <i class="fas fa-files"></i> CSV ফাইল আপলোড
-          </button> --}}
-          {{-- Modal Code --}}
-          {{-- Modal Code --}}
-          <!-- Modal -->
-          <div class="modal fade" id="uploadCSVFileModal" tabindex="-1" role="dialog" aria-labelledby="uploadCSVFileModalLabel" aria-hidden="true" data-backdrop="static">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header bg-success">
-                      <h5 class="modal-title" id="clearQueryCacheModalLabel">CSV ফাইল আপলোড</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <form action="{{ route('dashboard.uploadcsv') }}" method="POST" enctype="multipart/form-data">
-                        <div class="modal-body">
-                            @csrf
-                            <div class="form-group mb-3">
-                                <label class="font-weight-bold">সিএসভি ফাইলগুলো একসাথে সিলেক্ট করুন (১০-২০টি):</label>
-                                <input type="file" name="csv_files[]" class="form-control" multiple required>
-                                <small class="text-muted">আপনি কিবোর্ডের Ctrl চেপে ধরে একাধিক ফাইল সিলেক্ট করতে পারেন।</small>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>
-                            <button type="submit" class="btn btn-primary">সবগুলো আপলোড শুরু করুন</button>
-                        </div>
-                    </form>
-                </div>
-              </div>
-          </div>
-          {{-- Modal Code --}}
-          {{-- Modal Code --}}
           <br/>
           <br/>
         </div>
+        @endif
       </div>
     </div>
 @endsection
