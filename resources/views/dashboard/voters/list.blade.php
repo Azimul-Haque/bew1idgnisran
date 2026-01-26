@@ -6,7 +6,7 @@
     <a href="{{ route('dashboard.councils.areas', $area->council_id) }}" class="back-btn-simple mr-3">
         <i class="fas fa-arrow-left"></i>
     </a>
-    {{ $area->name }} - বিস্তারিত ভোটার তালিকা
+    <strong>{{ $area->name }}</strong> - বিস্তারিত ভোটার তালিকা
 @endsection
 <div class="container-fluid">
     <div class="card card-primary card-outline">
