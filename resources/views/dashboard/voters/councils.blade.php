@@ -92,7 +92,7 @@
                             </span>
                         </div>
                     </div>
-                    <div class="card-footer bg-white border-0 py-2">
+                    <div class="card-footer bg-white border-0 py-1">
                         <small class="text-primary font-weight-bold">
                             বিস্তারিত দেখুন <i class="fas fa-chevron-right ml-1" style="font-size: 0.7rem;"></i>
                         </small>
