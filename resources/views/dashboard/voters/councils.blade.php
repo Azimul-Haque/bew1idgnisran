@@ -34,7 +34,7 @@
 </style>
 
 <div class="container-fluid">
-    <div class="row mb-4">
+    <div class="row ">
         <div class="col-12">
             <h3 class="font-weight-bold text-dark">
                 <i class="fas fa-map-marked-alt text-primary mr-2"></i> ইউনিয়ন/পৌরসভা ভিত্তিক ভোটার তথ্য
