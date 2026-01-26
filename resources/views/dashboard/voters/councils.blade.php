@@ -70,7 +70,7 @@
                 <div class="card council-card shadow-sm h-80 position-relative">
                     <i class="fas fa-city council-icon"></i>
                     <div class="card-body p-3">
-                        <h5 class="font-weight-bold text-dark mb-3">{{ $council->name }}</h5>
+                        <h5 class="font-weight-bold text-dark mb-2">{{ $council->name }}</h5>
                         
                         <div class="voter-stats d-flex justify-content-between align-items-center border-top pt-3 mt-2">
                             <span>
