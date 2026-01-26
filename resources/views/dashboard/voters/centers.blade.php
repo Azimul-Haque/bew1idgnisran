@@ -21,14 +21,12 @@
                   <h3 class="card-title">ভোটকেন্দ্র তালিকা</h3>
 
                   <div class="card-tools">
-                    <button type="button" class="btn btn-success btn-sm"  data-toggle="modal" data-target="#newNotifModal" title="" rel="tooltip" data-original-title="নতুন ভোটকেন্দ্র">
-                      <i class="fas fa-bell"></i> নতুন ভোটকেন্দ্র
-                    </button>
+                    
                   </div>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body p-0">
-               
+                    
                 </div>
                 <!-- /.card-body -->
               </div>
