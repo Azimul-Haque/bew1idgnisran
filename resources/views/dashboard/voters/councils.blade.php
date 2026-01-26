@@ -51,7 +51,6 @@
                     <i class="fas fa-city council-icon"></i>
                     <div class="card-body p-4">
                         <h5 class="font-weight-bold text-dark mb-1">{{ $council->name }}</h5>
-                        <span class="text-muted small d-block mb-3">নারায়ণগঞ্জ সদর-১</span>
                         
                         <div class="voter-stats d-flex justify-content-between">
                             <span>
