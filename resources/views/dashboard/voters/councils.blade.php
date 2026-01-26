@@ -6,7 +6,7 @@
     <h3 class="font-weight-bold text-dark">
         <i class="fas fa-map-marked-alt text-primary mr-2"></i> ইউনিয়ন/পৌরসভা ভিত্তিক ভোটার তথ্য
     </h3>
-    <p class="text-muted">বিস্তারিত দেখতে নির্দিষ্ট প্রশাসনিক ইউনিটে ক্লিক করুন</p>
+    <p class="text-muted text-small">বিস্তারিত দেখতে নির্দিষ্ট প্রশাসনিক ইউনিটে ক্লিক করুন</p>
 @endsection
 @section('page-header-right')
   <ol class="breadcrumb float-sm-right">
