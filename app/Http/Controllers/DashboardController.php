@@ -747,7 +747,7 @@ class DashboardController extends Controller
     public function getCouncils()
     {
         // ১৩টি ইউনিয়ন/পৌরসভার তালিকা
-        $councils = \DB::table('councils')->get();
+        $councils = Council::all();
         return view('voters.councils', compact('councils'));
     }
 
