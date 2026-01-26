@@ -207,12 +207,12 @@ class IndexController extends Controller
     // clear configs, routes and serve
     public function clear()
     {
-        Artisan::call('route:clear');
-        // Artisan::call('optimize');
-        Artisan::call('cache:clear');
-        Artisan::call('view:clear');
-        Artisan::call('key:generate');
-        Artisan::call('config:clear');
+        Artisan::call('optimize:clear');
+
+        DB::table('sessions')
+                ->where('last_activity', '<', Carbon::now()->subMinutes(config('session.lifetime'))->getTimestamp())
+                ->delete();
+                
         Session::flush();
         return 'Config and Route Cached. All Cache Cleared';
     }
