@@ -45,7 +45,7 @@
 </li>
 @endif
 
-@if(Auth::user()->role == 'admin')
+@if(Auth::user()->role == 'admin' || Auth::user()->role == 'manager')
 <li class="nav-item">
     <a href="{{ route('dashboard.councils') }}" class="nav-link {{ Request::is('dashboard/councils') ? 'active' : '' }} {{ Request::is('dashboard/councils/*') ? 'active' : '' }}">
         <i class="nav-icon fas fa-vote-yea"></i>
@@ -54,7 +54,7 @@
 </li>
 @endif
 
-@if(Auth::user()->role == 'admin')
+@if(Auth::user()->role == 'admin' || Auth::user()->role == 'manager')
 <li class="nav-item">
     <a href="{{ route('dashboard.centers') }}" class="nav-link {{ Request::is('dashboard/centers') ? 'active' : '' }} {{ Request::is('dashboard/centers/*') ? 'active' : '' }}">
         <i class="nav-icon fas fa-person-booth"></i>
