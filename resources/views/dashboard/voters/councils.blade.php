@@ -3,75 +3,80 @@
 
 @section('content')
 <style>
-    /* কাস্টম গ্রেডিয়েন্ট এবং ডিজাইন */
     .council-card {
-        border-radius: 15px;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-        border: none;
-        overflow: hidden;
+        border-radius: 12px;
+        transition: all 0.3s ease;
+        background: #ffffff;
+        border: 1px solid #e0e0e0;
     }
     .council-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+        transform: translateY(-4px);
+        border-color: #007bff;
+        box-shadow: 0 8px 15px rgba(0,0,0,0.1);
     }
-    .council-icon {
-        font-size: 2.5rem;
-        opacity: 0.2;
-        position: absolute;
-        right: 15px;
-        top: 15px;
-        color: #007bff;
+    .stat-box {
+        background: #f8f9fa;
+        border-radius: 8px;
+        padding: 8px;
+        margin-top: 15px;
     }
-    .voter-stats {
-        font-size: 0.85rem;
-        color: #6c757d;
-        border-top: 1px solid #eee;
-        padding-top: 10px;
+    .stat-item {
+        text-align: center;
+        flex: 1;
     }
-    .badge-male { background-color: #e3f2fd; color: #0d47a1; }
-    .badge-female { background-color: #fce4ec; color: #880e4f; }
+    .stat-item:not(:last-child) {
+        border-right: 1px solid #dee2e6;
+    }
+    .stat-label {
+        font-size: 11px;
+        text-transform: uppercase;
+        color: #888;
+        display: block;
+        margin-bottom: 2px;
+    }
+    .stat-value {
+        font-weight: 700;
+        font-size: 14px;
+        color: #333;
+    }
 </style>
 
-<div class="container-fluid">
+<div class="container-fluid py-4">
     <div class="row mb-4">
-        <div class="col-12">
-            <h3 class="font-weight-bold text-dark">
-                <i class="fas fa-map-marked-alt text-primary mr-2"></i> ইউনিয়ন/পৌরসভা ভিত্তিক ভোটার তথ্য
-            </h3>
-            <p class="text-muted">বিস্তারিত দেখতে নির্দিষ্ট প্রশাসনিক ইউনিটে ক্লিক করুন</p>
+        <div class="col-12 text-center">
+            <h2 class="font-weight-bold">প্রশাসনিক ইউনিট ভিত্তিক ভোটার পরিসংখ্যান</h2>
+            <div class="mt-2 mx-auto" style="width: 60px; height: 4px; background: #007bff; border-radius: 2px;"></div>
         </div>
     </div>
 
     <div class="row">
         @foreach($councils as $council)
-        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+        <div class="col-lg-4 col-md-6 mb-4">
             <a href="{{ url('voters/areas/'.$council->id) }}" class="text-decoration-none">
-                <div class="card council-card shadow-sm h-100 position-relative">
-                    <i class="fas fa-city council-icon"></i>
-                    <div class="card-body p-4">
-                        <h5 class="font-weight-bold text-dark mb-1">{{ $council->name }}</h5>
-                        <span class="text-muted small d-block mb-3">নারায়ণগঞ্জ সদর-১</span>
-                        
-                        <div class="voter-stats d-flex justify-content-between">
-                            <span>
-                                <i class="fas fa-mars text-primary small"></i> 
-                                পুরুষ: <b class="text-dark">{{ number_format($council->total_male ?? 0) }}</b>
-                            </span>
-                            <span>
-                                <i class="fas fa-venus text-danger small"></i> 
-                                মহিলা: <b class="text-dark">{{ number_format($council->total_female ?? 0) }}</b>
-                            </span>
-                            <span>
-                                <i class="fas fa-venus text-danger small"></i> 
-                                ৩য় লিঙ্গ: <b class="text-dark">{{ number_format($council->total_hijra ?? 0) }}</b>
-                            </span>
+                <div class="card council-card h-100">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div>
+                                <h5 class="font-weight-bold text-dark mb-0">{{ $council->name }}</h5>
+                                <small class="text-muted"><i class="fas fa-map-marker-alt mr-1"></i> নরসিংদী-১</small>
+                            </div>
+                            <span class="badge badge-primary badge-pill px-3 py-2">বিস্তারিত</span>
                         </div>
-                    </div>
-                    <div class="card-footer bg-white border-0 py-2">
-                        <small class="text-primary font-weight-bold">
-                            বিস্তারিত দেখুন <i class="fas fa-chevron-right ml-1" style="font-size: 0.7rem;"></i>
-                        </small>
+
+                        <div class="stat-box d-flex align-items-center">
+                            <div class="stat-item">
+                                <span class="stat-label">পুরুষ</span>
+                                <span class="stat-value text-primary">{{ number_format($council->total_male ?? 0) }}</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">নারী</span>
+                                <span class="stat-value text-danger">{{ number_format($council->total_female ?? 0) }}</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">হিজড়া</span>
+                                <span class="stat-value text-purple" style="color: #6f42c1;">{{ number_format($council->total_hijra ?? 0) }}</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </a>
