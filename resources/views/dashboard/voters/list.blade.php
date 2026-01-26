@@ -3,7 +3,7 @@
 
 @section('content')
 @section('page-header')
-    <a href="{{ route('dashboard.councils') }}" class="back-btn-simple mr-3">
+    <a href="{{ route('dashboard.councils.areas', $area->council_id) }}" class="back-btn-simple mr-3">
         <i class="fas fa-arrow-left"></i>
     </a>
     {{ $area->name }} - বিস্তারিত ভোটার তালিকা
