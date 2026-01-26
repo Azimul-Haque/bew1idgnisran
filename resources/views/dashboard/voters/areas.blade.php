@@ -5,7 +5,7 @@
 <div class="container-fluid">
     <div class="row mb-3">
         <div class="col-12">
-            <h4><a href="{{ url('voters/councils') }}" class="btn btn-sm btn-outline-secondary mr-2"><i class="fas fa-chevron-left"></i></a> 
+            <h4><a href="{{ route('dashboard.councils') }}" class="btn btn-sm btn-outline-secondary mr-2"><i class="fas fa-chevron-left"></i></a> 
             {{ $council->name }} - এর এলাকা সমূহ</h4>
         </div>
     </div>
