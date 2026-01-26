@@ -46,7 +46,6 @@
 </style>
 
 <div class="container-fluid">
-
     <div class="row">
         @foreach($councils as $council)
         <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
