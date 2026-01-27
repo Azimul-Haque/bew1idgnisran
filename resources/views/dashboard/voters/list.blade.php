@@ -33,7 +33,7 @@
                 <tbody>
                     @foreach($voters as $voter)
                     <tr>
-                        <td>{{ $voters->sl_no }}</td>
+                        <td>{{ $voter->sl_no }}</td>
                         <td class="text-primary font-weight-bold">{{ $voter->voter_id }}</td>
                         <td>{{ $voter->name }}</td>
                         <td>{{ $voter->birth_date }}</td>
