@@ -11,7 +11,7 @@
 <div class="container-fluid">
     <div class="card card-primary card-outline">
         <div class="card-header">
-            <h3 class="card-title text-bold"><i class="fas fa-users"></i> {{ $area->name }} - বিস্তারিত ভোটার তালিকা</h3>
+            <h3 class="card-title text-bold"><i class="fas fa-users"></i> {{ $area->code }} {{ $area->name }} - বিস্তারিত ভোটার তালিকা</h3>
             <div class="card-tools">
                 <div class="btn-group btn-group-sm mr-2">
                     <a href="{{ request()->fullUrlWithQuery(['gender' => '']) }}" class="btn {{ request('gender') == '' ? 'btn-primary' : 'btn-default' }}">সব</a>
