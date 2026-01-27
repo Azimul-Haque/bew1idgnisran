@@ -17,7 +17,7 @@
                     <a href="{{ request()->fullUrlWithQuery(['gender' => '']) }}" class="btn {{ request('gender') == '' ? 'btn-primary' : 'btn-default' }}">সব</a>
                     <a href="{{ request()->fullUrlWithQuery(['gender' => 'পুরুষ']) }}" class="btn {{ request('gender') == 'পুরুষ' ? 'btn-primary' : 'btn-default' }}">পুরুষ</a>
                     <a href="{{ request()->fullUrlWithQuery(['gender' => 'মহিলা']) }}" class="btn {{ request('gender') == 'মহিলা' ? 'btn-primary' : 'btn-default' }}">মহিলা</a>
-                    <a href="{{ request()->fullUrlWithQuery(['gender' => '৩য় লিঙ্গ']) }}" class="btn {{ request('gender') == '৩য় লিঙ্গ' ? 'btn-primary' : 'btn-default' }}">৩য় লিঙ্গ</a>
+                    <a href="{{ request()->fullUrlWithQuery(['gender' => 'হিজড়া']) }}" class="btn {{ request('gender') == '৩য় লিঙ্গ' ? 'btn-primary' : 'btn-default' }}">৩য় লিঙ্গ</a>
                 </div>
                 
                 <span class="badge badge-info p-2">মোট ভোটার: {{ $voters->total() }}</span>
