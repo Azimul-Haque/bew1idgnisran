@@ -75,8 +75,8 @@
                         <i class="fas fa-map-marker-alt text-primary" style="opacity: 0.3; font-size: 0.7rem;"></i>
                     </div> --}}
                     
-                    <span class="area-title text-truncate mb-1" title="{{ $area->name }}">
-                        {{ $area->name }}
+                    <span class="area-title text-truncate mb-1" title="{{ $area->code }} {{ $area->name }}">
+                        {{ $area->code }} {{ $area->name }}
                     </span>
 
                     <div class="d-flex justify-content-center mb-2" style="font-size: 0.85rem; gap: 10px;">
