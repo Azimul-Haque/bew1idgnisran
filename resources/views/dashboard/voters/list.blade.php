@@ -20,10 +20,11 @@
             <table class="table table-bordered table-hover table-condensed table-hover m-0">
                 <thead class="bg-light">
                     <tr>
-                        <th>ক্রমিক</th>
+                        <th>সিরিয়াল</th>
                         <th>ভোটার আইডি</th>
                         <th>নাম</th>
                         <th>জন্মতারিখ</th>
+                        <th>পেশা</th>
                         <th>পিতার নাম</th>
                         <th>মাতার নাম</th>
                         <th>লিঙ্গ</th>
@@ -32,10 +33,11 @@
                 <tbody>
                     @foreach($voters as $voter)
                     <tr>
-                        <td>{{ $voters->firstItem() + $loop->index }}</td>
+                        <td>{{ $voters->sl_no }}</td>
                         <td class="text-primary font-weight-bold">{{ $voter->voter_id }}</td>
                         <td>{{ $voter->name }}</td>
                         <td>{{ $voter->birth_date }}</td>
+                        <td>{{ $voter->profession }}</td>
                         <td>{{ $voter->father_name }}</td>
                         <td>{{ $voter->mother_name }}</td>
                         <td><span class="badge {{ $voter->gender == 'পুরুষ' ? 'badge-primary' : 'badge-danger' }}">{{ $voter->gender }}</span></td>
