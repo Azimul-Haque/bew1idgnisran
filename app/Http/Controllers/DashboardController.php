@@ -802,6 +802,9 @@ class DashboardController extends Controller
                 'status' => 'success',
                 'message' => 'সব ডিভাইস থেকে সফলভাবে লগআউট করা হয়েছে। এখন আপনি নতুন ডিভাইসে লগইন করতে পারবেন।'
             ], 200);
+
+            Session::flash('success', 'Blog Category updated successfully!');
+            return redirect()->route('dashboard.blogs');
         }
 
         return response()->json([
