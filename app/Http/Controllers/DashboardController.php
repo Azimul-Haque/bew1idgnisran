@@ -798,11 +798,6 @@ class DashboardController extends Controller
             $user->device_id = null; // ডিভাইস আইডি রিসেট করে দেওয়া হলো
             $user->save();
 
-            // return response()->json([
-            //     'status' => 'success',
-            //     'message' => 'সব ডিভাইস থেকে সফলভাবে লগআউট করা হয়েছে। এখন আপনি নতুন ডিভাইসে লগইন করতে পারবেন।'
-            // ], 200);
-
             Session::flash('success', 'সব ডিভাইস থেকে সফলভাবে লগআউট করা হয়েছে। এখন এই ইউজার নতুন ডিভাইসে লগইন করতে পারবেন।');
             return redirect()->back();
         }
