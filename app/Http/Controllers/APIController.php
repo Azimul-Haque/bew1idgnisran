@@ -669,7 +669,7 @@ class APIController extends Controller
         return 'আসছে...';
     }
 
-    public function getElectionMenifestoBNP() 
+    public function getElectionMenifestoN1() 
     {
         return redirect('https://www.bnpbd.org/31-points');
         return 'আসছে...';
