@@ -17,6 +17,7 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->integer('is_active');
             $table->string('nid')->nullable();
+            $table->string('device_id')->nullable();
             $table->string('onesignal_id')->nullable();
             $table->string('name');
             $table->string('role')->default('user');
