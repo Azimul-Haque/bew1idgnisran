@@ -217,8 +217,8 @@
                     {{-- Activate User Modal Code --}}
                     {{-- Activate User Modal Code --}}
 
-                    {{-- Activate User Modal Code --}}
-                    {{-- Activate User Modal Code --}}
+                    {{-- Unlock Device Modal Code --}}
+                    {{-- Unlock Device Modal Code --}}
                     <!-- Modal -->
                     <div class="modal fade" id="actiavateUser{{ $user->id }}" tabindex="-1" role="dialog" aria-labelledby="actiavateUserModalLabel" aria-hidden="true" data-backdrop="static">
                       <div class="modal-dialog" role="document">
@@ -243,8 +243,8 @@
                         </div>
                       </div>
                     </div>
-                    {{-- Activate User Modal Code --}}
-                    {{-- Activate User Modal Code --}}
+                    {{-- Unlock Device Modal Code --}}
+                    {{-- Unlock Device Modal Code --}}
 
                     {{-- Edit User Modal Code --}}
                     {{-- Edit User Modal Code --}}
