@@ -663,7 +663,7 @@ class APIController extends Controller
         return response()->json(['message' => 'মুছে ফেলা হয়েছে'], 200);
     }
 
-    public function getElectionMenifesto() 
+    public function getElectionMenifestoBNP() 
     {
         return redirect('https://www.bnpbd.org/31-points');
         return 'আসছে...';
