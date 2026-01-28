@@ -202,10 +202,6 @@
                           </div>
                           <div class="modal-body">
                             আপনি কি নিশ্চিতভাবে এই ব্যবহারকারীর ডিভাইস আনলক করতে চান?<br/>
-                            <center>
-                                <big><b>{{ $user->name }}</b></big><br/>
-                                স্থানীয় সরকার কার্যালয়: {{ $user->localOffice != null ? $user->localOffice->name_bn : '' }}
-                            </center>
                           </div>
                           <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>
