@@ -806,13 +806,6 @@ class DashboardController extends Controller
             Session::flash('success', 'সব ডিভাইস থেকে সফলভাবে লগআউট করা হয়েছে। এখন এই ইউজার নতুন ডিভাইসে লগইন করতে পারবেন।');
             return redirect()->back();
         }
-
-        return response()->json([
-            'status' => 'error',
-            'message' => 'ইউজার পাওয়া যায়নি।'
-        ], 404);
-
-        return view('dashboard.voters.list', compact('voters', 'area'));
     }
 
 
