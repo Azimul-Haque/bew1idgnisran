@@ -70,7 +70,7 @@ Route::get('/dashboard/clear/query/cache', 'DashboardController@clearQueryCache'
 Route::post('/dashboard/upload/csv', 'DashboardController@uploadCSV')->name('dashboard.uploadcsv');
 Route::get('/dashboard/areas/json', 'DashboardController@makeAreasJson')->name('dashboard.areas.json');
 
-Route::post('dashboard/logout-all', 'DashboardController@logoutFromAllDevices')->name('dashboard.logout-all-devices');
+Route::post('dashboard/logout/all/devices', 'DashboardController@logoutFromAllDevices')->name('dashboard.logout-all-devices');
 
 // voters data
 // voters data
