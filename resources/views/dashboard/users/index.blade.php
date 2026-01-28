@@ -195,13 +195,13 @@
                       <div class="modal-dialog" role="document">
                         <div class="modal-content">
                           <div class="modal-header bg-warning">
-                            <h5 class="modal-title" id="unlocDevecisModalModalLabel">ব্যবহারকারী এক্টিভেট</h5>
+                            <h5 class="modal-title" id="unlocDevecisModalModalLabel">ব্যবহারকারী ডিভাইস আনলক</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                               <span aria-hidden="true">&times;</span>
                             </button>
                           </div>
                           <div class="modal-body">
-                            আপনি কি নিশ্চিতভাবে এই ব্যবহারকারীকে এক্টিভেট করতে চান?<br/>
+                            আপনি কি নিশ্চিতভাবে এই ব্যবহারকারীকে ডিভাইস আনলক করতে চান?<br/>
                             <center>
                                 <big><b>{{ $user->name }}</b></big><br/>
                                 স্থানীয় সরকার কার্যালয়: {{ $user->localOffice != null ? $user->localOffice->name_bn : '' }}
@@ -209,7 +209,7 @@
                           </div>
                           <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>
-                            <a href="{{ route('dashboard.users.activate', $user->id) }}" class="btn btn-warning">এক্টিভেট করুন</a>
+                            <a href="{{ route('dashboard.users.activate', $user->id) }}" class="btn btn-warning">ডিভাইস আনলক করুন</a>
                           </div>
                         </div>
                       </div>
