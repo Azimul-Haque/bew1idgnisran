@@ -201,7 +201,7 @@
                             </button>
                           </div>
                           <div class="modal-body">
-                            আপনি কি নিশ্চিতভাবে এই ব্যবহারকারীকে ডিভাইস আনলক করতে চান?<br/>
+                            আপনি কি নিশ্চিতভাবে এই ব্যবহারকারীর ডিভাইস আনলক করতে চান?<br/>
                             <center>
                                 <big><b>{{ $user->name }}</b></big><br/>
                                 স্থানীয় সরকার কার্যালয়: {{ $user->localOffice != null ? $user->localOffice->name_bn : '' }}
