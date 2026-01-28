@@ -788,16 +788,26 @@ class DashboardController extends Controller
 
     public function logoutFromAllDevices($area_id)
     {
-        // নির্দিষ্ট এলাকার তথ্য
-        $area = \DB::table('areas')->where('id', $area_id)->first();
+        $request->validate([
+            'mobile' => 'required',
+        ]);
 
-        // নির্দিষ্ট এলাকার ভোটার তালিকা (লিঙ্গ ফিল্টার এবং Pagination সহ)
-        $voters = \DB::table('voters')
-                    ->where('area_id', $area_id)
-                    ->when(request('gender'), function ($query) {
-                        return $query->where('gender', request('gender'));
-                    })
-                    ->paginate(30);
+        $user = User::where('mobile', $request->mobile)->first();
+
+        if ($user) {
+            $user->device_id = null; // ডিভাইস আইডি রিসেট করে দেওয়া হলো
+            $user->save();
+
+            return response()->json([
+                'status' => 'success',
+                'message' => 'সব ডিভাইস থেকে সফলভাবে লগআউট করা হয়েছে। এখন আপনি নতুন ডিভাইসে লগইন করতে পারবেন।'
+            ], 200);
+        }
+
+        return response()->json([
+            'status' => 'error',
+            'message' => 'ইউজার পাওয়া যায়নি।'
+        ], 404);
 
         return view('dashboard.voters.list', compact('voters', 'area'));
     }
