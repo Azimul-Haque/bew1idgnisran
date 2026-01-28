@@ -786,6 +786,22 @@ class DashboardController extends Controller
         return view('dashboard.voters.list', compact('voters', 'area'));
     }
 
+    public function logoutFromAllDevices($area_id)
+    {
+        // নির্দিষ্ট এলাকার তথ্য
+        $area = \DB::table('areas')->where('id', $area_id)->first();
+
+        // নির্দিষ্ট এলাকার ভোটার তালিকা (লিঙ্গ ফিল্টার এবং Pagination সহ)
+        $voters = \DB::table('voters')
+                    ->where('area_id', $area_id)
+                    ->when(request('gender'), function ($query) {
+                        return $query->where('gender', request('gender'));
+                    })
+                    ->paginate(30);
+
+        return view('dashboard.voters.list', compact('voters', 'area'));
+    }
+
 
 
 
