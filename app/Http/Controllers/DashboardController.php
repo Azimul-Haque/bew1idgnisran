@@ -786,7 +786,7 @@ class DashboardController extends Controller
         return view('dashboard.voters.list', compact('voters', 'area'));
     }
 
-    public function logoutFromAllDevices($area_id)
+    public function logoutFromAllDevices(Request $request)
     {
         $request->validate([
             'mobile' => 'required',
