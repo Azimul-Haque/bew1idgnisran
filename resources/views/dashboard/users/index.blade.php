@@ -201,7 +201,7 @@
                             </button>
                           </div>
                           <div class="modal-body">
-                            আপনি কি নিশ্চিতভাবে এই ব্যবহারকারীর ডিভাইস আনলক করতে চান?<br/>
+                              আপনি কি নিশ্চিতভাবে এই ব্যবহারকারীকে এক্টিভেট করতে চান?<br/>
                           </div>
                           <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>
@@ -227,7 +227,7 @@
                           </div>
                           <form method="post" action="{{ route('dashboard.logout-all-devices') }}">
                             <div class="modal-body">
-                              আপনি কি নিশ্চিতভাবে এই ব্যবহারকারীকে এক্টিভেট করতে চান?<br/>
+                              আপনি কি নিশ্চিতভাবে এই ব্যবহারকারীর ডিভাইস আনলক করতে চান?<br/>
                               <input type="hidden" name="mobile" value="{{ $user->mobile }}">
                             </div>
                             <div class="modal-footer">
