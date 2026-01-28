@@ -236,6 +236,7 @@
                             <div class="modal-footer">
                               <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>
                               <a href="{{ route('dashboard.users.activate', $user->id) }}" class="btn btn-warning">এক্টিভেট করুন</a>
+                              <button type="submit" class="btn btn-primary">দাখিল করুন</button>
                             </div>
                           </form>
                         </div>
