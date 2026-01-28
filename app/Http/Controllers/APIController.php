@@ -72,6 +72,30 @@ class APIController extends Controller
         ], 200);
     }
 
+    public function logoutFromAllDevices(Request $request)
+    {
+        $request->validate([
+            'mobile' => 'required',
+        ]);
+
+        $user = User::where('mobile', $request->mobile)->first();
+
+        if ($user) {
+            $user->device_id = null; // ডিভাইস আইডি রিসেট করে দেওয়া হলো
+            $user->save();
+
+            return response()->json([
+                'status' => 'success',
+                'message' => 'সব ডিভাইস থেকে সফলভাবে লগআউট করা হয়েছে। এখন আপনি নতুন ডিভাইসে লগইন করতে পারবেন।'
+            ], 200);
+        }
+
+        return response()->json([
+            'status' => 'error',
+            'message' => 'ইউজার পাওয়া যায়নি।'
+        ], 404);
+    }
+
     public function getPrograms()
     {
         $programs = Cache::remember('programs_list', now()->addDays(5), function () {
