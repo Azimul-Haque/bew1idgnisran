@@ -217,6 +217,35 @@
                     {{-- Activate User Modal Code --}}
                     {{-- Activate User Modal Code --}}
 
+                    {{-- Activate User Modal Code --}}
+                    {{-- Activate User Modal Code --}}
+                    <!-- Modal -->
+                    <div class="modal fade" id="actiavateUser{{ $user->id }}" tabindex="-1" role="dialog" aria-labelledby="actiavateUserModalLabel" aria-hidden="true" data-backdrop="static">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header bg-warning">
+                            <h5 class="modal-title" id="actiavateUserModalLabel">ব্যবহারকারী এক্টিভেট</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            আপনি কি নিশ্চিতভাবে এই ব্যবহারকারীকে এক্টিভেট করতে চান?<br/>
+                            <center>
+                                <big><b>{{ $user->name }}</b></big><br/>
+                                স্থানীয় সরকার কার্যালয়: {{ $user->localOffice != null ? $user->localOffice->name_bn : '' }}
+                            </center>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>
+                            <a href="{{ route('dashboard.users.activate', $user->id) }}" class="btn btn-warning">এক্টিভেট করুন</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    {{-- Activate User Modal Code --}}
+                    {{-- Activate User Modal Code --}}
+
                     {{-- Edit User Modal Code --}}
                     {{-- Edit User Modal Code --}}
                     <!-- Modal -->
