@@ -669,6 +669,12 @@ class APIController extends Controller
         return 'আসছে...';
     }
 
+    public function getElectionMenifestoBNP() 
+    {
+        return redirect('https://www.bnpbd.org/31-points');
+        return 'আসছে...';
+    }
+
     public function getVoters(Request $request)
     {
         $areaId = $request->area_id;
