@@ -225,13 +225,10 @@
                               <span aria-hidden="true">&times;</span>
                             </button>
                           </div>
-                          <form method="post" action="{{ route('dashboard.logout-all-devices', $user->id) }}">
+                          <form method="post" action="{{ route('dashboard.logout-all-devices') }}">
                             <div class="modal-body">
                               আপনি কি নিশ্চিতভাবে এই ব্যবহারকারীকে এক্টিভেট করতে চান?<br/>
-                              <center>
-                                  <big><b>{{ $user->name }}</b></big><br/>
-                                  স্থানীয় সরকার কার্যালয়: {{ $user->localOffice != null ? $user->localOffice->name_bn : '' }}
-                              </center>
+                              <input type="hidden" name="mobile" value="">
                             </div>
                             <div class="modal-footer">
                               <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>
