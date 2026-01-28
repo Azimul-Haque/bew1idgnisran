@@ -232,7 +232,7 @@
                             </div>
                             <div class="modal-footer">
                               <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>
-                              <button type="submit" class="btn btn-primary">আনলক করুন</button>
+                              <button type="submit" class="btn btn-warning">আনলক করুন</button>
                             </div>
                           </form>
                         </div>
