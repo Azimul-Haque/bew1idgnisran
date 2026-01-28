@@ -34,7 +34,7 @@ class APIController extends Controller
         $request->validate([
             'mobile' => 'required',
             'password' => 'required',
-            'device_id' => 'required', // ডিভাইস আইডি এখন বাধ্যতামূলক
+            'device_id' => 'sometimes', // ডিভাইস আইডি এখন বাধ্যতামূলক
         ]);
 
         // ২. ইউজার চেক করা
