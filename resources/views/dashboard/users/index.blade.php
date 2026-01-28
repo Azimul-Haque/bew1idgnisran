@@ -226,6 +226,7 @@
                             </button>
                           </div>
                           <form method="post" action="{{ route('dashboard.logout-all-devices') }}">
+                            @csrf
                             <div class="modal-body">
                               আপনি কি নিশ্চিতভাবে এই ব্যবহারকারীর ডিভাইস আনলক করতে চান?<br/>
                               <input type="hidden" name="mobile" value="{{ $user->mobile }}">
