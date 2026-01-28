@@ -149,6 +149,9 @@
                 			<button type="button" class="btn btn-primary btn-sm edit-user-btn" data-toggle="modal" data-target="#editUserModal{{ $user->id }}">
                 				<i class="fas fa-user-edit"></i>
                 			</button>
+                      <button type="button" class="btn btn-primary btn-sm edit-user-btn" data-toggle="modal" data-target="#editUserModal{{ $user->id }}">
+                        <i class="fas fa-user-edit"></i>
+                      </button>
 
 
                 			{{-- <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteUserModal{{ $user->id }}">
