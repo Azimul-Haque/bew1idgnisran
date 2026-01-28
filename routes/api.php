@@ -41,7 +41,8 @@ Route::get('/gallery/list', 'APIController@getGallery')->name('api.list.gallery'
 Route::post('/gallery/store', 'APIController@storeGallery')->name('api.store.gallery');
 Route::delete('/gallery/delete/{id}', 'APIController@deleteGallery')->name('api.delete.gallery');
 
-Route::get('/election/manifesto', 'APIController@getElectionMenifesto')->name('api.election.manifesto');
+Route::get('/election/manifesto/bnp', 'APIController@getElectionMenifesto')->name('api.election.manifesto.bnp');
+Route::get('/election/manifesto/narsingdi-1', 'APIController@getElectionMenifesto')->name('api.election.manifesto.narsingdi-1');
 
 Route::get('/voters', 'APIController@getVoters');
 
