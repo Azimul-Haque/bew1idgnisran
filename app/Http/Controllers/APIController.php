@@ -29,31 +29,48 @@ use Cache;
 class APIController extends Controller
 {
     public function login(Request $request)
-    {
-        // ১. ইনপুট ভ্যালিডেশন
-        $request->validate([
-            'mobile' => 'required',
-            'password' => 'required',
-        ]);
+{
+    // ১. ইনপুট ভ্যালিডেশন
+    $request->validate([
+        'mobile' => 'required',
+        'password' => 'required',
+        'device_id' => 'required', // ডিভাইস আইডি এখন বাধ্যতামূলক
+    ]);
 
-        // ২. ইউজার চেক করা (মোবাইল নম্বর দিয়ে)
-        $user = User::where('mobile', $request->mobile)->first();
+    // ২. ইউজার চেক করা
+    $user = User::where('mobile', $request->mobile)->first();
 
-        // ৩. পাসওয়ার্ড যাচাই করা
-        if (!$user || !Hash::check($request->password, $user->password)) {
+    // ৩. পাসওয়ার্ড যাচাই করা
+    if (!$user || !Hash::check($request->password, $user->password)) {
+        return response()->json([
+            'status' => 'error',
+            'message' => 'মোবাইল নম্বর বা পাসওয়ার্ড সঠিক নয়।'
+        ], 401);
+    }
+
+    // ৪. ডিভাইস আইডি যাচাই করা (Device Binding Logic)
+    if (empty($user->device_id)) {
+        // প্রথমবার লগইন করলে ডিভাইস আইডি সেভ হবে
+        $user->device_id = $request->device_id;
+        $user->save();
+    } else {
+        // যদি অলরেডি ডিভাইস আইডি থাকে, তবে ইনকামিং আইডির সাথে চেক হবে
+        if ($user->device_id !== $request->device_id) {
             return response()->json([
                 'status' => 'error',
-                'message' => 'মোবাইল নম্বর বা পাসওয়ার্ড সঠিক নয়।'
-            ], 401);
+                'error_type' => 'device_mismatch',
+                'message' => 'এই অ্যাকাউন্টটি অন্য একটি ডিভাইসে নিবন্ধিত। অনুগ্রহ করে আগের ডিভাইস থেকে লগআউট করুন।'
+            ], 403);
         }
-
-        // ৪. সফল লগইন রেসপন্স
-        return response()->json([
-            'status' => 'success',
-            'message' => 'লগইন সফল হয়েছে!',
-            'user' => $user
-        ], 200);
     }
+
+    // ৫. সফল লগইন রেসপন্স
+    return response()->json([
+        'status' => 'success',
+        'message' => 'লগইন সফল হয়েছে!',
+        'user' => $user
+    ], 200);
+}
 
     public function getPrograms()
     {
