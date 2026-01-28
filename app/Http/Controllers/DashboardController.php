@@ -804,7 +804,7 @@ class DashboardController extends Controller
             ], 200);
 
             Session::flash('success', 'Blog Category updated successfully!');
-            return redirect()->route('dashboard.blogs');
+            return redirect()->back();
         }
 
         return response()->json([
