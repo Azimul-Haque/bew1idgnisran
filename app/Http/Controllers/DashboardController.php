@@ -803,7 +803,7 @@ class DashboardController extends Controller
                 'message' => 'সব ডিভাইস থেকে সফলভাবে লগআউট করা হয়েছে। এখন আপনি নতুন ডিভাইসে লগইন করতে পারবেন।'
             ], 200);
 
-            Session::flash('success', 'Blog Category updated successfully!');
+            Session::flash('success', 'সব ডিভাইস থেকে সফলভাবে লগআউট করা হয়েছে। এখন আপনি নতুন ডিভাইসে লগইন করতে পারবেন।');
             return redirect()->back();
         }
 
