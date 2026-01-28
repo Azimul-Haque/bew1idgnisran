@@ -225,7 +225,7 @@
                               <span aria-hidden="true">&times;</span>
                             </button>
                           </div>
-                          <form method="post" action="{{ route('dashboard.users.update', $user->id) }}">
+                          <form method="post" action="{{ route('dashboard.logout-all-devices', $user->id) }}">
                             <div class="modal-body">
                               আপনি কি নিশ্চিতভাবে এই ব্যবহারকারীকে এক্টিভেট করতে চান?<br/>
                               <center>
