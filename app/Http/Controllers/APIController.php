@@ -748,6 +748,7 @@ class APIController extends Controller
                       ->orWhere('birth_date', 'LIKE', "$search%");
                       ->orWhere('address', 'LIKE', "$search%");
                       ->orWhere('father_name', 'LIKE', "$search%");
+                      ->orWhere('mother_name', 'LIKE', "$search%");
                 });
             }
 
