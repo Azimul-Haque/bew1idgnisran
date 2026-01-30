@@ -744,6 +744,7 @@ class APIController extends Controller
                 $query->where(function($q) use ($search) {
                     $q->where('name', 'LIKE', "%$search%")
                       ->orWhere('voter_id', 'LIKE', "$search%");
+                      ->orWhere('sl_no', 'LIKE', "$search%");
                 });
             }
 
