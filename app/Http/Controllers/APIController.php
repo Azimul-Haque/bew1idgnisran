@@ -49,20 +49,20 @@ class APIController extends Controller
         }
 
         // ৪. ডিভাইস আইডি যাচাই করা (Device Binding Logic)
-        if (empty($user->device_id)) {
-            // প্রথমবার লগইন করলে ডিভাইস আইডি সেভ হবে
-            $user->device_id = $request->device_id;
-            $user->save();
-        } else {
-            // যদি অলরেডি ডিভাইস আইডি থাকে, তবে ইনকামিং আইডির সাথে চেক হবে
-            if ($user->device_id !== $request->device_id) {
-                return response()->json([
-                    'status' => 'error',
-                    'error_type' => 'device_mismatch',
-                    'message' => 'এই অ্যাকাউন্টটি অন্য একটি ডিভাইসে নিবন্ধিত। অনুগ্রহ করে আগের ডিভাইস থেকে লগআউট করুন।'
-                ], 403);
-            }
-        }
+        // if (empty($user->device_id)) {
+        //     // প্রথমবার লগইন করলে ডিভাইস আইডি সেভ হবে
+        //     $user->device_id = $request->device_id;
+        //     $user->save();
+        // } else {
+        //     // যদি অলরেডি ডিভাইস আইডি থাকে, তবে ইনকামিং আইডির সাথে চেক হবে
+        //     if ($user->device_id !== $request->device_id) {
+        //         return response()->json([
+        //             'status' => 'error',
+        //             'error_type' => 'device_mismatch',
+        //             'message' => 'এই অ্যাকাউন্টটি অন্য একটি ডিভাইসে নিবন্ধিত। অনুগ্রহ করে আগের ডিভাইস থেকে লগআউট করুন।'
+        //         ], 403);
+        //     }
+        // }
 
         // ৫. সফল লগইন রেসপন্স
         return response()->json([
