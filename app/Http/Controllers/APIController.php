@@ -112,6 +112,7 @@ class APIController extends Controller
 
     public function storeProgram(Request $request)
     {
+        set_time_limit(30);
         // ১. ভ্যালিডেশন
         $request->validate([
             'name' => 'required|string',
@@ -304,6 +305,7 @@ class APIController extends Controller
     // ১. সব নোটিস ক্যাশ থেকে রিটার্ন করা
     public function getNotices()
     {
+        set_time_limit(30);
         $notices = Cache::remember('notices_list', now()->addDays(5), function () {
             return Notice::orderBy('created_at', 'desc')->get();
         });
@@ -460,6 +462,7 @@ class APIController extends Controller
 
     public function getUnits()
     {
+        set_time_limit(30);
         $units = Cache::remember('unit_list', now()->addDays(5), function () {
             return DB::table('units')
                      ->orderBy('id', 'asc')
@@ -474,6 +477,7 @@ class APIController extends Controller
 
     public function getLeaders()
     {
+        set_time_limit(30);
         $leaders = Cache::remember('leaders_list', now()->addDays(5), function () {
             return Leader::orderBy('serial_priority', 'asc')->get();
         });
@@ -579,6 +583,7 @@ class APIController extends Controller
 
     public function getSliders()
     {
+        set_time_limit(30);
         // 'sliders_list' কী (key) ব্যবহার করে ক্যাশ থেকে ডেটা রিটার্ন করবে
         $sliders = Cache::rememberForever('sliders_list', function () {
             return Slider::orderBy('serial', 'asc')->get();
@@ -706,18 +711,21 @@ class APIController extends Controller
 
     public function getElectionMenifestoBNP() 
     {
+        set_time_limit(30);
         return redirect('https://www.bnpbd.org/31-points');
         return 'আসছে...';
     }
 
     public function getElectionMenifestoN1() 
     {
+        set_time_limit(30);
         return redirect('https://www.bnpbd.org/31-points');
         return 'আসছে...';
     }
 
     public function getVoters(Request $request)
     {
+        set_time_limit(30);
         $areaId = $request->area_id;
         $search = $request->search;
         $gender = $request->gender ?? 2;
@@ -758,6 +766,7 @@ class APIController extends Controller
 
     public function getAdminStats() 
     {
+        set_time_limit(30);
         $stats = Cache::remember('admin_stats', now()->addDays(5), function () {
             return [
                 'programs' => Program::count(),
